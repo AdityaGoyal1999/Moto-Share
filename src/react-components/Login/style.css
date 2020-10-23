@@ -1,0 +1,42 @@
+#loginBody {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+#mainView {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: max(30vw, 350px);
+    height: 60vh;
+    background: azure;
+    border-radius: 15%;
+    box-shadow: 0px 0px 10px 2px lightgrey;
+}
+
+#loginForm {
+    display: grid;
+    place-items: center;
+    margin-bottom: 5%;
+}
+
+label {
+    justify-self: left;
+}
+
+button {
+    width: 100%;
+}
+
+input, a {
+    display: block;
+    margin: 3%;
+    width: 100%;
+}
+
+input[placeholder] {
+    border-width: 0px 0px 1px 0px;
+    border-color: lightgrey;
+}
