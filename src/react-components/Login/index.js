@@ -2,6 +2,11 @@ import React from 'react'
 
 import './style.css'
 
+const submitForm = event => {
+  event.preventDefault()
+  // server call goes here to handle sign up
+}
+
 class Login extends React.Component {
   render () {
     return (
@@ -10,7 +15,7 @@ class Login extends React.Component {
         <input type='text' placeholder='Enter username' required />
         <label>Password:</label>
         <input type='password' placeholder='Enter password' required />
-        <input type='submit' value='Log In' />
+        <input type='submit' value='Log In' onClick={submitForm} />
       </form>
     )
   }

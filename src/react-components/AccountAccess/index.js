@@ -6,23 +6,15 @@ import Login from '../Login'
 import Signup from '../Signup'
 
 class AccountAccess extends React.Component {
-
-  constructor(props) {
-      super(props)
-      this.state = {
-          isLoginView: this.props.isLoginView
-      }
-  }
-
-  getForm = (props) => {
-      if (props.isLoginView) {
-          return <Login />
-      } else {
-          return <Signup />
-      }
-  }
-  
   render () {
+    const getForm = (isLoginView) => {
+      if (isLoginView) {
+        return <Login />
+      } else {
+        return <Signup />
+      }
+    }
+
     return (
       <div id='accessBody'>
         <Link to='/'>
@@ -37,8 +29,8 @@ class AccountAccess extends React.Component {
               <button>Log In</button>
             </Link>
           </div>
-          <h2>{ (this.props.isLoginView ? 'Log In' : 'Sign Up') }</h2>
-          { this.getForm(this.props) }
+          <h2>{(this.props.isLoginView ? 'Log In' : 'Sign Up')}</h2>
+          {getForm(this.props.isLoginView)}
         </div>
       </div>
     )

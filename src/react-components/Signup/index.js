@@ -5,6 +5,7 @@ import './style.css'
 class Signup extends React.Component {
   render () {
     const validateEmail = () => {
+      // checks that email and confirm email have same value
       const inputs = document.querySelectorAll('.email')
       if (inputs[0].value !== inputs[1].value) {
         inputs[1].setCustomValidity('Does not match given email')
@@ -14,12 +15,18 @@ class Signup extends React.Component {
     }
 
     const validatePassword = () => {
+      // checks that password and confirm password have same value
       const inputs = document.querySelectorAll('.password')
       if (inputs[0].value !== inputs[1].value) {
         inputs[1].setCustomValidity('Does not match given password')
       } else {
         inputs[1].setCustomValidity('')
       }
+    }
+
+    const submitForm = event => {
+      event.preventDefault()
+      // server call goes here to handle sign up
     }
 
     return (
@@ -36,7 +43,7 @@ class Signup extends React.Component {
         <input className='password' type='password' placeholder='Enter password' minLength='8' required />
         <label>Confirm Password:</label>
         <input className='password' type='password' placeholder='Confirm password' minLength='8' onchange={validatePassword} required />
-        <input id='submit' type='submit' value='Sign Up' />
+        <input type='submit' value='Sign Up' onClick={submitForm} />
       </form>
     )
   }
