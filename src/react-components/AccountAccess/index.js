@@ -26,15 +26,17 @@ class AccountAccess extends React.Component {
     return (
       <div id='accessBody'>
         <Link to='/'>
-          <button>Return to Home Page</button>
+          <button id='returnButton'>{'< Return to Home Page'}</button>
         </Link>
         <div id='accessForm'>
-          <Link to='./signup'>
-            <button>Sign Up</button>
-          </Link>
-          <Link to='./login'>
-            <button>Log In</button>
-          </Link>
+          <div id='links'>
+            <Link to='./signup'>
+              <button>Sign Up</button>
+            </Link>
+            <Link to='./login'>
+              <button>Log In</button>
+            </Link>
+          </div>
           <h2>{ (this.props.isLoginView ? 'Log In' : 'Sign Up') }</h2>
           { this.getForm(this.props) }
         </div>
