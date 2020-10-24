@@ -1,0 +1,47 @@
+#accessBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#accessForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: max(30vw, 350px);
+    height: max(30vw, 475px);
+    background: azure;
+    border-radius: 15%;
+    box-shadow: 0px 0px 10px 2px lightgrey;
+}
+
+#accessBody button {
+    border: none;
+    padding: 5px;
+    margin: 5px;
+    font-size: large;
+    border-radius: 15px;
+    background: whitesmoke;
+    outline: none;
+}
+
+#accessBody button:hover {
+    cursor: pointer;
+    font-size: larger;
+    background: lightgray;
+    transition: font-size 1s, background 1s;
+}
+
+#returnButton {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+#links {
+    position: relative;
+    top: 5px;
+}
