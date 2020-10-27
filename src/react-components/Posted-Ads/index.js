@@ -10,13 +10,9 @@ const submitForm = event => {
 class Posted_Ads_Page extends React.Component {
   render () {
     return (
-      <form id='Posted-Ads'>
-        <label>Username:</label>
-        <input type='text' placeholder='Enter username' required />
-        <label>Password:</label>
-        <input type='password' placeholder='Enter password' required />
-        <input type='submit' value='Log In' onClick={submitForm} />
-      </form>
+      <div id='Posted-Ads'>
+        
+      </div>
     )
   }
 }
