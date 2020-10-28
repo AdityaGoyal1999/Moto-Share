@@ -24,3 +24,7 @@
     background: lightgray;
     transition: font-size 1s, background 1s;
 }
+
+#login {
+    display: inline;
+}

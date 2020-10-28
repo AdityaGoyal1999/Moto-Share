@@ -5,7 +5,9 @@ import NavBar from '../NavBar'
 class HomePage extends React.Component {
   render () {
     return (
-      <NavBar />
+      <div>
+        <NavBar loggedIn={false} />
+      </div>
     )
   }
 }

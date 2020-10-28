@@ -5,6 +5,21 @@ import logo from './templol.png'
 
 class NavBar extends React.Component {
   render () {
+    const renderLoginArea = () => {
+      if (!this.props.loggedIn) {
+        return (
+          <div id='login'>
+            <Link to='/signup'>
+              <button>Sign Up</button>
+            </Link>
+            <Link to='/login'>
+              <button>Log In</button>
+            </Link>
+          </div>
+        )
+      }
+    }
+
     return (
       <nav id='navbar'>
         <Link to='./'>
@@ -14,12 +29,7 @@ class NavBar extends React.Component {
           <Link>
             <button>About Us</button>
           </Link>
-          <Link to='/signup'>
-            <button>Sign Up</button>
-          </Link>
-          <Link to='/login'>
-            <button>Log In</button>
-          </Link>
+          {renderLoginArea()}
         </div>
       </nav>
     )
