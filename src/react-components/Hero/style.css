@@ -1,5 +1,5 @@
 #hero {
-    height: 30vh;
+    height: max(30vh, 200px);
     background: black;
     display: grid;
     place-items: center;
