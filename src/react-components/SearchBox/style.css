@@ -1,6 +1,9 @@
 #searchBox {
-    background: rgba(173, 216, 230, 0.5);
+    background: aliceblue;
     border-radius: 15px;
+    border-width: 1px;
+    border-color: blue;
+    border-style: solid;
     margin: 10px;
 }
 
