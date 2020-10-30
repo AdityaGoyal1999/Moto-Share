@@ -7,3 +7,34 @@
 #searchForm div {
     margin: 20px;
 }
+
+#searchForm input {
+    border-width: 0px 0px 1px 0px;
+    border-color: lightgrey;
+    background: rgba(255, 255, 255, 0);
+    font-size: medium;
+    transition: font-size 0.5s;
+}
+
+#searchForm input:focus {
+    font-size: large;
+    transition: font-size 1s;
+    outline-width: 0px;
+}
+
+#searchForm input[type='submit'] {
+    border: none;
+    padding: 5px;
+    margin: 5px;
+    font-size: large;
+    border-radius: 15px;
+    background: whitesmoke;
+    outline: none;
+}
+
+#searchForm input[type='submit']:hover {
+    cursor: pointer;
+    font-size: larger;
+    background: lightgray;
+    transition: font-size 1s, background 1s;
+}

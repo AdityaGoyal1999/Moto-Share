@@ -24,6 +24,8 @@ class SearchForm extends React.Component {
           <label>    Dropoff Date: </label>
           <input type='date' required />
         </div>
+
+        <input type='submit' value='search' />
       </form>
     )
   }
