@@ -28,13 +28,15 @@ function App() {
                             <
                             Route exact path = "/Results"
                             render = {
-                                () => < Results / > }
+                                () => < Results / >
+                            }
                             /> <
                             Route exact path = "/Bike"
                             render = {
-                                () => < Bike / > }
-                            /> <
-                            /Switch> <
+                                () => < Bike / >
+                            }
+                            /> < /
+                            Switch > <
                             /BrowserRouter>
                         );
                     }
