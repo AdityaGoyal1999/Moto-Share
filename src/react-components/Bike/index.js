@@ -1,16 +1,17 @@
 import React from 'react'
 
 import './style.css'
-import AdsBoard from './AdsBoard'
-import NavBar from './NavBar'
-import Footer from './Footer'
+
+
+import NavBar from '../Results/NavBar'
+import Footer from '../Results/Footer'
 
 const getAdData = event => {
     event.preventDefault()
         // server call goes here to get Ad Data
 }
 
-class PostedAdsPage extends React.Component {
+class Results extends React.Component {
 
     createSampleAds() {
         const ads = []
@@ -27,8 +28,6 @@ class PostedAdsPage extends React.Component {
             <
             NavBar / >
             <
-            AdsBoard ads = { this.createSampleAds() }
-            /> <
             Footer / >
             <
             /div>
@@ -36,4 +35,4 @@ class PostedAdsPage extends React.Component {
     }
 }
 
-export default PostedAdsPage
+export default Results

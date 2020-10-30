@@ -3,7 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css'
 
 import AccountAccess from './react-components/AccountAccess'
-import PostedAdsPage from './react-components/PostedAds';
+import Results from './react-components/Results';
+import Bike from './react-components/Bike';
 
 function App() {
     return ( <
@@ -25,9 +26,13 @@ function App() {
                             () => < AccountAccess isLoginView = { false }
                             />} / >
                             <
-                            Route exact path = "/postedads"
+                            Route exact path = "/Results"
                             render = {
-                                () => < PostedAdsPage / > }
+                                () => < Results / > }
+                            /> <
+                            Route exact path = "/Bike"
+                            render = {
+                                () => < Bike / > }
                             /> <
                             /Switch> <
                             /BrowserRouter>
