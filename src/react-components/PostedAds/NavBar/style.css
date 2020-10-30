@@ -1,8 +1,24 @@
 #navBar {
-    min-height: 100px;
-    background-color: #ccc;
+    display: flex;
+    justify-content: space-between;
+    min-height: 20px;
+    /* background-color: #ccc; */
+    padding: 20px 50px;
 }
 
 #navBar button {
-    float: right;
+    border: none;
+    padding: 5px;
+    margin: 5px;
+    font-size: large;
+    border-radius: 15px;
+    background: whitesmoke;
+    outline: none;
+}
+
+#navBar button:hover {
+    cursor: pointer;
+    font-size: larger;
+    background-color: lightgray;
+    transition: font-size 1s, background 1s;
 }
