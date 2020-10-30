@@ -12,7 +12,12 @@ class AdsBoard extends React.Component {
   render () {
     return (
       <div id='adsBoard'>
-        <Ads />
+        <h1>View Your Ads</h1>
+        <div id="adsView">
+          <Ads />
+          <Ads />
+          <Ads />
+        </div>
       </div>
     )
   }

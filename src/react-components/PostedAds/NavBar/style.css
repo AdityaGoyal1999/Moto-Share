@@ -1,0 +1,8 @@
+#navBar {
+    min-height: 100px;
+    background-color: #ccc;
+}
+
+#navBar button {
+    float: right;
+}

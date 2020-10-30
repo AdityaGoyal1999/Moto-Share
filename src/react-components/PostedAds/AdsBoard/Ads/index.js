@@ -11,7 +11,12 @@ class Ads extends React.Component {
   render () {
     return (
       <div id='ads'>
-        HELLO
+        <div id='adImage'>
+          
+        </div>
+        <div id='adContents'>
+          Hello
+        </div>
       </div>
     )
   }
