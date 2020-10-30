@@ -3,6 +3,7 @@
     background: black;
     display: grid;
     place-items: center;
+    min-width: 530px;
 }
 
 #hero h1 {

@@ -2,5 +2,8 @@
     background: rgba(173, 216, 230, 0.5);
     border-radius: 15px;
     margin: 10px;
-    padding: 10px;
+}
+
+#searchBox h2 {
+    padding: 20px 0px 0px 50px;
 }

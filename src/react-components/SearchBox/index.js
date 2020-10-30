@@ -7,7 +7,7 @@ class SearchBox extends React.Component {
   render () {
     return (
       <div id='searchBox'>
-        <h3>Search Motorcycles:</h3>
+        <h2>Search Motorcycles:</h2>
         <SearchForm />
       </div>
     )
