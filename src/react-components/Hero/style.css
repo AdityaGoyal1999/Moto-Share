@@ -1,0 +1,11 @@
+#hero {
+    height: 30vh;
+    background: black;
+    display: grid;
+    place-items: center;
+}
+
+#hero h1 {
+    color: white;
+    font-style: italic;
+}
