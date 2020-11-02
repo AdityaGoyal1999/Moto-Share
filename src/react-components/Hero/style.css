@@ -1,17 +1,12 @@
 #hero {
-    height: max(40vh, 200px);
-    background-image: url('/bike.jpg');
-    background-size: cover;
+    height: max(30vh, 200px);
+    background: black;
     display: grid;
     place-items: center;
     min-width: 530px;
-    background-position: center;
 }
 
 #hero h1 {
     color: white;
     font-style: italic;
-    text-shadow: 2px 2px 5px black;
-    padding: 10px;
-    text-align: center;
 }
