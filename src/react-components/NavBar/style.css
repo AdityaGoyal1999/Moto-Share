@@ -8,21 +8,8 @@
     justify-self: flex-start;
 }
 
-#navbar button {
-    border: none;
-    padding: 5px;
-    margin: 10px;
-    font-size: large;
-    border-radius: 15px;
-    background: whitesmoke;
-    outline: none;
-}
-
-#navbar button:hover {
-    cursor: pointer;
-    font-size: larger;
-    background: lightgray;
-    transition: font-size 1s, background 1s;
+#aboutButton {
+    margin-right: min(5vh, 20px);
 }
 
 #login {
