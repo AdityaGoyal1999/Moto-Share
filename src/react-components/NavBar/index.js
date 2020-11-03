@@ -19,7 +19,7 @@ class NavBar extends React.Component {
       <AppBar>
         <Toolbar id='navbar'>
           <Typography variant='h6'>Project Name</Typography>
-          <Button color='text.primary'>About Us</Button>
+          <Button>About Us</Button>
           {renderLoginArea()}
         </Toolbar>
       </AppBar>
