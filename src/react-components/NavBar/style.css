@@ -1,17 +1,4 @@
 #navbar {
     display: flex;
     justify-content: space-between;
-    padding: 1vh 5vh;
-}
-
-#navimg {
-    justify-self: flex-start;
-}
-
-#aboutButton {
-    margin-right: min(5vh, 20px);
-}
-
-#login {
-    display: inline;
 }

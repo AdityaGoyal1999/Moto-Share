@@ -1,8 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './style.css'
-import logo from './templol.png'
-import { Button, ButtonGroup } from '@material-ui/core'
+import { Button, ButtonGroup, AppBar, Toolbar, Typography } from '@material-ui/core'
 
 class NavBar extends React.Component {
   render () {
@@ -18,15 +16,13 @@ class NavBar extends React.Component {
     }
 
     return (
-      <nav id='navbar'>
-        <Link to='./'>
-          <img id='navimg' src={logo} alt='Logo' />
-        </Link>
-        <div>
-          <Button id='aboutButton'>About Us</Button>
+      <AppBar>
+        <Toolbar id='navbar'>
+          <Typography variant='h6'>Project Name</Typography>
+          <Button color='text.primary'>About Us</Button>
           {renderLoginArea()}
-        </div>
-      </nav>
+        </Toolbar>
+      </AppBar>
     )
   }
 }
