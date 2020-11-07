@@ -2,10 +2,11 @@ import React from 'react'
 
 import './style.css'
 
+// The signup form
 class Signup extends React.Component {
   render () {
+    // Check if the entered emails match
     const validateEmail = () => {
-      // checks that email and confirm email have same value
       const inputs = document.querySelectorAll('.email')
       if (inputs[0].value !== inputs[1].value) {
         inputs[1].setCustomValidity('Does not match given email')
@@ -16,8 +17,8 @@ class Signup extends React.Component {
       }
     }
 
+    // Check if the entered passwords match
     const validatePassword = () => {
-      // checks that password and confirm password have same value
       const inputs = document.querySelectorAll('.password')
       if (inputs[0].value !== inputs[1].value) {
         inputs[1].setCustomValidity('Does not match given password')
@@ -28,6 +29,7 @@ class Signup extends React.Component {
       }
     }
 
+    // Validate all form inputs
     const validateForm = () => {
       // checks default and custom validation, returns true if valid form inputs
       const inputs = document.getElementsByTagName('input')
@@ -40,7 +42,8 @@ class Signup extends React.Component {
       return true
     }
 
-    const submitForm = event => {
+    // Handle form submission
+    const handleSubmit = event => {
       event.preventDefault()
       if (validateForm()) {
         // server call goes here to handle sign up
@@ -62,7 +65,8 @@ class Signup extends React.Component {
         <input className='password' name='password' type='password' placeholder='Enter password' minLength='8' required />
         <label>Confirm Password:</label>
         <input className='password' type='password' placeholder='Confirm password' minLength='8' onChange={validatePassword} required />
-        <input type='submit' value='Sign Up' onClick={submitForm} />
+        <input type='submit' value='Sign Up' onClick={handleSubmit} />
+        <label class='errorMessage'>Error: Username and Password not found</label>
       </form>
     )
   }

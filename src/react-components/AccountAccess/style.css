@@ -23,3 +23,8 @@
     top: 5px;
     left: 5px;
 }
+
+.errorMessage {
+    color: red;
+    visibility: hidden;
+}

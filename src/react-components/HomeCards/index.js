@@ -3,6 +3,7 @@ import { Card, CardContent, CardMedia, CardActions, Button } from '@material-ui/
 
 import './style.css'
 
+// Cards for main page, explaining how site works
 class HomeCards extends React.Component {
   render () {
     return (
@@ -35,6 +36,7 @@ class HomeCards extends React.Component {
             <p>Post ads and rent out your bike</p>
           </CardContent>
           <CardActions>
+            {/* Call server to check logged in and send user to Posted Ads page */}
             <Button>Post an ad</Button>
           </CardActions>
         </Card>

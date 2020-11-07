@@ -5,6 +5,7 @@ import Hero from '../Hero'
 import SearchBox from '../SearchBox'
 import HomeCards from '../HomeCards'
 
+// The main page (at '/')
 class HomePage extends React.Component {
   render () {
     return (

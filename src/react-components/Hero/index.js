@@ -2,6 +2,7 @@ import React from 'react'
 
 import './style.css'
 
+// Home page hero
 class Hero extends React.Component {
   render () {
     return (

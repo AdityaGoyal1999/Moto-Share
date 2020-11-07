@@ -1,13 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './style.css'
 
 import Login from '../Login'
 import Signup from '../Signup'
 import NavBar from '../NavBar'
 
+// Holds signup and login pages
 class AccountAccess extends React.Component {
   render () {
+    // Display the correct form
     const getForm = (isLoginView) => {
       if (isLoginView) {
         return <Login />
