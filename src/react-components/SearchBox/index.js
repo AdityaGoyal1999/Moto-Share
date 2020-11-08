@@ -3,6 +3,7 @@ import React from 'react'
 import SearchForm from '../SearchForm'
 import './style.css'
 
+// Search functionality for main page
 class SearchBox extends React.Component {
   render () {
     return (

@@ -6,3 +6,7 @@
 #navbar button, #navbar a {
     color: white;
 }
+
+a {
+    text-decoration: none;
+}

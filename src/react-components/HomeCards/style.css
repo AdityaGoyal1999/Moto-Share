@@ -1,0 +1,14 @@
+#cardsContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+#cardsContainer .card {
+    width: 250px;
+}
+
+#cardsContainer .media {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
