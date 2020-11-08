@@ -2,20 +2,23 @@ import React from 'react'
 
 import './style.css'
 import img from './../../static/motorcycle.jpg'
+import { Typography } from '@material-ui/core';
+import 'fontsource-roboto';
 
 class Ads extends React.Component {
 
   render () {
 
-    const { id, description } = this.props;
+    const { id, name, price, rating, description } = this.props;
 
     return (
-      <div id='ads'>
-        <div id='adImage'>
+      <div className='ads'>
+        <div className='adImage'>
           <img src={img} alt='Motorcycle'></img>
         </div>
-        <div id='adContents'>
-          {this.props.description}
+        <div className='adContents'>
+          {this.props.name} <br />
+          {this.props.rating}
         </div>
       </div>
     )

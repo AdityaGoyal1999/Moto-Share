@@ -1,0 +1,10 @@
+#post_ad_info {
+    display: flex;
+    flex-direction: column;
+    margin: 200px 50px;
+    min-width: 25%;
+}
+
+.MuiTextField-root {
+    margin-top: 50px;
+}

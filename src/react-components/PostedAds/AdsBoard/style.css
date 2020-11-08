@@ -2,19 +2,92 @@
     background-color: lightgray;
 } */
 
-#adsView {
-    background: azure;
+#adsView1 {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     padding: 20px;
-    border: 2px solid black;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px 2px lightgrey;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 1320px;
     min-height: 300px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#ads-carousal {
+    display: flex;
+    justify-content: center;
+    margin: 0px 100px;
+}
+
+#icon-right {
+    margin-left: 20px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 2px;
+  }
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+#adsView1 .ads:hover {
+    -webkit-transform: scale(1.1); 
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+#adsView1 .ads {
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    cursor: pointer; 
+}
+
+#adsView1 .ads:last-child {
+    margin-right: 100px;
+
 }
 
 h1 {
     padding: 100px;
+    font-family: Roboto;
+}
+
+
+#ad-info{
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px 2px lightgrey;
+    margin: 50px 120px;
+    min-height: 400px;
+}
+
+
+#ads-carousal button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline:none;
 }
