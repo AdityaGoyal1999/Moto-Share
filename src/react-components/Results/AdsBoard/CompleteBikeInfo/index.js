@@ -21,6 +21,7 @@ class CompleteDescription extends React.Component {
 		    		<div className="imgDiv">
 		    			<img src={img} className="imgObj" />
 		    		</div>
+		    		<a href="../User">
 		    		<div className="SellerInfo">
 		    			<div className="row">
 	    					<div className="col s12 m12 l4">
@@ -32,6 +33,7 @@ class CompleteDescription extends React.Component {
 	    					</div>
 		    			</div>
 		    		</div>
+		    		</a>
 		    	</div>
 		    	<div className="col s12 m12 l6">
 		    		<div className="container">
