@@ -1,5 +1,5 @@
 # MotoShare
-A platform where motorcycle enthusiasts can share their motorcycles and rent other users’ bikes. 
+A platform to rent-share motorcycles.
 
 ## Set Up
 1. Clone the repository. 
@@ -55,6 +55,6 @@ The new opened page will give you the functionality to post a new ad.
 - jQuery
 
 ## Citations
-[Red Motorcycle Picture](https://thumbor.forbes.com/thumbor/trim/0x360:4501x2892/fit-in/711x399/smart/https://specials-images.forbesimg.com/imageserve/5c0a960ca7ea43705919981f/0x0.jpg)
-Tutorial to have movie at the background -https://www.youtube.com/watch?v=I2UBjN5ER4s
+- [Red Motorcycle Picture](https://thumbor.forbes.com/thumbor/trim/0x360:4501x2892/fit-in/711x399/smart/https://specials-images.forbesimg.com/imageserve/5c0a960ca7ea43705919981f/0x0.jpg)
+- Tutorial to have movie at the background [Youtube](https://www.youtube.com/watch?v=I2UBjN5ER4s)
 Non copyright image sources: pixby, pexels
