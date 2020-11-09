@@ -13,34 +13,34 @@ class HomeCards extends React.Component {
 
     return (
       <div id='superContainer'>
-        <h1>How it works: </h1>
+        <h4>How it works: </h4>
         <div id='cardsContainer'>
           <Card className='card'>
             <CardMedia className='media' image='./book.jpg' />
             <CardContent>
-              <h2>Book a bike</h2>
-              <p>Find a bike and book it using site credits</p>
+              <h5>Book a bike</h5>
+              <h6>Find a bike and book it using site credits</h6>
             </CardContent>
           </Card>
           <Card className='card'>
             <CardMedia className='media' image='./pickup.jpg' />
             <CardContent>
-              <h2>Pick up your ride</h2>
-              <p>Decide on a place to meet with your<br /> bike lord and pick up your ride there</p>
+              <h5>Pick up your ride</h5>
+              <h6>Decide on a place to meet with your<br /> bike lord and pick up your ride there</h6>
             </CardContent>
           </Card>
           <Card className='card'>
             <CardMedia className='media' image='./return.jpg' />
             <CardContent>
-              <h2>Return your ride</h2>
-              <p>On the return date, bring the<br /> bike back to the bike lord</p>
+              <h5>Return your ride</h5>
+              <h6>On the return date, bring the<br /> bike back to the bike lord</h6>
             </CardContent>
           </Card>
           <Card className='card'>
             <CardMedia className='media' image='./bikelord.jpg' />
             <CardContent>
-              <h2>Want to earn credits?</h2>
-              <p>Post ads and rent out your bike</p>
+              <h5>Want to earn credits?</h5>
+              <h6>Post ads and rent out your bike</h6>
             </CardContent>
             <CardActions>
               <Button onClick={handleClick}>Post an ad</Button>
