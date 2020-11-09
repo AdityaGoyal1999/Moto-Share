@@ -5,6 +5,7 @@ import {Typography, Link} from '@material-ui/core'
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
+import YouTubeIcon from '@material-ui/icons/YouTube';
 
 class Footer1 extends React.Component {
   render () {
@@ -13,8 +14,8 @@ class Footer1 extends React.Component {
       <div id='footer1'>
         <div id="footerInfo">
           <div id='impt-links'>
-            <h3>Ride Share for Motorcycles</h3>
-            <h4>Ride Share for Motorcycles is the perfect platform for you <br />
+            <h3>MotoShare</h3>
+            <h4>MotoShare is the perfect platform for you <br />
             to rent a motorcycle or to share your bike for some extra cash.</h4>
           </div>
           <div id='impt-links'>
@@ -28,6 +29,7 @@ class Footer1 extends React.Component {
             <Link href="#" ><FacebookIcon color="secondary" /></Link>
             <Link href="#" ><InstagramIcon color="secondary"/> </Link> 
             <Link href="#" ><TwitterIcon color="secondary" /> </Link>
+            <Link href="#" ><YouTubeIcon color="secondary" /> </Link>
           </div>
         </div> 
         <div id='copyright'>
@@ -37,7 +39,7 @@ class Footer1 extends React.Component {
             align="center">
               <span id="copyrightText">
               {"Copyright © "}
-              Ride Share for Motorcycles
+              MotoShare
               {" "}  
               {new Date().getFullYear()}
               {"."}

@@ -22,6 +22,7 @@ class Ads extends React.Component {
         <div className='adContents'>
           <span class="adCardTitle"><strong>Name</strong>: {this.props.name}</span>
           <span class="adCardTitle"><strong>Price</strong>: ${this.props.price} / day </span>
+          
         </div>
       </div>
     )

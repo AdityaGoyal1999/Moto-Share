@@ -27,7 +27,6 @@
     display: flex;
     flex-direction: column;
     justify-content: left;
-    /* margin-top: 200px; */
     min-width: 245px;
     border-top: 2px solid #ccc;
 }
