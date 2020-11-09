@@ -7,13 +7,16 @@ import 'fontsource-roboto';
 
 class Ads extends React.Component {
 
-  render () {
+  handleAdClick = (id) => {
+    this.props.handleClick(id)
+  }
 
-    const { id, name, price, rating, description } = this.props;
+  render () {
+    const { id, name, price, rating, description} = this.props;
 
     return (
-      <div className='ads'>
-        <div className='adImage'>
+      <div className='ads' >
+        <div className='adImage' onClick={() => this.handleAdClick(id)}>
           <img src={img} alt='Motorcycle'></img>
         </div>
         <div className='adContents'>

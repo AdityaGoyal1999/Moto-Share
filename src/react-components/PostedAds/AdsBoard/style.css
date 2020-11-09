@@ -1,10 +1,12 @@
-/* #adsBoard {
-    background-color: lightgray;
-} */
+#adsBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 #adsView1 {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 20px;
     border-radius: 5px;
     margin-left: 10px;
@@ -15,35 +17,27 @@
     white-space: nowrap;
 }
 
-#ads-carousal {
+#adsCarousal {
     display: flex;
     justify-content: center;
-    margin: 0px 100px;
 }
 
-#icon-right {
-    margin-left: 20px;
-}
-
-::-webkit-scrollbar {
+#adsCarousal ::-webkit-scrollbar {
     width: 5px;
-    height: 2px;
+    height: 5px;
   }
 
-/* Track */
-::-webkit-scrollbar-track {
+#adsCarousal ::-webkit-scrollbar-track {
     background: #f1f1f1;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+}
+
+#adsCarousal ::-webkit-scrollbar-thumb {
+    background: purple;
+}
+
+#adsCarousal ::-webkit-scrollbar-thumb:hover {
+    background: darkorchid;
+}
 
 #adsView1 .ads:hover {
     -webkit-transform: scale(1.1); 
@@ -53,16 +47,8 @@
 }
 
 #adsView1 .ads {
-    -webkit-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -ms-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
     cursor: pointer; 
-}
-
-#adsView1 .ads:last-child {
-    margin-right: 100px;
-
 }
 
 h1 {
@@ -70,24 +56,24 @@ h1 {
     font-family: Roboto;
 }
 
-
-#ad-info{
-    display: flex;
-    justify-content: flex-start;
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0px 0px 2px 2px lightgrey;
-    margin: 50px 120px;
-    min-height: 400px;
-}
-
-
-#ads-carousal button {
+#adsCarousal button {
     background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
     cursor: pointer;
     overflow: hidden;
     outline:none;
+}
+
+#adInfo{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px 2px purple;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    max-width: 1320px;
+    min-height: 400px;
 }
