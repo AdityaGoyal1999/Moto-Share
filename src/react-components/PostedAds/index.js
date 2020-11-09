@@ -7,7 +7,7 @@ import Footer1 from '../Footer1'
 
 const getUserData = event => {
   event.preventDefault()
-  // server call goes here to get Ad Data
+  // SERVER CALL goes here to get Ad Data
 }
 
 /* Component that shows all the Ads that the User has posted*/
@@ -16,9 +16,9 @@ class PostedAdsPage extends React.Component {
   constructor(props) {
     super(props)
 
-    // These will be server calls to get the acutal data:
-
+    // These will be SERVER CALL to get the acutal data:
     // {saleInfo, ads} = getUserData()
+
     this.state = {
       // ads: ads
       // saleInfo: saleInfo

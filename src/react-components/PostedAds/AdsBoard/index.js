@@ -11,7 +11,8 @@ class AdsBoard extends React.Component {
 
   constructor(props) {
     super(props);
-    // React Ref is created here
+
+    // React Ref is created here for animating scroll purposes
     this.adRef = React.createRef();
 
     const { ads, saleInfo } = this.props 
@@ -60,7 +61,8 @@ class AdsBoard extends React.Component {
 
   /* Updates Ad Details display below carousal */
   deleteAd = (id) => {
-    //  Server call to remove ad
+
+    // SERVER CALL to remove ad here
 
     const adsToKeep = this.state.ads.filter((ad) => ad.id !== id)
     this.state.ads = adsToKeep
@@ -129,7 +131,10 @@ class AdsBoard extends React.Component {
 
   render () {
 
+    // All the ads to display
     let adElements = this.showAds()
+
+    // Case for when user has no ads
     if (adElements.length === 0) {
       adElements = <h1>You Have No Ads</h1>
     }
@@ -137,9 +142,7 @@ class AdsBoard extends React.Component {
     return (
       <div id='adsBoard'>
         <h1>View Your Ads</h1>
-        <div id="filter-ads">
-
-        </div>
+        {/* Carousal of ads that user can cycle through */}
         <div id="adsCarousal">
           <button onClick={() => this.scrollAds('left')}><ArrowBackIosIcon id='icon-left' /></button>
           <div id="adsView1" ref={this.adRef}>
@@ -147,6 +150,7 @@ class AdsBoard extends React.Component {
           </div>
           <button onClick={() => this.scrollAds('right')}><ArrowForwardIosIcon id='icon-right' /></button>
         </div>
+        {/* Addtional information about any ad user clicked */}
         <div id="adInfo">
           <div id="adDetails">
           </div>

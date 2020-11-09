@@ -2,8 +2,8 @@ import React from 'react'
 
 import './style.css'
 import AddIcon from '@material-ui/icons/Add';
-import $ from 'jquery'
 
+/* Image input Component for Ad */
 class PostImages extends React.Component {
     constructor(props){
         super(props)
@@ -11,9 +11,9 @@ class PostImages extends React.Component {
             file: null
         }
         this.previewImage = this.previewImage.bind(this)
-        $('#addImageTitle').remove()
     }
 
+    /* This function allows the inputted image to stay */
     previewImage (e) {
         this.setState({
             file: URL.createObjectURL(e.target.files[0])

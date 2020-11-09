@@ -2,9 +2,8 @@ import React from 'react'
 
 import './style.css'
 import { FormControl, TextField, Button} from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
 
-
+/* Text and Date Input Submission Component*/
 class PostAdInfo extends React.Component {
 
     constructor(props) {
@@ -41,6 +40,7 @@ class PostAdInfo extends React.Component {
             <div id="postAdInfo">
                 <form >
                     <FormControl required >
+                        {/* Name Input */}
                         <TextField
                             required
                             id="filled-helperText"
@@ -49,6 +49,7 @@ class PostAdInfo extends React.Component {
                             variant="filled"
                             />
                         <br />
+                        {/* Price Input */}
                         <TextField
                             required
                             id="filled-helperText"
@@ -57,6 +58,7 @@ class PostAdInfo extends React.Component {
                             variant="filled"
                             />
                         <br />
+                        {/* Availability Input */}
                         <div id='bikeAvailability'>
                             <span id="labelTitle">Availabilty   </span>
                             <label>From: </label>
@@ -65,6 +67,7 @@ class PostAdInfo extends React.Component {
                             <input id="toAvaliability" type='date' value={this.state.toAvaliability} required />
                         </div>
                         <br />
+                        {/* Location Input (Note: Might be changed later depending on API validation) */}
                         <TextField
                             required
                             id="filled-helperText"
@@ -73,6 +76,7 @@ class PostAdInfo extends React.Component {
                             variant="filled"
                             />
                         <br />
+                        {/* Drivers License Input */}
                         <TextField
                             required
                             id="filled-helperText"
@@ -81,6 +85,7 @@ class PostAdInfo extends React.Component {
                             variant="filled"
                             />
                         <br />
+                        {/* Description Input */}
                         <TextField
                             required
                             id="filled-helperText"
@@ -92,6 +97,7 @@ class PostAdInfo extends React.Component {
                             variant="filled"
                             />
                         <br />
+                        {/* Submit Button */}
                         <Button type="submit" fullWidth
                             variant="contained"
                             color="primary"
