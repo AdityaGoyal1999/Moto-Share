@@ -18,19 +18,28 @@ class AdsBoard extends React.Component {
                     />)
                 }
 
-                return ( <
-                    div id = 'adsBoard' >
-                    <
-                    input type = "text"
-                    placeholder = "Red Bike"
-                    className = "searchBar" / >
-                    <
-                    h3 > Your search Results < /h3> <
-                    div id = "adsView" > { adElements } <
-                    /div> <
-                    /div>
-                )
-            }
-        }
+            return ( 
+                <div id = 'adsBoard' >
+                    <div class="row search">
+                        <div class="input-field col s10">
+                          <input placeholder="Harley Davidson" id="search" type="text" class="validate" />
+                          <label class="active" for="Search Bikes">Search Bikes</label>
+                        </div>
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                        <i class="material-icons right">search</i>
+                        </button>
+                    </div>
+                    
+                    <h2> Results for "Harley Davidson" 🏍️ </h2> 
+                    <div id = "adsView" > 
+                    <div class="row">
+                        
+                        { adElements } 
+                        </div>
+                    </div> 
+                </div>
+            );
+    }
+}
 
-        export default AdsBoard
+export default AdsBoard

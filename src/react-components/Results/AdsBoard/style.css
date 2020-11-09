@@ -3,7 +3,7 @@
 } */
 
 #adsView {
-    background: azure;
+    /*background: azure;
     display: flex;
     justify-content: flex-start;
     padding: 20px;
@@ -13,11 +13,13 @@
     margin-left: 100px;
     margin-right: 100px;
     min-height: 300px;
-    margin-bottom: 20px;
+    margin-bottom: 20px;*/
 }
 
-h1 {
-    padding: 100px;
+h1{
+    padding: 0px;
+    border: 0px;
+    margin:20px;
 }
 
 .searchBar {
@@ -30,3 +32,21 @@ h1 {
     box-sizing: border-box;
     margin-left: 30px;
 }
+
+.search{
+    margin-top: 150px;
+}
+
+.btn, .btn:hover{
+    background-color: #4153AF;
+}
+
+/* label focus color */
+ .input-field input:focus + label {
+   color: #4153AF !important;
+ }
+ /* label underline focus color */
+ .row .input-field input:focus {
+   border-bottom: 1px solid #4153AF !important;
+   box-shadow: 0 1px 0 0 #4153AF !important
+ }
