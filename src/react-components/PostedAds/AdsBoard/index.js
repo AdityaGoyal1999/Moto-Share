@@ -96,7 +96,6 @@ class AdsBoard extends React.Component {
            name={currAd.name} 
            price={currAd.price} 
            rating={currAd.rating} 
-           description={currAd.description} 
            handleClick={this.updateAdInfo}
            deleteAd={this.deleteAd}
            />)
