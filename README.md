@@ -41,11 +41,11 @@ The new opened page will give you the functionality to post a new ad.
 - User can view his/her posted ads
 - User can delete his/her ads
 - User can view ads other users have posted
-- Admin can view data of the webapp
 
 **Note**: Each view that requires sample data has different data. Data will be passed through views using server calls in phase 2. 
 
 ### Admin Features
+- Admin can view data of the webapp
 
 ## Additional Libraries Used 
 - React
