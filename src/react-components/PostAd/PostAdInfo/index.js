@@ -99,7 +99,6 @@ class PostAdInfo extends React.Component {
                             >
                                 Post Ad
                             </Button>
-                                
                     </FormControl>
                 </form>
             </div>

@@ -25,22 +25,23 @@ class Footer1 extends React.Component {
           </div>
           <div id='social-media'>
             <h3>Social Media</h3>
-            <Link href="#" color="inherit" ><FacebookIcon color="white" /></Link>
-            <Link href="#" color="inherit" ><InstagramIcon /> </Link> 
-            <Link href="#" color="inherit" ><TwitterIcon /> </Link>
+            <Link href="#" ><FacebookIcon color="secondary" /></Link>
+            <Link href="#" ><InstagramIcon color="secondary"/> </Link> 
+            <Link href="#" ><TwitterIcon color="secondary" /> </Link>
           </div>
         </div> 
         <div id='copyright'>
           <Typography
             className="copyrightText"
             variant="body1"
-            color="textPrimary"
             align="center">
+              <span id="copyrightText">
               {"Copyright © "}
               Ride Share for Motorcycles
               {" "}  
               {new Date().getFullYear()}
               {"."}
+              </span>
           </Typography>
         </div>
       </div>

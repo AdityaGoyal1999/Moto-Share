@@ -20,8 +20,8 @@ class Ads extends React.Component {
           <img src={img} alt='Motorcycle'></img>
         </div>
         <div className='adContents'>
-          {this.props.name} <br />
-          {this.props.rating}
+          <span class="adCardTitle"><strong>Name</strong>: {this.props.name}</span>
+          <span class="adCardTitle"><strong>Price</strong>: ${this.props.price} / day </span>
         </div>
       </div>
     )
