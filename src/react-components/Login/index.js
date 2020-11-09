@@ -27,9 +27,9 @@ class Login extends React.Component {
         // logging in and out will be handled by server calls in future
         const username = document.querySelector("input[name='username']").value
         const password = document.querySelector("input[name='password']").value
-        if (username === 'admin' && password === 'password') {
+        if (username === 'admin' && password === 'admin') {
           window.open('/admin', '_self')
-        } else if (username === 'user' && password === 'password') {
+        } else if (username === 'user' && password === 'user') {
           window.open('/loggedIn', '_self')
         }
       }
