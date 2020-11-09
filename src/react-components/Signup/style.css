@@ -6,6 +6,12 @@
 
 #signupForm label {
     justify-self: left;
+    color: black;
+}
+
+#signupForm label:hover {
+    background: none;
+    cursor: default;
 }
 
 #signupForm button {

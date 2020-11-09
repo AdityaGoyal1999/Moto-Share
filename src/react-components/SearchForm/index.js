@@ -12,14 +12,14 @@ class SearchForm extends React.Component {
           <input type='text' placeholder='Enter location here' required />
         </div>
 
-        <div id='pickupInput'>
+        <div className='timeInput'>
           <label>Pickup Time: </label>
           <input type='time' required />
           <label>    Pickup Date: </label>
           <input type='date' required />
         </div>
 
-        <div>
+        <div className='timeInput'>
           <label>Dropoff Time: </label>
           <input type='time' required />
           <label>    Dropoff Date: </label>
