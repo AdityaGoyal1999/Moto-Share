@@ -8,3 +8,11 @@
 .MuiTextField-root {
     margin-top: 50px;
 }
+
+#labelTitle {
+    text-emphasis: emphasi;
+}
+
+#submissionResult{
+    margin-top: 50px ;
+}

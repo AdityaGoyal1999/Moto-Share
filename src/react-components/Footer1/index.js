@@ -25,7 +25,7 @@ class Footer1 extends React.Component {
           </div>
           <div id='social-media'>
             <h3>Social Media</h3>
-            <Link href="#" color="inherit" ><FacebookIcon /></Link>
+            <Link href="#" color="inherit" ><FacebookIcon color="white" /></Link>
             <Link href="#" color="inherit" ><InstagramIcon /> </Link> 
             <Link href="#" color="inherit" ><TwitterIcon /> </Link>
           </div>
@@ -34,7 +34,7 @@ class Footer1 extends React.Component {
           <Typography
             className="copyrightText"
             variant="body1"
-            color="textSecondary"
+            color="textPrimary"
             align="center">
               {"Copyright © "}
               Ride Share for Motorcycles

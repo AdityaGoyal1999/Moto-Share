@@ -13,22 +13,40 @@ class AdsBoard extends React.Component {
     // React Ref is created here
     this.adRef = React.createRef();
 
-    const { ads, userInfo } = this.props 
+    const { ads, saleInfo } = this.props 
     this.state = {
       ads: ads,
-      userInfo : userInfo
+      saleInfo : saleInfo
     }
   }
 
   updateAdInfo = (id) => {
+    this.updateAdDetails(id)
+    this.updateSaleInfo(id)
+  }
+
+  updateAdDetails = (id) => {
+
     const ad = this.state.ads[id]
-    console.log(ad.name)
-    const adInfoDisplay = []
-    adInfoDisplay.push(`<h2>Name: ${ad.name}</h2>`)
-    
+    let adInfoDisplay = (`<h2>Name: </h2><span id="adTextInfo">${ad.name}</span>`) 
+    adInfoDisplay += (`<h2>Price: </h2><span id="adTextInfo">$ ${ad.price} / day</span>`)
+    adInfoDisplay += (`<h2>Rating: </h2><span id="adTextInfo">${ad.rating} / 5.0</span>`)
+    adInfoDisplay += (`<h2>Description: </h2><span id="adTextInfo"> ${ad.description}</span>`)
     document.getElementById("adDetails").innerHTML = adInfoDisplay
 
-    return adInfoDisplay
+  }
+
+  updateSaleInfo = (id) => {
+
+    
+    const saleInfo = this.state.saleInfo[id]
+    let saleInfoDisplay = `<h2>Number of Times Rented: </h2><span id="adTextInfo">${saleInfo.numSold} times</span>`
+    saleInfoDisplay += (`<h2>Number of Days Rented: </h2><span id="adTextInfo">${saleInfo.totalDays} days</span>`)
+    saleInfoDisplay += (`<h2>Total Tips: </h2><span id="adTextInfo">$ ${saleInfo.totalTips} </span>`)
+    saleInfoDisplay += (`<h2>Total Earnings: </h2><span id="adTextInfo">$ ${saleInfo.totalEarnings} </span>`)
+    document.getElementById("saleInfo").innerHTML = saleInfoDisplay
+
+    //TODO: Add EDIT and DELETE AD buttons and functions
   }
 
   showAds = () => {
@@ -93,11 +111,9 @@ class AdsBoard extends React.Component {
           <button onClick={() => this.scrollAds('right')}><ArrowForwardIosIcon id='icon-right' /></button>
         </div>
         <div id="adInfo">
-          <div id="userEarnings">
-            
-          </div>
           <div id="adDetails">
-            
+          </div>
+          <div id="saleInfo">
           </div>
         </div>
       </div>

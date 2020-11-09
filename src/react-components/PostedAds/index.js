@@ -17,16 +17,17 @@ class PostedAdsPage extends React.Component {
 
     // These will be server calls to get the acutal data:
 
-    // {userInfo, ads} = getUserData()
+    // {saleInfo, ads} = getUserData()
     this.state = {
       // ads: ads
-      // userInfo: userInfo
+      // saleInfo: saleInfo
+
     }
   }
 
-  createSampleAds () {
+  createSampleData () {
 
-    // Sample data for testing purposes
+    // Sample data for testing purposes (NOTE: Numerical values are random)
 
     // This data comes from this.state.ads
     const names = ['Honda Super Cub', 'Honda CB77', 'Triumph Bonneville', 'Honda CB750', 'Harley-Davidson XR750', 'Kawasaki Triple', 'Ducati 900SS', 'BMW R100S', 'Yamaha XT500']
@@ -34,14 +35,20 @@ class PostedAdsPage extends React.Component {
     const ratings = [4.0, 3.5, 5.0, 4.3, 4.2, 4.1, 5.0, 3.6, 3.2, 4.7]
 
     // This data will come from this.state.userInfo
-    const tips = []
-
+    const numBikeSold = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const totalBikeTips = [0, 20, 30, 10, 40, 90, 80, 200, 400, 500]
+    const totalBikeDays = [3, 4, 8, 10, 12, 14, 15, 16, 20, 30]
 
     const ads = []
+    const saleInfo = []
+
     for (let i = 0; i < 9; i++) {
-      ads.push({id:i, name:names[i], price:prices[i], rating:ratings[i], description:'Red Motorcycle with 2 wheels.'})
+      ads.push({id:i, name:names[i], price:prices[i], rating:ratings[i], description:'Red Motorcycle with 2 wheels. In good condition.'})
+      const totalEarning = totalBikeTips[i] + (totalBikeDays[i] * prices[i])
+      console.log(totalEarning)
+      saleInfo.push({numSold:numBikeSold[i], totalTips:totalBikeTips[i], totalDays:totalBikeDays[i], totalEarnings:totalEarning})
     }
-    return ads;
+    return [ads, saleInfo];
   }
   
   render () {
@@ -49,7 +56,7 @@ class PostedAdsPage extends React.Component {
     return (
       <div id='postedAds'>
         <NavBar />
-        <AdsBoard ads={this.createSampleAds()}/>
+        <AdsBoard ads={this.createSampleData()[0]} saleInfo={this.createSampleData()[1]} />
         <Footer1 />
       </div>
     )

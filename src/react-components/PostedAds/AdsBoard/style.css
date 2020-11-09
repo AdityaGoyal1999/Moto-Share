@@ -32,11 +32,11 @@
 }
 
 #adsCarousal ::-webkit-scrollbar-thumb {
-    background: purple;
+    background: #4153AF;
 }
 
 #adsCarousal ::-webkit-scrollbar-thumb:hover {
-    background: darkorchid;
+    background: #4153AF;
 }
 
 #adsView1 .ads:hover {
@@ -56,6 +56,10 @@ h1 {
     font-family: Roboto;
 }
 
+h2 {
+    font-family: Roboto;
+}
+
 #adsCarousal button {
     background-color: Transparent;
     background-repeat:no-repeat;
@@ -67,13 +71,22 @@ h1 {
 
 #adInfo{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     padding: 20px;
     border: 2px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0px 0px 2px 2px purple;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    max-width: 1320px;
+    box-shadow: 0px 0px 2px 2px #4153AF;
+    margin: 50px 100px;
     min-height: 400px;
+    background-color: azure;
+}
+
+#adDetails {
+    border-left: darkgray;
+    margin-right: 50px;
+    max-width: 500px;
+}
+
+#adTextInfo {
+    font-family: Roboto;
 }

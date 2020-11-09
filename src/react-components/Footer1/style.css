@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: lightgrey;
+    background-color: #4153AF;
     min-height: 50px ;
     max-height: 280px;
     position: static;
@@ -27,13 +27,13 @@
 h3 {
     font-family: Roboto;
     font-size: 1.25em;
-    color: black;
+    color: white;
     text-shadow: 2px 2px 5px grey;
 }
 
 h4 {
     font-family: Roboto;
-    color: grey;
+    color: lightgrey;
 }
 
 .social-media-icon {
