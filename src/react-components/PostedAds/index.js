@@ -25,9 +25,8 @@ class PostedAdsPage extends React.Component {
     }
   }
 
+  /* Creating sample data for testing purposes (NOTE: Numerical values are random) */
   createSampleData () {
-
-    // Sample data for testing purposes (NOTE: Numerical values are random)
 
     // This data comes from this.state.ads
     const names = ['Honda Super Cub', 'Honda CB77', 'Triumph Bonneville', 'Honda CB750', 'Harley-Davidson XR750', 'Kawasaki Triple', 'Ducati 900SS', 'BMW R100S', 'Yamaha XT500']
@@ -42,6 +41,7 @@ class PostedAdsPage extends React.Component {
     const ads = []
     const saleInfo = []
 
+    // Adding all the sample data to be pushed to child components
     for (let i = 0; i < 9; i++) {
       ads.push({id:i, name:names[i], price:prices[i], rating:ratings[i], description:'Red Motorcycle with 2 wheels. In good condition.'})
       const totalEarning = totalBikeTips[i] + (totalBikeDays[i] * prices[i])

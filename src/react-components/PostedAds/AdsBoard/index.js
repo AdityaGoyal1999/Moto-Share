@@ -6,6 +6,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import easyScroll from 'easy-scroll';
 
+/* Overall Component that shows Information about Ads */
 class AdsBoard extends React.Component {
 
   constructor(props) {
@@ -20,11 +21,13 @@ class AdsBoard extends React.Component {
     }
   }
 
+  /* Updates Ad Info display below carousal */
   updateAdInfo = (id) => {
     this.updateAdDetails(id)
     this.updateSaleInfo(id)
   }
 
+  /* Updates Ad Details display below carousal */
   updateAdDetails = (id) => {
 
     if (id===-1){
@@ -40,6 +43,7 @@ class AdsBoard extends React.Component {
 
   }
 
+  /* Updates Sale Info display below carousal */
   updateSaleInfo = (id) => {
     if (id===-1){
       document.getElementById("saleInfo").innerHTML = ''
@@ -54,6 +58,7 @@ class AdsBoard extends React.Component {
 
   }
 
+  /* Updates Ad Details display below carousal */
   deleteAd = (id) => {
     //  Server call to remove ad
 
@@ -78,6 +83,7 @@ class AdsBoard extends React.Component {
     this.render()
   }
 
+  /* Shows the Ads received from Parent Component */
   showAds = () => {
     const adElements = []
 
@@ -96,7 +102,7 @@ class AdsBoard extends React.Component {
     return adElements
   }
 
-
+  /* Manually animating react component (Note: Not possible with CSS) */
   scrollAds = (direction) => {
     if (direction === 'right') {
       if (this.adRef !== null) {
@@ -120,8 +126,6 @@ class AdsBoard extends React.Component {
       }
     }
   }
-
-  state = {}
 
   render () {
 
