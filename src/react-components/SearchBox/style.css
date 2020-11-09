@@ -5,6 +5,7 @@
     border-color: blue;
     border-style: solid;
     margin: 10px;
+    box-shadow: black 5px 5px 10px;
 }
 
 #searchBox h2 {
