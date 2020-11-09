@@ -35,10 +35,11 @@ class NavBar extends React.Component {
       return (
         <div>
           {/* SAMPLE will be replaced by username, given by server */}
-          <Button id='menuAnchor' onClick={this.openMenu}>SAMPLE</Button>
+          <Button id='menuAnchor' onClick={this.openMenu}>Actions</Button>
           <Menu anchorEl={this.state.anchorEl} keepMounted open={Boolean(this.state.anchorEl)} onClose={this.closeMenu}>
             {/* On click will call server to get proper account page */}
-            <MenuItem><a href='/AccountInfo'>My Account</a></MenuItem>
+            <MenuItem><a href='/user'>My Account</a></MenuItem>
+            <MenuItem><a href='/postedads'>My Ads</a></MenuItem>
             {/* Temporary, in phase 2 log in/out is handled by server calls in one view */}
             <MenuItem><a href='/'>Log Out</a></MenuItem>
           </Menu>

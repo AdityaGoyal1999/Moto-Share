@@ -42,7 +42,7 @@ class Login extends React.Component {
         <label>Password:</label>
         <input type='password' placeholder='Enter password' name='password' required />
         <Button onClick={handleSubmit}>Log In</Button>
-        <label class='errorMessage'>Error: Username and Password not found</label>
+        <label className='errorMessage'>Error: Username and Password not found</label>
       </form>
     )
   }

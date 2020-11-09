@@ -8,7 +8,7 @@ class HomeCards extends React.Component {
   render () {
     const handleClick = () => {
       // server call to check if logged in, sends to login if not logged in
-      window.open('/PostedAds', '_self')
+      window.open('/postad', '_self')
     }
 
     return (

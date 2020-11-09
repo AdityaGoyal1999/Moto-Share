@@ -5,6 +5,11 @@ import './style.css'
 
 class SearchForm extends React.Component {
   render () {
+    const clickHandler = () => {
+      // server call will go here to handle search
+      window.open('/results', '_self')
+    }
+
     return (
       <form id='searchForm'>
         <div id='locInput'>
@@ -27,7 +32,7 @@ class SearchForm extends React.Component {
         </div>
 
         {/* Will call server to handle search, proceed to Results page */}
-        <Button>Search</Button>
+        <Button onClick={clickHandler}>Search</Button>
       </form>
     )
   }

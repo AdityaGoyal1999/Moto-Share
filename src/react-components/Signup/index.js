@@ -66,7 +66,7 @@ class Signup extends React.Component {
         <label>Confirm Password:</label>
         <input className='password' type='password' placeholder='Confirm password' minLength='8' onChange={validatePassword} required />
         <Button onClick={handleSubmit}>Sign Up</Button>
-        <label class='errorMessage'>Error: Username and Password not found</label>
+        <label className='errorMessage'>Error: Username and Password not found</label>
       </form>
     )
   }
