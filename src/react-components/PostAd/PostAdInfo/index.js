@@ -46,7 +46,7 @@ class PostAdInfo extends React.Component {
                             id="filled-helperText"
                             label="Name of Vehicle"
                             value={this.state.name}
-                            variant="filled"
+                            variant="outlined"
                             />
                         <br />
                         {/* Price Input */}
@@ -55,7 +55,7 @@ class PostAdInfo extends React.Component {
                             id="filled-helperText"
                             label="Price"
                             value={this.state.price}
-                            variant="filled"
+                            variant="outlined"
                             />
                         <br />
                         {/* Availability Input */}
@@ -73,7 +73,7 @@ class PostAdInfo extends React.Component {
                             id="filled-helperText"
                             label="Location"
                             value={this.state.pickupLocation}
-                            variant="filled"
+                            variant="outlined"
                             />
                         <br />
                         {/* Drivers License Input */}
@@ -82,7 +82,7 @@ class PostAdInfo extends React.Component {
                             id="filled-helperText"
                             label="Drivers License"
                             value={this.state.diversLicense}
-                            variant="filled"
+                            variant="outlined"
                             />
                         <br />
                         {/* Description Input */}
@@ -94,7 +94,7 @@ class PostAdInfo extends React.Component {
                             helperText="Please state the condition your vehicle is in."
                             multiline
                             rows={10}
-                            variant="filled"
+                            variant="outlined"
                             />
                         <br />
                         {/* Submit Button */}
