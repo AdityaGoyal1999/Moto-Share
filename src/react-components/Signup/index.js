@@ -29,7 +29,7 @@ class Signup extends React.Component {
         return true
       }
     }
-
+ 
     // Validate all form inputs
     const validateForm = () => {
       // checks default and custom validation, returns true if valid form inputs

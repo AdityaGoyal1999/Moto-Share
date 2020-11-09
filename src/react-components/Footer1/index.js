@@ -15,17 +15,17 @@ class Footer1 extends React.Component {
         <div id="footerInfo">
           <div id='impt-links'>
             <h3>MotoShare</h3>
-            <h4>MotoShare is the perfect platform for you <br />
-            to rent a motorcycle or to share your bike for some extra cash.</h4>
+            <h5>MotoShare is the perfect platform for you
+            to rent a motorcycle or to share your bike for some extra cash.</h5>
           </div>
           <div id='impt-links'>
-            <h3>Navigate</h3>
-            <Link href="../" color="inherit"><h4>Home</h4></Link>
-            <Link href="../" color="inherit"><h4>About Us</h4></Link>
-            <Link href="../signup" color="inherit"><h4>Sign Up</h4></Link>
+            <h5>Navigate</h5>
+            <Link href="../" color="inherit"><h5>Home</h5></Link>
+            <Link href="../" color="inherit"><h5>About Us</h5></Link>
+            <Link href="../signup" color="inherit"><h5>Sign Up</h5></Link>
           </div>
           <div id='social-media'>
-            <h3>Social Media</h3>
+            <h5>Social Media</h5>
             <Link href="#" ><FacebookIcon color="secondary" /></Link>
             <Link href="#" ><InstagramIcon color="secondary"/> </Link> 
             <Link href="#" ><TwitterIcon color="secondary" /> </Link>
