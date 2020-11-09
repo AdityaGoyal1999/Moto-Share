@@ -19,7 +19,7 @@ class Footer1 extends React.Component {
             to rent a motorcycle or to share your bike for some extra cash.</h5>
           </div>
           <div id='impt-links'>
-            <h5>Navigate</h5>
+            <h5><b><i><u>Navigate</u></i></b></h5>
             <Link href="../" color="inherit"><h5>Home</h5></Link>
             <Link href="../" color="inherit"><h5>About Us</h5></Link>
             <Link href="../signup" color="inherit"><h5>Sign Up</h5></Link>

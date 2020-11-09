@@ -11,14 +11,14 @@ class Ads extends React.Component {
     const { id, description } = this.props;
 
     return (
-            <div class="col s12 m12 l4">
+            <div className="col s12 m12 l4">
             <a className="cardHover" href="./CompleteBikeInfo">
-            <div class="card">
-              <div class="card-image">
+            <div className="card">
+              <div className="card-image">
                 <img id="adImg" src={img} />
               </div>
-              <div class="card-content">
-                <span class="card-title">{this.props.description}</span>
+              <div className="card-content">
+                <span className="card-title">{this.props.description}</span>
                 <p><b>$100 per day</b><br /> 321, Bloor Street,<br /> Toronto.</p>
               </div>
             </div>
