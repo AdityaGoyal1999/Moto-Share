@@ -35,10 +35,10 @@ class AdsBoard extends React.Component {
       document.getElementById("adDetails").innerHTML = ''
     } else {
       const ad = this.state.ads[id]
-      let adInfoDisplay = (`<h2>Name: </h2><span id="adTextInfo">${ad.name}</span>`) 
-      adInfoDisplay += (`<h2>Price: </h2><span id="adTextInfo">$ ${ad.price} / day</span>`)
-      adInfoDisplay += (`<h2>Rating: </h2><span id="adTextInfo">${ad.rating} / 5.0</span>`)
-      adInfoDisplay += (`<h2>Description: </h2><span id="adTextInfo"> ${ad.description}</span>`)
+      let adInfoDisplay = (`<h4>Name: </h4><span id="adTextInfo">${ad.name}</span>`) 
+      adInfoDisplay += (`<h4>Price: </h4><span id="adTextInfo">$ ${ad.price} / day</span>`)
+      adInfoDisplay += (`<h4>Rating: </h4><span id="adTextInfo">${ad.rating} / 5.0</span>`)
+      adInfoDisplay += (`<h4>Description: </h4><span id="adTextInfo"> ${ad.description}</span>`)
       document.getElementById("adDetails").innerHTML = adInfoDisplay
     }
 
@@ -50,10 +50,10 @@ class AdsBoard extends React.Component {
       document.getElementById("saleInfo").innerHTML = ''
     } else {
       const saleInfo = this.state.saleInfo[id]
-      let saleInfoDisplay = `<h2>Number of Times Rented: </h2><span id="adTextInfo">${saleInfo.numSold} times</span>`
-      saleInfoDisplay += (`<h2>Number of Days Rented: </h2><span id="adTextInfo">${saleInfo.totalDays} days</span>`)
-      saleInfoDisplay += (`<h2>Total Tips: </h2><span id="adTextInfo">$ ${saleInfo.totalTips} </span>`)
-      saleInfoDisplay += (`<h2>Total Earnings: </h2><span id="adTextInfo">$ ${saleInfo.totalEarnings} </span>`)
+      let saleInfoDisplay = `<h4>Number of Times Rented: </h4><span id="adTextInfo">${saleInfo.numSold} times</span>`
+      saleInfoDisplay += (`<h4>Number of Days Rented: </h4><span id="adTextInfo">${saleInfo.totalDays} days</span>`)
+      saleInfoDisplay += (`<h4>Total Tips: </h4><span id="adTextInfo">$ ${saleInfo.totalTips} </span>`)
+      saleInfoDisplay += (`<h4>Total Earnings: </h4><span id="adTextInfo">$ ${saleInfo.totalEarnings} </span>`)
       document.getElementById("saleInfo").innerHTML = saleInfoDisplay
     }
 
