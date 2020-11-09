@@ -2,8 +2,10 @@ import React from 'react'
 
 import './style.css'
 import img from './../../static/motorcycle.jpg'
-import personImg from './../../static/person.jpg'
 import NavBar from '../../../NavBar'
+
+import 'materialize-css'; 
+import 'materialize-css/dist/css/materialize.min.css'
 
 class CompleteDescription extends React.Component {
 
@@ -25,7 +27,7 @@ class CompleteDescription extends React.Component {
 		    		<div className="SellerInfo">
 		    			<div className="row">
 	    					<div className="col s12 m12 l4">
-	    						<img src={personImg} className="imgSeller" />
+	    						<img src='/person.jpg' className="imgSeller" />
 	    					</div>
 	    					<div className="col s12 m12 l8">
 	    					 <span id="SellerName">Jane Doe</span><br /><span className="Rating"></span>

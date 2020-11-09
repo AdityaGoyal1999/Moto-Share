@@ -5,9 +5,6 @@ import img from './../../static/motorcycle.jpg'
 import { Typography } from '@material-ui/core';
 import 'fontsource-roboto';
 
-import 'materialize-css'; 
-import 'materialize-css/dist/css/materialize.min.css'
-
 class Ads extends React.Component {
 
   handleAdClick = (id) => {

@@ -2,7 +2,6 @@ import React from 'react'
 
 import './style.css'
 import img from '../Results/static/motorcycle.jpg'
-import personImg from '../Results/static/person.jpg'
 import NavBar from '../NavBar'
 
 class User extends React.Component {
@@ -17,7 +16,7 @@ class User extends React.Component {
 		    	<div className="row">
 		    	<div className="col s12 m12 l4">
 		    		<div className="imgDiv">
-		    			<img src={personImg} className="imgObj" />
+		    			<img src='/person.jpg' className="imgObj" />
 		    		</div>
 		    	</div>
 		    	<div className="col s12 m12 l6">
