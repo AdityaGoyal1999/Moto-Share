@@ -140,7 +140,7 @@ class AdsBoard extends React.Component {
 
     return (
       <div id='adsBoard'>
-        <h1>View Your Ads</h1>
+        <h2>View Your Ads</h2>
         {/* Carousal of ads that user can cycle through */}
         <div id="adsCarousal">
           <button onClick={() => this.scrollAds('left')}><ArrowBackIosIcon id='icon-left' /></button>
