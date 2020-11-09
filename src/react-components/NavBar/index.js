@@ -23,7 +23,7 @@ class NavBar extends React.Component {
 
   renderLoginArea = () => {
     //if user is not logged in, show login/sign up
-    if (!this.state.username) {
+    if (!this.props.loggedIn) {
       return (
         <ButtonGroup id='login'>
           <Button href='/signup'>Sign Up</Button>
@@ -39,8 +39,8 @@ class NavBar extends React.Component {
           <Menu anchorEl={this.state.anchorEl} keepMounted open={Boolean(this.state.anchorEl)} onClose={this.closeMenu}>
             {/* On click will call server to get proper account page */}
             <MenuItem><a href='/AccountInfo'>My Account</a></MenuItem>
-            {/* On click will call server to handle logout */}
-            <MenuItem>Log Out</MenuItem>
+            {/* Temporary, in phase 2 log in/out is handled by server calls in one view */}
+            <MenuItem><a href='/'>Log Out</a></MenuItem>
           </Menu>
         </div>
       )
@@ -49,12 +49,15 @@ class NavBar extends React.Component {
 
   render () {
     return (
-      <AppBar>
-        <Toolbar id='navbar'>
-          <Typography variant='h6'><a href='/'>MotoShare</a></Typography>
-          {this.renderLoginArea()}
-        </Toolbar>
-      </AppBar>
+      <div>
+        <AppBar>
+          <Toolbar id='navbar'>
+            <Typography variant='h6'><a href='/'>MotoShare</a></Typography>
+            {this.renderLoginArea()}
+          </Toolbar>
+        </AppBar>
+        <Toolbar></Toolbar>
+      </div>
     )
   }
 }

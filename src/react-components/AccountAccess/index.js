@@ -4,6 +4,7 @@ import './style.css'
 import Login from '../Login'
 import Signup from '../Signup'
 import NavBar from '../NavBar'
+import Footer1 from '../Footer1'
 
 // Holds signup and login pages
 class AccountAccess extends React.Component {
@@ -24,6 +25,7 @@ class AccountAccess extends React.Component {
           <h2>{(this.props.isLoginView ? 'Log In' : 'Sign Up')}</h2>
           {getForm(this.props.isLoginView)}
         </div>
+        <Footer1 />
       </div>
     )
   }

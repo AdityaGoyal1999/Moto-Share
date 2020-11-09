@@ -17,6 +17,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path='/' render={() => <HomePage />} />
+        <Route exact path='/loggedIn' render={() => <HomePage loggedIn={true}/>} />
         <Route exact path='/login' render={() => <AccountAccess isLoginView={true} />} />
         <Route exact path='/signup' render={() => <AccountAccess isLoginView={false} />} />
         <Route exact path="/AccountInfo" render={() => <AccountInfo />} />

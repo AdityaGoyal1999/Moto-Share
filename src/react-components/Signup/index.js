@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from '@material-ui/core'
 
 import './style.css'
 
@@ -44,7 +45,6 @@ class Signup extends React.Component {
 
     // Handle form submission
     const handleSubmit = event => {
-      event.preventDefault()
       if (validateForm()) {
         // server call goes here to handle sign up
         window.open('/', '_self')
@@ -65,7 +65,7 @@ class Signup extends React.Component {
         <input className='password' name='password' type='password' placeholder='Enter password' minLength='8' required />
         <label>Confirm Password:</label>
         <input className='password' type='password' placeholder='Confirm password' minLength='8' onChange={validatePassword} required />
-        <input type='submit' value='Sign Up' onClick={handleSubmit} />
+        <Button onClick={handleSubmit}>Sign Up</Button>
         <label class='errorMessage'>Error: Username and Password not found</label>
       </form>
     )

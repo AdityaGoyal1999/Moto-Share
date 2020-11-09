@@ -23,16 +23,24 @@ class Login extends React.Component {
       event.preventDefault()
       if (validateForm()) {
         // server call goes here to handle log in attempt
-        window.open('/', '_self')
+        // temporary view to see home page as logged in
+        // logging in and out will be handled by server calls in future
+        const username = document.querySelector("input[name='username']").value
+        const password = document.querySelector("input[name='password']").value
+        if (username === 'admin' && password === 'password') {
+          window.open('/admin', '_self')
+        } else if (username === 'user' && password === 'password') {
+          window.open('/loggedIn', '_self')
+        }
       }
     }
 
     return (
       <form id='loginForm'>
         <label>Username:</label>
-        <input type='text' placeholder='Enter username' required />
+        <input type='text' placeholder='Enter username' name='username' required />
         <label>Password:</label>
-        <input type='password' placeholder='Enter password' required />
+        <input type='password' placeholder='Enter password' name='password' required />
         <Button onClick={handleSubmit}>Log In</Button>
         <label class='errorMessage'>Error: Username and Password not found</label>
       </form>
