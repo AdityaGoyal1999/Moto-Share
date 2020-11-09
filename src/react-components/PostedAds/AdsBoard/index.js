@@ -65,18 +65,22 @@ class AdsBoard extends React.Component {
     // SERVER CALL to remove ad here
 
     const adsToKeep = this.state.ads.filter((ad) => ad.id !== id)
-    this.state.ads = adsToKeep
+    this.setState({
+      ads: adsToKeep
+    })
 
-    if (adsToKeep.length==0) {
+    if (adsToKeep.length===0) {
       this.updateAdDetails(-1)
     } else {
       this.updateAdDetails(0)
     }
     
     const salesToKeep = this.state.ads.filter((sale) => sale.id !== id)
-    this.state.saleInfo = salesToKeep
+    this.setState({
+      saleInfo: salesToKeep
+    })
 
-    if (salesToKeep.length==0) {
+    if (salesToKeep.length===0) {
       this.updateSaleInfo(-1)
     } else {
       this.updateSaleInfo(0)
@@ -140,7 +144,7 @@ class AdsBoard extends React.Component {
 
     return (
       <div id='adsBoard'>
-        <h1>View Your Ads</h1>
+        <h2>View Your Ads</h2>
         {/* Carousal of ads that user can cycle through */}
         <div id="adsCarousal">
           <button onClick={() => this.scrollAds('left')}><ArrowBackIosIcon id='icon-left' /></button>
