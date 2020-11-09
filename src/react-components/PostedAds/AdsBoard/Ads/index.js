@@ -19,7 +19,7 @@ class Ads extends React.Component {
   }
 
   render () {
-    const { id, name, price, rating, description} = this.props;
+    const { id, name, price} = this.props;
 
     return (
       <div className='adsUser' >
@@ -29,8 +29,8 @@ class Ads extends React.Component {
         </div>
         {/* Shows some info about ad  */}
         <div className='adContents'>
-          <span class="adCardTitle"><strong>Name</strong>: {this.props.name}</span>
-          <span class="adCardTitle"><strong>Price</strong>: ${this.props.price} / day </span>
+          <span class="adCardTitle"><strong>Name</strong>: {name}</span>
+          <span class="adCardTitle"><strong>Price</strong>: {price} / day </span>
         </div>
         {/* Delete button */}
         <Link href="#" ><DeleteIcon color="primary" onClick={() => this.deleteAd(id)}/> </Link>

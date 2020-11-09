@@ -35,7 +35,7 @@ class User extends React.Component {
 		    			</div>
 
 		    			<div className="textLine">
-		    				<span className="textBold">Rating</span> <span className="textNonBold">4.9 <i class="material-icons icon-gold">star</i><span className="reviewCount">(20)</span></span>
+		    				<span className="textBold">Rating</span> <span className="textNonBold">4.9 <i className="material-icons icon-gold">star</i><span className="reviewCount">(20)</span></span>
 		    			</div>
 		    			<div id="CommentHeading">
 		    				<span className="textBold">Comments</span>
