@@ -29,6 +29,7 @@ class Results extends React.Component {
             <div className="container">
                 <AdsBoard ads = { this.createSampleAds() }/>
             </div>
+            <Footer />
             </div>
         )
     }

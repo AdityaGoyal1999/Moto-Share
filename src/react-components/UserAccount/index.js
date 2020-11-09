@@ -16,7 +16,7 @@ class User extends React.Component {
 		    	<div className="row">
 		    	<div className="col s12 m12 l4">
 		    		<div className="imgDiv">
-		    			<img src='/person.jpg' className="imgObj" />
+		    			<img src='/person.jpg' className="imgObj" alt='profile' />
 		    		</div>
 		    	</div>
 		    	<div className="col s12 m12 l6">

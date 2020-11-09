@@ -30,7 +30,7 @@ class AdsBoard extends React.Component {
                         </button>
                     </div>
                     
-                    <h2> Results for "Harley Davidson" 🏍️ </h2> 
+                    <h2> Results for "Harley Davidson" <span role='img' aria-label='bike emoji'>🏍️</span> </h2> 
                     <div id = "adsView" > 
                     <div className="row">
                         
