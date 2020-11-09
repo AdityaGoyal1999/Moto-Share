@@ -2,20 +2,27 @@ import React from 'react'
 
 import './style.css'
 import img from './../../static/motorcycle.jpg'
+import { Typography } from '@material-ui/core';
+import 'fontsource-roboto';
 
 class Ads extends React.Component {
 
-  render () {
+  handleAdClick = (id) => {
+    this.props.handleClick(id)
+  }
 
-    const { id, description } = this.props;
+  render () {
+    const { id, name, price, rating, description} = this.props;
 
     return (
-      <div id='ads'>
-        <div id='adImage'>
+      <div className='ads' >
+        <div className='adImage' onClick={() => this.handleAdClick(id)}>
           <img src={img} alt='Motorcycle'></img>
         </div>
-        <div id='adContents'>
-          {this.props.description}
+        <div className='adContents'>
+          <span class="adCardTitle"><strong>Name</strong>: {this.props.name}</span>
+          <span class="adCardTitle"><strong>Price</strong>: ${this.props.price} / day </span>
+          
         </div>
       </div>
     )

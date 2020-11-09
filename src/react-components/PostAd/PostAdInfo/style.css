@@ -1,0 +1,18 @@
+#postAdInfo {
+    display: flex;
+    flex-direction: column;
+    margin: 200px 50px;
+    min-width: 25%;
+}
+
+.MuiTextField-root {
+    margin-top: 50px;
+}
+
+#labelTitle {
+    text-emphasis: emphasi;
+}
+
+#submissionResult{
+    margin-top: 50px ;
+}

@@ -10,6 +10,7 @@ import AdminDataTableView from "./react-components/AdminDataTableView";
 import PostedAdsPage from './react-components/PostedAds';
 import Results from './react-components/Results'
 import Bike from './react-components/Bike'
+import PostAd from './react-components/PostAd'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/postedads" render={() => <PostedAdsPage />} />
         <Route exact path='/results' render={() => <Results />} />
         <Route exact path='/bike' render={() => <Bike />} />
+        <Route exact path='/postad' render={() => <PostAd />} />
       </Switch>
     </BrowserRouter>
   );

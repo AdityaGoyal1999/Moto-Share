@@ -1,28 +1,38 @@
-#ads {
+.ads {
     background: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 245px;
+    min-width: 300px;
     border: 2px solid #ccc;
     border-radius: 5px;
-    box-shadow: 5px 5px 10px;
+    box-shadow: 0px 0px 10px 2px lightgrey;
     margin: 10px 10px;
     padding: 5px;
+    opacity: 0.8;
+    transition: 0.3s;
+    scroll-snap-align: center;
 }
 
-
-#adImage img {
+.adImage img {
     max-width:100%;
     max-height:100%;
 }
 
-#adContents {
+.ads:hover {
+    opacity: 1;
+}
+
+.adContents {
     display: flex;
+    flex-direction: column;
     justify-content: left;
-    /* margin-top: 200px; */
     min-width: 245px;
     border-top: 2px solid #ccc;
-    
+}
+
+.adCardTitle {
+    display: flex;
+    margin: 3px 2px;
 }
 

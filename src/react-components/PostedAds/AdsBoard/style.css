@@ -1,20 +1,92 @@
-/* #adsBoard {
-    background-color: lightgray;
-} */
+#adsBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-#adsView {
-    background: azure;
+#adsView1 {
     display: flex;
     justify-content: flex-start;
     padding: 20px;
-    border: 2px solid black;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px 2px lightgrey;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 1320px;
     min-height: 300px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#adsCarousal {
+    display: flex;
+    justify-content: center;
+}
+
+#adsCarousal ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+#adsCarousal ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+#adsCarousal ::-webkit-scrollbar-thumb {
+    background: #4153AF;
+}
+
+#adsCarousal ::-webkit-scrollbar-thumb:hover {
+    background: #4153AF;
+}
+
+#adsView1 .ads:hover {
+    -webkit-transform: scale(1.1); 
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+#adsView1 .ads {
+    transition: all .4s ease-in-out;
+    cursor: pointer; 
 }
 
 h1 {
     padding: 100px;
+    font-family: Roboto;
+}
+
+h2 {
+    font-family: Roboto;
+}
+
+#adsCarousal button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+#adInfo{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px 2px #4153AF;
+    margin: 50px 100px;
+    min-height: 400px;
+    background-color: azure;
+}
+
+#adDetails {
+    border-left: darkgray;
+    margin-right: 50px;
+    max-width: 500px;
+}
+
+#adTextInfo {
+    font-family: Roboto;
 }
