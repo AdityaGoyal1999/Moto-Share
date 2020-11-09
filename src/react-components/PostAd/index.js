@@ -6,6 +6,7 @@ import PostImages from './PostImages'
 import Footer1 from '../Footer1'
 import PostAdInfo from './PostAdInfo'
 
+/* Ad Submission Component */
 class PostAd extends React.Component {
 
   render () {
