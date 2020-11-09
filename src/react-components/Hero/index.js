@@ -8,7 +8,7 @@ class Hero extends React.Component {
     return (
       <div id='hero'>
         <video src='/video.mp4' autoPlay loop muted />
-        <h1>MotoShare <br /> Motorcycles When You Need Them.</h1>
+        <h3>MotoShare <br /> Motorcycles When You Need Them.</h3>
       </div>
     )
   }

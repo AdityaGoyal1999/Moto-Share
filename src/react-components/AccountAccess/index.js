@@ -22,7 +22,7 @@ class AccountAccess extends React.Component {
       <div id='accessBody'>
         <NavBar />
         <div id='accessForm'>
-          <h2>{(this.props.isLoginView ? 'Log In' : 'Sign Up')}</h2>
+          <h4>{(this.props.isLoginView ? 'Log In' : 'Sign Up')}</h4>
           {getForm(this.props.isLoginView)}
         </div>
         <Footer1 />

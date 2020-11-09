@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 15px;
 }
 
 #searchForm div {
@@ -14,6 +15,7 @@
     background: rgba(255, 255, 255, 0);
     font-size: medium;
     transition: font-size 0.5s;
+    margin-right: 20px;
 }
 
 #searchForm input:focus {
@@ -22,19 +24,7 @@
     outline-width: 0px;
 }
 
-#searchForm input[type='submit'] {
-    border: none;
-    padding: 5px;
-    margin: 5px;
-    font-size: large;
-    border-radius: 15px;
-    background: whitesmoke;
-    outline: none;
-}
-
-#searchForm input[type='submit']:hover {
-    cursor: pointer;
-    font-size: larger;
-    background: lightgray;
-    transition: font-size 1s, background 1s;
+.timeInput {
+    display: flex;
+    flex-direction: row;
 }

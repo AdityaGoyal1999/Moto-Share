@@ -6,6 +6,12 @@
 
 #loginForm label {
     justify-self: left;
+    color: black;
+}
+
+#loginForm label:hover {
+    background: none;
+    cursor: default;
 }
 
 #loginForm button {
