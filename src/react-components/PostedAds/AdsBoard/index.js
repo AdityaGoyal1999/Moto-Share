@@ -27,26 +27,55 @@ class AdsBoard extends React.Component {
 
   updateAdDetails = (id) => {
 
-    const ad = this.state.ads[id]
-    let adInfoDisplay = (`<h2>Name: </h2><span id="adTextInfo">${ad.name}</span>`) 
-    adInfoDisplay += (`<h2>Price: </h2><span id="adTextInfo">$ ${ad.price} / day</span>`)
-    adInfoDisplay += (`<h2>Rating: </h2><span id="adTextInfo">${ad.rating} / 5.0</span>`)
-    adInfoDisplay += (`<h2>Description: </h2><span id="adTextInfo"> ${ad.description}</span>`)
-    document.getElementById("adDetails").innerHTML = adInfoDisplay
+    if (id===-1){
+      document.getElementById("adDetails").innerHTML = ''
+    } else {
+      const ad = this.state.ads[id]
+      let adInfoDisplay = (`<h2>Name: </h2><span id="adTextInfo">${ad.name}</span>`) 
+      adInfoDisplay += (`<h2>Price: </h2><span id="adTextInfo">$ ${ad.price} / day</span>`)
+      adInfoDisplay += (`<h2>Rating: </h2><span id="adTextInfo">${ad.rating} / 5.0</span>`)
+      adInfoDisplay += (`<h2>Description: </h2><span id="adTextInfo"> ${ad.description}</span>`)
+      document.getElementById("adDetails").innerHTML = adInfoDisplay
+    }
 
   }
 
   updateSaleInfo = (id) => {
+    if (id===-1){
+      document.getElementById("saleInfo").innerHTML = ''
+    } else {
+      const saleInfo = this.state.saleInfo[id]
+      let saleInfoDisplay = `<h2>Number of Times Rented: </h2><span id="adTextInfo">${saleInfo.numSold} times</span>`
+      saleInfoDisplay += (`<h2>Number of Days Rented: </h2><span id="adTextInfo">${saleInfo.totalDays} days</span>`)
+      saleInfoDisplay += (`<h2>Total Tips: </h2><span id="adTextInfo">$ ${saleInfo.totalTips} </span>`)
+      saleInfoDisplay += (`<h2>Total Earnings: </h2><span id="adTextInfo">$ ${saleInfo.totalEarnings} </span>`)
+      document.getElementById("saleInfo").innerHTML = saleInfoDisplay
+    }
 
+  }
+
+  deleteAd = (id) => {
+    //  Server call to remove ad
+
+    const adsToKeep = this.state.ads.filter((ad) => ad.id !== id)
+    this.state.ads = adsToKeep
+
+    if (adsToKeep.length==0) {
+      this.updateAdDetails(-1)
+    } else {
+      this.updateAdDetails(0)
+    }
     
-    const saleInfo = this.state.saleInfo[id]
-    let saleInfoDisplay = `<h2>Number of Times Rented: </h2><span id="adTextInfo">${saleInfo.numSold} times</span>`
-    saleInfoDisplay += (`<h2>Number of Days Rented: </h2><span id="adTextInfo">${saleInfo.totalDays} days</span>`)
-    saleInfoDisplay += (`<h2>Total Tips: </h2><span id="adTextInfo">$ ${saleInfo.totalTips} </span>`)
-    saleInfoDisplay += (`<h2>Total Earnings: </h2><span id="adTextInfo">$ ${saleInfo.totalEarnings} </span>`)
-    document.getElementById("saleInfo").innerHTML = saleInfoDisplay
+    const salesToKeep = this.state.ads.filter((sale) => sale.id !== id)
+    this.state.saleInfo = salesToKeep
 
-    //TODO: Add EDIT and DELETE AD buttons and functions
+    if (salesToKeep.length==0) {
+      this.updateSaleInfo(-1)
+    } else {
+      this.updateSaleInfo(0)
+    }
+
+    this.render()
   }
 
   showAds = () => {
@@ -61,6 +90,7 @@ class AdsBoard extends React.Component {
            rating={currAd.rating} 
            description={currAd.description} 
            handleClick={this.updateAdInfo}
+           deleteAd={this.deleteAd}
            />)
     }
     return adElements
@@ -95,7 +125,10 @@ class AdsBoard extends React.Component {
 
   render () {
 
-    const adElements = this.showAds()
+    let adElements = this.showAds()
+    if (adElements.length === 0) {
+      adElements = <h1>You Have No Ads</h1>
+    }
 
     return (
       <div id='adsBoard'>

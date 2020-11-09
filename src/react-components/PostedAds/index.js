@@ -10,6 +10,7 @@ const getUserData = event => {
   // server call goes here to get Ad Data
 }
 
+/* Component that shows all the Ads that the User has posted*/
 class PostedAdsPage extends React.Component {
   
   constructor(props) {
@@ -21,7 +22,6 @@ class PostedAdsPage extends React.Component {
     this.state = {
       // ads: ads
       // saleInfo: saleInfo
-
     }
   }
 
@@ -45,7 +45,6 @@ class PostedAdsPage extends React.Component {
     for (let i = 0; i < 9; i++) {
       ads.push({id:i, name:names[i], price:prices[i], rating:ratings[i], description:'Red Motorcycle with 2 wheels. In good condition.'})
       const totalEarning = totalBikeTips[i] + (totalBikeDays[i] * prices[i])
-      console.log(totalEarning)
       saleInfo.push({numSold:numBikeSold[i], totalTips:totalBikeTips[i], totalDays:totalBikeDays[i], totalEarnings:totalEarning})
     }
     return [ads, saleInfo];
