@@ -7,8 +7,6 @@ class AdsBoard extends React.Component {
 
         render() {
 
-            const { ads } = this.props
-
             const adElements = []
 
             for (let i = 0; i < this.props.ads.length; i++) {

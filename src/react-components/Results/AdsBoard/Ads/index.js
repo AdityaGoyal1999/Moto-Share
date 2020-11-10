@@ -8,8 +8,6 @@ class Ads extends React.Component {
 
   render () {
 
-    const { id, description } = this.props;
-
     return (
             <div className="col s12 m12 l4">
             <a className="cardHover" href="./CompleteBikeInfo">

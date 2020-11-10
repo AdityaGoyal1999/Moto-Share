@@ -1,6 +1,5 @@
 import React from 'react';
 import './style.css';
-import ReactDOM from 'react-dom';
 import UserTable from './UserTable';
 import AdTable from './AdTable';
 import BookingsTable from './BookingsTable';

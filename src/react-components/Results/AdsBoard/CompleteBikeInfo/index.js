@@ -12,8 +12,6 @@ class CompleteDescription extends React.Component {
 
   render () {
 
-    const { id, description } = this.props;
-
     return (
     	<div className="completeAd">
 	    	<NavBar />

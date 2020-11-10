@@ -20,7 +20,7 @@ class PostAdInfo extends React.Component {
 
     onFormSubmission = () => {
         
-        let validatedInfo = this.validateInputData()
+        this.validateInputData()
 
         // Take page to PostedAds to view newly added Ad. 
 
