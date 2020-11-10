@@ -21,7 +21,6 @@ class Footer1 extends React.Component {
           <div id='impt-links'>
             <h5><b><i><u>Navigate</u></i></b></h5>
             <Link href="../" color="inherit"><h5>Home</h5></Link>
-            <Link href="../" color="inherit"><h5>About Us</h5></Link>
             <Link href="../signup" color="inherit"><h5>Sign Up</h5></Link>
           </div>
           <div id='social-media'>
