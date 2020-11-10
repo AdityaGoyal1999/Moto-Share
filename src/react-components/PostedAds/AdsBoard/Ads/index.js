@@ -29,8 +29,8 @@ class Ads extends React.Component {
         </div>
         {/* Shows some info about ad  */}
         <div className='adContents'>
-          <span class="adCardTitle"><strong>Name</strong>: {name}</span>
-          <span class="adCardTitle"><strong>Price</strong>: $ {price} / day </span>
+          <span className="adCardTitle"><strong>Name</strong>: {name}</span>
+          <span className="adCardTitle"><strong>Price</strong>: $ {price} / day </span>
         </div>
         {/* Delete button */}
         <Link href="#" ><DeleteIcon color="primary" onClick={() => this.deleteAd(id)}/> </Link>

@@ -13,7 +13,7 @@ class AdsBoard extends React.Component {
 
             for (let i = 0; i < this.props.ads.length; i++) {
                 const currAd = this.props.ads[i]
-                adElements.push( < Ads id = { currAd.id }
+                adElements.push( < Ads key = { currAd.id }
                     description = { currAd.description }
                     />)
                 }
@@ -23,7 +23,7 @@ class AdsBoard extends React.Component {
                     <div className="row search">
                         <div className="input-field col s10">
                           <input placeholder="Harley Davidson" id="search" type="text" className="validate" />
-                          <label className="active" for="Search Bikes">Search Bikes</label>
+                          <label className="active" htmlFor="Search Bikes">Search Bikes</label>
                         </div>
                         <button className="btn waves-effect waves-light" type="submit" name="action">Search
                         <i className="material-icons right">search</i>

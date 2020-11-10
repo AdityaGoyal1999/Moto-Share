@@ -103,6 +103,7 @@ class AdsBoard extends React.Component {
            rating={currAd.rating} 
            handleClick={this.updateAdInfo}
            deleteAd={this.deleteAd}
+           key={i}
            />)
     }
     return adElements

@@ -9,11 +9,14 @@ class AccountInfo extends React.Component {
             <img id ='profilePic' src={require('./Profilepic.jpg')} alt= "profile pic"/>
           </div>
             <table id = "datatable">
+              <thead>
                 <tr>
                     <th id = 'item'>Firstname</th>
                     <th id = 'item'>Lastname</th>
                     <th id = 'item'>Age</th>
                 </tr>
+              </thead>
+              <tbody>
                 <tr>
                     <td id = 'item'>Jill</td>
                     <td id = 'item'>Smith</td>
@@ -74,8 +77,7 @@ class AccountInfo extends React.Component {
                     <td id = 'item'>Jackson</td>
                     <td id = 'item'>94</td>
                 </tr>
-
-
+              </tbody>
             </table>
         </div>
     )

@@ -9,7 +9,7 @@ class User extends React.Component {
   render () {
 
     return (
-    	<div class="completeAd">
+    	<div className="completeAd">
 	    	<NavBar />
 	    	<div className="modifiedContainer">
 		    	<h2>Jane Doe</h2>
