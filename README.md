@@ -15,7 +15,7 @@ You being with the home page. From here you can login as a user or admin.(Detail
 - On the same page, the user can also click on “SEARCH’ in Search Motorcycles section.(No need to enter any data as the button’s action is hardcoded)
 - Results page is opened and is all the ads that result after the user searches for a bike. He can click on any of the ads and be welcomed to a complete description page for the ad.
 - The Complete Description Ad page will have info about the ad and also the seller. You can click on the seller section to be taken to the seller’s page to get info about him/her.
-- Finally, for the user’s side, you can press on MotoShare icon at top right to be taken to the home page. Scroll down to the very bottom and lookout for ‘POST AN AD’ button in ‘How it works’ section’s last card.
+- Finally, you can see your posted ads either through a button on the 'My ads' page, or by pressing the MotoShare icon in the top left, returning to the home page and clicking 'post an ad' in the how it works section.
 The new opened page will give you the functionality to post a new ad.
 - For logging in as the <b>admin</b>, go to the login page by pressing login button at the top. Enter ‘admin’ as user and the same as password. Then you’ll be greeted to the admin side of the website.(For now, we have the same login page for user and admin but in the next phase, we’ll create a different hidden login page for admins)
 
