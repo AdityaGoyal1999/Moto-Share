@@ -20,12 +20,12 @@ function App() {
         <Route exact path='/loggedIn' render={() => <HomePage loggedIn={true}/>} />
         <Route exact path='/login' render={() => <AccountAccess isLoginView={true} />} />
         <Route exact path='/signup' render={() => <AccountAccess isLoginView={false} />} />
-        <Route exact path="/admin" render={() => <AdminDataTableView />} />
+        <Route exact path="/admin" render={() => <AdminDataTableView loggedIn={true}/>} />
         <Route exact path="/postedads" render={() => <PostedAds />} />
         <Route exact path='/results' render={() => <Results />} />
         <Route exact path='/postad' render={() => <PostAd />} />
         <Route exact path='/CompleteBikeInfo' render={() => <CompleteBikeInfo />} />
-        <Route exact path="/User" render={()=> <User />} />
+        <Route exact path="/User" render={()=> <User loggedIn={true}/>} />
       </Switch>
     </BrowserRouter>
   );

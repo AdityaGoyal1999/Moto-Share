@@ -31,7 +31,7 @@ class AccountInfo extends React.Component {
   render(){
     return(
         <div id='page'>
-            <NavBar />
+            <NavBar loggedIn={this.props.loggedIn}/>
             <div id='container'>
                 <div id='picContainer'>
                     <img id ='profilePic' src={require('./Profilepic.jpg')} alt= "profile pic"/>
@@ -39,9 +39,12 @@ class AccountInfo extends React.Component {
 
                 <div id='TableContainer'>
                     <div>
-                        <Button onClick={this.utable}> Users Table</Button>
-                        <Button onClick={this.atable}> Ads</Button>
-                        <Button onClick={this.btable}> Bookings</Button>
+                        <Button onClick={this.utable} variant = {this.state.utable ? 'primary': 'secondary'}>
+                            Users Table</Button>
+                        <Button onClick={this.atable} variant = {this.state.atable ? 'primary': 'secondary'}>
+                            Ads Table</Button>
+                        <Button onClick={this.btable} variant = {this.state.btable ? 'primary': 'secondary'}>
+                            Bookings Table</Button>
                     </div>
                     <div id='TableTitleContainer'>
 

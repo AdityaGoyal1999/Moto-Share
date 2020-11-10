@@ -11,7 +11,7 @@ class User extends React.Component {
 
     return (
     	<div className="completeAd">
-	    	<NavBar />
+	    	<NavBar loggedIn={true}/>
 	    	<div className="modifiedContainer">
 		    	<h2>Jane Doe</h2>
 		    	<div className="row">
