@@ -3,6 +3,7 @@ import React from 'react'
 import './style.css'
 import img from './../../static/motorcycle.jpg'
 import NavBar from '../../../NavBar'
+import Footer from '../../../Footer1'
 
 import 'materialize-css'; 
 import 'materialize-css/dist/css/materialize.min.css'
@@ -80,6 +81,7 @@ class CompleteDescription extends React.Component {
 		    	</div>
 		    	</div>
 	    	</div>
+	    	<Footer />
     	</div>
     	);
   }

@@ -3,6 +3,7 @@ import React from 'react'
 import './style.css'
 import img from '../Results/static/motorcycle.jpg'
 import NavBar from '../NavBar'
+import Footer from '../Footer1'
 
 class User extends React.Component {
 
@@ -63,6 +64,7 @@ class User extends React.Component {
 		    	</div>
 		    	</div>
 	    	</div>
+	    	<Footer />
     	</div>
     	);
   }
