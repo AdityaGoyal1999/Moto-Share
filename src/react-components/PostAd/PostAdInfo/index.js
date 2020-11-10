@@ -9,12 +9,12 @@ class PostAdInfo extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            price: null,
-            fromAvaliability: null,
-            toAvaliability: null,
-            pickupLocation: null,
-            driversLicense: null,
-            description: null,
+            price: undefined,
+            fromAvaliability: undefined,
+            toAvaliability: undefined,
+            pickupLocation: undefined,
+            driversLicense: undefined,
+            description: undefined,
         }
     }
 

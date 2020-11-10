@@ -24,7 +24,7 @@ class PostImages extends React.Component {
         return (
             <div id='post-images'>
                 <input type="file" name="file" id="file" className="inputfile" onChange={this.previewImage} />
-                <label for="file">
+                <label htmlFor="file">
                     <img src={this.state.file} alt='' />
                     <span id="addImageTitle"><AddIcon /> <br />Add Image</span>
                 </label>
