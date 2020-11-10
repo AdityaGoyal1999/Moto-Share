@@ -5,6 +5,7 @@ import AdsBoard from './AdsBoard'
 import NavBar from '../NavBar'
 import Footer1 from '../Footer1'
 
+// eslint-disable-next-line
 const getUserData = event => {
   event.preventDefault()
   // SERVER CALL goes here to get Ad Data
