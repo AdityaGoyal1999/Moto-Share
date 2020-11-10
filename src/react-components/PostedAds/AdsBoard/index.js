@@ -5,6 +5,7 @@ import Ads from './Ads'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import easyScroll from 'easy-scroll';
+import { Button } from '@material-ui/core'
 
 /* Overall Component that shows Information about Ads */
 class AdsBoard extends React.Component {
@@ -132,6 +133,11 @@ class AdsBoard extends React.Component {
     }
   }
 
+  clickHandler = () => {
+    //server call goes here for redirection while staying signed in
+    window.open('/postad', '_self')
+  }
+
   render () {
 
     // All the ads to display
@@ -145,6 +151,7 @@ class AdsBoard extends React.Component {
     return (
       <div id='adsBoard'>
         <h2>View Your Ads</h2>
+        <Button onClick={this.clickHandler}>Post New Ad</Button>
         {/* Carousal of ads that user can cycle through */}
         <div id="adsCarousal">
           <button onClick={() => this.scrollAds('left')}><ArrowBackIosIcon id='icon-left' /></button>

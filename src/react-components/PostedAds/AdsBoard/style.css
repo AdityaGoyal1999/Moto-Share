@@ -89,3 +89,8 @@ h2 {
 #adTextInfo {
     font-family: Roboto;
 }
+
+#adsBoard Button {
+    width: 10vw;
+    align-self: center;
+}
