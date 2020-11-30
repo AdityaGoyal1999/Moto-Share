@@ -4,8 +4,8 @@ A platform to rent-share motorcycles.
 ## Set Up
 1. Clone the repository. 
 2. Navigate to the local repository. 
-3. Run `npm install`
-4. Run `npm start` 
+3. Run `npm run-script setup`
+4. Run `npm run-script build-run` 
 
 ## Instructions to the TA
 You being with the home page. From here you can login as a user or admin.(Details given in the Login Section below)
