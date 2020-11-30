@@ -1,0 +1,30 @@
+#loginForm {
+    display: grid;
+    place-items: center;
+    margin-bottom: 5%;
+}
+
+#loginForm label {
+    justify-self: left;
+    color: black;
+}
+
+#loginForm label:hover {
+    background: none;
+    cursor: default;
+}
+
+#loginForm button {
+    width: 100%;
+}
+
+#loginForm input, #loginForm a {
+    display: block;
+    margin: 3%;
+    width: 100%;
+}
+
+#loginForm input[placeholder] {
+    border-width: 0px 0px 1px 0px;
+    border-color: lightgrey;
+}

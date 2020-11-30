@@ -1,0 +1,41 @@
+import React from 'react'
+import { Button } from '@material-ui/core'
+
+import './style.css'
+
+class SearchForm extends React.Component {
+  render () {
+    const clickHandler = () => {
+      // server call will go here to handle search
+      window.open('/results', '_self')
+    }
+
+    return (
+      <form id='searchForm'>
+        <div id='locInput'>
+          <label>Location: </label>
+          <input type='text' placeholder='Enter location here' required />
+        </div>
+
+        <div className='timeInput'>
+          <label>Pickup Time: </label>
+          <input type='time' required />
+          <label>    Pickup Date: </label>
+          <input type='date' required />
+        </div>
+
+        <div className='timeInput'>
+          <label>Dropoff Time: </label>
+          <input type='time' required />
+          <label>    Dropoff Date: </label>
+          <input type='date' required />
+        </div>
+
+        {/* Will call server to handle search, proceed to Results page */}
+        <Button onClick={clickHandler}>Search</Button>
+      </form>
+    )
+  }
+}
+
+export default SearchForm

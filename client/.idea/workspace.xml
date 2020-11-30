@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:Account-Info-View" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="21cba800-f023-42f5-810a-0ac5c39a1e7d" name="Default Changelist" comment="Adding basic admin table">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/react-components/AdminDataTableView/AdTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/react-components/AdminDataTableView/BookingsTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/react-components/AdminDataTableView/UserTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/react-components/AccountInfo/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/react-components/AccountInfo/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/react-components/AdminDataTableView/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/react-components/AdminDataTableView/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/react-components/AdminDataTableView/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/react-components/AdminDataTableView/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="master" />
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="sellers-ads" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ja38yeyPDwCwFJpGwQTeehzAQ8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/react-components/AdminDataTableView" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\test\team14\src\react-components\AdminDataTableView" />
+      <recent name="C:\test\team14\src\react-components" />
+      <recent name="C:\test\team14\src\react-components\PersonalInfo" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\test\team14\src\react-components\AccountInfo" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="21cba800-f023-42f5-810a-0ac5c39a1e7d" name="Default Changelist" comment="" />
+      <created>1604028220246</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604028220246</updated>
+      <workItem from="1604028221378" duration="13014000" />
+      <workItem from="1604760414969" duration="15763000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added folder for AccountInfo View">
+      <created>1604030254070</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604030254070</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Updated Profile View">
+      <created>1604036691810</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604036691810</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adding basic admin table">
+      <created>1604039271959</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604039271959</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Account-Info-View" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added folder for AccountInfo View" />
+    <MESSAGE value="Updated Profile View" />
+    <MESSAGE value="Adding basic admin table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding basic admin table" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604038695913">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.299.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1604038695913" />
+    <state x="-1853" y="-97" key="DiffContextDialog" timestamp="1604962300155">
+      <screen x="-1920" y="-312" width="1920" height="1050" />
+    </state>
+    <state x="-1853" y="-97" key="DiffContextDialog/0.0.1366.738/-1920.-312.1920.1050@-1920.-312.1920.1050" timestamp="1604962300155" />
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1604029006126">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="279" key="FileChooserDialogImpl/1920.299.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1604029006126" />
+    <state width="1899" height="266" key="GridCell.Tab.0.bottom" timestamp="1604077980587">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="266" key="GridCell.Tab.0.bottom/1920.299.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1604077980587" />
+    <state width="1899" height="266" key="GridCell.Tab.0.center" timestamp="1604077980587">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="266" key="GridCell.Tab.0.center/1920.299.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1604077980587" />
+    <state width="1899" height="266" key="GridCell.Tab.0.left" timestamp="1604077980586">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="266" key="GridCell.Tab.0.left/1920.299.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1604077980586" />
+    <state width="1899" height="266" key="GridCell.Tab.0.right" timestamp="1604077980587">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="266" key="GridCell.Tab.0.right/1920.299.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1604077980587" />
+    <state x="-1079" y="-67" key="RollbackChangesDialog" timestamp="1604962309216">
+      <screen x="-1920" y="-312" width="1920" height="1050" />
+    </state>
+    <state x="-1079" y="-67" key="RollbackChangesDialog/0.0.1366.738/-1920.-312.1920.1050@-1920.-312.1920.1050" timestamp="1604962309216" />
+    <state x="841" y="245" key="RollbackChangesDialog/1920.299.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1604036660887" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1604039274210">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/1920.299.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1604039274210" />
+    <state x="-1143" y="126" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604962155904">
+      <screen x="-1920" y="-312" width="1920" height="1050" />
+    </state>
+    <state x="-1143" y="126" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738/-1920.-312.1920.1050@-1920.-312.1920.1050" timestamp="1604962155904" />
+    <state x="777" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.299.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1604071801195" />
+    <state x="740" y="237" key="git4idea.branch.GitSmartOperationDialog" timestamp="1604029669302">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="237" key="git4idea.branch.GitSmartOperationDialog/1920.299.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1604029669302" />
+    <state x="-1533" y="91" key="run.anything.popup" timestamp="1604968317521">
+      <screen x="-1920" y="-312" width="1920" height="1050" />
+    </state>
+    <state x="-1533" y="91" key="run.anything.popup/0.0.1366.738/-1920.-312.1920.1050@-1920.-312.1920.1050" timestamp="1604968317521" />
+  </component>
+</project>
