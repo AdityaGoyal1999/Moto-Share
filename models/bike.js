@@ -16,7 +16,10 @@ const BikeSchema = new mongoose.Schema({
     },
     location: String,
     rating: Number,
-    availability: {
+    availabilityStart: {
+        type: Date
+    },
+    availabilityEnd: {
         type: Date
     },
     reviews: Array[String],
