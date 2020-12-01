@@ -1,10 +1,9 @@
-const mongoose = require('mongoose');
-
 /* User model */
 'use strict';
 
 const mongoose = require('mongoose')
 
+const Schema = mongoose.Schema
 
 const BikeSchema = new mongoose.Schema({
 
@@ -22,14 +21,14 @@ const BikeSchema = new mongoose.Schema({
     availabilityEnd: {
         type: Date
     },
-    reviews: Array[String],
+    reviews: [String],
     ownwer: {type: Schema.ObjectId, ref: 'UserSchema'},
     price: Number,
     license: String,
-    description, String,
+    description: String,
     renter: {type: Schema.ObjectId, ref: 'UserSchema'},
-    review: Array[String],
-    prevRenters: Array[{type: Schema.ObjectId, ref: 'UserSchema'}],
+    review: [String],
+    prevRenters: [{type: Schema.ObjectId, ref: 'UserSchema'}],
     image_id: {
         type: String,
         required: false

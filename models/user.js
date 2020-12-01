@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
-
 /* User model */
 'use strict';
 
 const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
+
+const Schema = mongoose.Schema
 
 // Making a Mongoose model a little differently: a Mongoose Schema
 // Allows us to add additional functionality.
@@ -34,9 +34,9 @@ const UserSchema = new mongoose.Schema({
     },
     location: String,
     rating: Number,
-    reviews: Array[String],
+    reviews: [String],
     rentedTo: Number,
-    bikes: Array[{type: Schema.ObjectId, ref: 'BikeSchema'}],
+    bikes: [{type: Schema.ObjectId, ref: 'BikeSchema'}],
     image_id: {
         type: String,
         required: false
