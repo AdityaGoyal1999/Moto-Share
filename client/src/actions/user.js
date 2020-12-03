@@ -1,0 +1,55 @@
+export const getUsers = (userList) => {
+    
+    // the URL for the request
+    const url = "/api/users";
+
+    fetch(url)
+        .then(res => {
+            if (res.status === 200) {
+                // return a promise that resolves with the JSON body
+                return res.json();
+            } else {
+                alert("Could not get users");
+            }
+        })
+        .then(json => {
+            // the resolved promise with the JSON body
+            userList.setState({ userList: json.users });
+        })
+        .catch(error => {
+            console.log(error);
+        });
+};
+
+// A function to send a POST request with a new student
+export const addUser = (formComp) => {
+    // the URL for the request
+    const url = "/api/users";
+
+    const user = formComp.state
+
+    // Create our request constructor with all the parameters we need
+    const request = new Request(url, {
+        method: "post",
+        body: JSON.stringify(user),
+        headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json"
+        }
+    });
+
+    // Send the request with fetch()
+    fetch(request)
+        .then(function (res) {
+
+            // Handle response we get from the API.
+            if (res.status === 200) {
+
+            } else {
+          
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
+};
