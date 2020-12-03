@@ -24,6 +24,11 @@
     outline-width: 0px;
 }
 
+#searchForm label:hover {
+    background: none;
+    cursor: default;
+}
+
 .timeInput {
     display: flex;
     flex-direction: row;

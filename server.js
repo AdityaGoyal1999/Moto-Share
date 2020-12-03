@@ -1,6 +1,7 @@
 'use strict'
 const express = require('express')
 const path = require('path')
+const session = require('express-session')
 
 const app = express()
 
@@ -34,6 +35,17 @@ const mongoChecker = (req, res, next) => {
         next()  
     }   
 }
+
+// session middleware
+app.use(session({
+    secret: 'hardcoded secret',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        expires: 60000,
+        httpOnly: true,
+    }
+}))
 
 app.use(express.static(path.join(__dirname, '/client/build')))
 
