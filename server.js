@@ -47,6 +47,8 @@ app.use(session({
     }
 }))
 
+app.use(require('./routes/user'))
+
 app.use(express.static(path.join(__dirname, '/client/build')))
 
 app.get('*', (req, res) => {
