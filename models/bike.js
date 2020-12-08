@@ -22,7 +22,7 @@ const BikeSchema = new mongoose.Schema({
         type: Date
     },
     reviews: [String],
-    ownwer: {type: Schema.ObjectId, ref: 'UserSchema'},
+    owner: {type: Schema.ObjectId, ref: 'UserSchema'},
     price: Number,
     license: String,
     description: String,

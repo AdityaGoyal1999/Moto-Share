@@ -48,6 +48,7 @@ app.use(session({
 }))
 
 app.use(require('./routes/user'))
+app.use(require('./routes/bike'))
 
 app.use(express.static(path.join(__dirname, '/client/build')))
 

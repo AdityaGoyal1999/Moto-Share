@@ -9,7 +9,6 @@ const { User } = require('../models/user')
 
 // body-parser: middleware for parsing HTTP JSON body into a usable object
 const bodyParser = require('body-parser')
-const user = require('../models/user')
 router.use(bodyParser.json())
 
 function isMongoError (error) { // checks for first error returned by promise rejection if Mongo database suddently disconnects
@@ -161,27 +160,6 @@ router.patch('/api/users/:id/image', mongoChecker, idChecker, (req, res) => {
   })
 })
 
-// get user by email/pass
-// expects: 
-// {
-//   email: 'email address',
-//   password: 'password'
-// }
-router.get('/api/userByEmail', mongoChecker, (req, res) => {
-  // call the thingy
-  User.findByEmailPassword(req.body.email, req.body.password).then(result => {
-    res.send(result)
-  }).catch(error => {
-    log(error)
-    if (isMongoError(error)) {
-      res.status(500).send('internal server error')
-    } else if (error && error.message === '404') {
-      res.status(404).send('resource not found')
-    } else {
-      res.status(400).send('bad request')
-    }
-  })
-})
 
 // delete a user
 router.delete('/api/users/:id', mongoChecker, idChecker, (req, res) => {
