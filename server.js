@@ -20,6 +20,12 @@ const { ObjectID } = require("mongodb");
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
+// express-session for managing user sessions
+const session = require("express-session");
+const MongoStore = require('connect-mongo')(session);
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
 function isMongoError(error) { // checks for first error returned by promise rejection if Mongo database suddently disconnects
     return typeof error === 'object' && error !== null && error.name === "MongoNetworkError"
 }
@@ -36,6 +42,7 @@ const mongoChecker = (req, res, next) => {
     }   
 }
 
+<<<<<<< HEAD
 // session middleware
 app.use(session({
     secret: 'hardcoded secret',
@@ -48,6 +55,51 @@ app.use(session({
 }))
 
 app.use(require('./routes/user'))
+=======
+// Middleware for authentication of resources
+const authenticate = (req, res, next) => {
+    if (req.session.user) {
+        User.findById(req.session.user).then((user) => {
+            if (!user) {
+                return Promise.reject()
+            } else {
+                req.user = user
+                next()
+            }
+        }).catch((error) => {
+            res.status(401).send("Unauthorized")
+        })
+    } else {
+        res.status(401).send("Unauthorized")
+    }
+}
+
+// Create a session and session cookie
+app.use(
+    session({
+        secret: "our hardcoded secret",
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            expires: 60000,
+            httpOnly: true
+        },
+        store: new MongoStore({ mongooseConnection: mongoose.connection })
+    })
+);
+
+
+// A route to check if a user is logged in on the session
+app.get("/api/users/check-session", (req, res) => {
+  
+    if (req.session.user) {
+        res.send({ currentUser: req.session.email });
+    } else {
+        res.status(401).send();
+    }
+});
+
+>>>>>>> session-authentication
 
 app.use(express.static(path.join(__dirname, '/client/build')))
 
