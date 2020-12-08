@@ -74,7 +74,7 @@ router.post('/api/users/:id', mongoChecker, idChecker, (req, res) => {
     avail_from: req.body.avail_from,
     avail_to: req.body.avail_to,
     location: req.body.location,
-    license: req.body.licence_plate,
+    licence: req.body.licence_plate,
     description: req.body.description,
     image_id: req.body.image_id || '',
     image_url: req.body.image_url || ''
@@ -120,7 +120,7 @@ router.patch('/api/bikes/:id', mongoChecker, idChecker, (req, res) => {
     'avail_from': req.body.avail_from,
     'avail_to': req.body.avail_to,
     'location': req.body.location,
-    'licence_plate': req.body.licence_plate,
+    'licence': req.body.licence_plate,
     'description': req.body.description,
     'image_id': req.body.image_id || '',
     'image_url': req.body.image_url || ''
@@ -160,22 +160,25 @@ router.get('/api/bikes/:id', mongoChecker, idChecker, (req, res) => {
 })
 
 // delete bike by id
-router.delete('/api/bikes/:id', mongoChecker, idChecker, (req, res) => {
-  Bike.findByIdAndDelete(req.params.id).then(result => {
-    if (result) {
-      result.owner.bikes = result.owner.bikes.filter(bike => bike !== result)
-      result.owner.save()
+router.delete('/api/bikes/:id', mongoChecker, idChecker, async (req, res) => {
+  try {
+    const deleted = await Bike.findByIdAndDelete(req.params.id)
+    if (deleted) {
+      const owner = await User.findById(deleted.owner)
+      owner.bikes = owner.bikes.filter(bike => bike.toString() !== deleted._id.toString())
+      owner.save()
+      res.send(deleted)
     } else {
       res.status(404).send('resource not found')
     }
-  }).catch(error => {
+  } catch (error) {
     log(error)
     if (isMongoError(error)) {
       res.status(500).send('internal server error')
     } else {
       res.status(400).send('bad request')
     }
-  })
+  }
 })
 
 // post review for a bike
@@ -188,9 +191,10 @@ router.post('/api/bikes/:id/reviews', mongoChecker, idChecker, (req, res) => {
   Bike.findById(req.params.id).then(result => {
     if (result) {
       result.rating = (result.rating * result.reviews.length + req.body.rating )
-       / (result.reviews.length + 1)
+       / (result.reviews.length + 1) || req.body.rating
       result.reviews.push(req.body.review)
       result.save()
+      res.send(result)
     } else {
       res.status(404).send('resource not found')
     }
@@ -217,8 +221,9 @@ router.post('/api/bikes/:id/rent', mongoChecker, idChecker, async (req, res) => 
     const bike = await Bike.findById(req.params.id)
     const user = await User.findById(req.body.uid)
     if (bike && user) {
-      bike.renter = uid
+      bike.renter = req.body.uid
       bike.save()
+      res.send({ bike: bike, rentedTo: user })
     } else {
       res.status(404).send('resource not found')
     }
@@ -239,6 +244,7 @@ router.post('/api/bikes/:id/return', mongoChecker, idChecker, (req, res) => {
       result.prevRenters.push(result.renter)
       result.renter = null
       result.save()
+      res.send(result)
     } else {
       res.status(404).send('resource not found')
     }

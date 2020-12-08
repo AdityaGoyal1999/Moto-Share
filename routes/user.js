@@ -6,6 +6,7 @@ const router = express.Router()
 const { mongoose } = require('../db/mongoose')
 const { ObjectID } = require('mongodb')
 const { User } = require('../models/user')
+const { Bike } = require('../models/bike')
 
 // body-parser: middleware for parsing HTTP JSON body into a usable object
 const bodyParser = require('body-parser')
@@ -184,22 +185,28 @@ router.patch('/api/users/:id/image', mongoChecker, idChecker, (req, res) => {
 })
 
 
-// delete a user
-router.delete('/api/users/:id', mongoChecker, idChecker, (req, res) => {
-  User.findByIdAndDelete(req.params.id).then(result => {
-    if (!result) {
-      res.status(404).send('resource not found')
+// delete a user and all their bikes
+router.delete('/api/users/:id', mongoChecker, idChecker, async (req, res) => {
+  try {  
+    const user = await User.findByIdAndDelete(req.params.id)
+    if (user) {
+      let deletedBikes = []
+      for (let i = 0; i < user.bikes.length; i++) {
+        const bike = await Bike.findByIdAndDelete(user.bikes[i])
+        deletedBikes.push(bike)
+      }
+      res.send({ user: user, deletedBikes: deletedBikes })
     } else {
-      res.send(result)
+      res.status(404).send('resource not found')
     }
-  }).catch(error => {
+  } catch (error) {
     log(error)
     if (isMongoError(error)) {
       res.status(500).send('internal server error')
     } else {
       res.status(400).send('bad request')
     }
-  })
+  }
 })
 
 module.exports = router
