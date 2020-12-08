@@ -1,3 +1,26 @@
+// Send a request to check if a user is logged in through the session cookie
+export const checkSession = (app) => {
+    const url = `/api/users/check-session`;
+
+    fetch(url)
+    .then(res => {
+        if (res.status === 200) {
+            return res.json();
+        }
+    })
+    .then(json => {
+        if (json && json.currentUser) {
+            app.setState({ currentUser: json.currentUser });
+        }
+    })
+    .catch(error => {
+        console.log(error);
+    });
+    
+    
+};
+
+
 export const getUsers = (userList) => {
     
     // the URL for the request
