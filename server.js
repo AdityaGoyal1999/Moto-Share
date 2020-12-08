@@ -84,6 +84,8 @@ app.get("/api/users/check-session", (req, res) => {
     }
 });
 
+app.use(require('./routes/user'))
+app.use(require('./routes/bike'))
 
 app.use(express.static(path.join(__dirname, '/client/build')))
 

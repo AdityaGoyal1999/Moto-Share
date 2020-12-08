@@ -55,16 +55,15 @@ UserSchema.pre('save', function(next) {
 	// checks to ensure we don't hash password more than once
 	if (user.isModified('password')) {
 		// generate salt and hash the password
-		bcrypt.genSalt(10, (err, salt) => {
-			bcrypt.hash(user.password, salt, (err, hash) => {
-				user.password = hash
-				next()
-			})
+		bcrypt.hash(user.password, 10, (err, hash) => {
+			user.password = hash
+			next()
 		})
 	} else {
 		next()
 	}
 })
+
 
 
 // Allows us to find a User document by comparing the hashed password
@@ -75,7 +74,7 @@ UserSchema.statics.findByEmailPassword = function(email, password) {
 	// First find the user by their email
 	return User.findOne({ email: email }).then((user) => {
 		if (!user) {
-			return Promise.reject()  // a rejected promise
+			return Promise.reject(new Error('404'))  // a rejected promise
 		}
 		// if the user exists, make sure their password is correct
 		return new Promise((resolve, reject) => {
@@ -83,11 +82,11 @@ UserSchema.statics.findByEmailPassword = function(email, password) {
 				if (result) {
 					resolve(user)
 				} else {
-					reject()
+					reject(err)
 				}
 			})
 		})
-	})
+    })
 }
 
 // make a model using the User schema

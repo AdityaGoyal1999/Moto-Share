@@ -22,12 +22,12 @@ const BikeSchema = new mongoose.Schema({
         type: Date
     },
     reviews: [String],
-    ownwer: {type: Schema.ObjectId, ref: 'UserSchema'},
+    owner: {type: Schema.ObjectId, ref: 'UserSchema'},
     price: Number,
-    license: String,
+    licence: String,
     description: String,
     renter: {type: Schema.ObjectId, ref: 'UserSchema'},
-    review: [String],
+    reviews: [String],
     prevRenters: [{type: Schema.ObjectId, ref: 'UserSchema'}],
     image_id: {
         type: String,
