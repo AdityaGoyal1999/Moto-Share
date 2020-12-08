@@ -4,7 +4,7 @@ const express = require('express')
 const router = express.Router()
 
 const { mongoose } = require('../db/mongoose')
-const { ObjectID } = require('mongodb')
+const { ObjectID, ObjectId } = require('mongodb')
 const { User } = require('../models/user')
 const { Bike } = require('../models/bike')
 
@@ -165,6 +165,80 @@ router.delete('/api/bikes/:id', mongoChecker, idChecker, (req, res) => {
     if (result) {
       result.owner.bikes = result.owner.bikes.filter(bike => bike !== result)
       result.owner.save()
+    } else {
+      res.status(404).send('resource not found')
+    }
+  }).catch(error => {
+    log(error)
+    if (isMongoError(error)) {
+      res.status(500).send('internal server error')
+    } else {
+      res.status(400).send('bad request')
+    }
+  })
+})
+
+// post review for a bike
+// expects:
+// {
+//   rating: rating (number),
+//   review: 'review of bike'
+// }
+router.post('/api/bikes/:id/reviews', mongoChecker, idChecker, (req, res) => {
+  Bike.findById(req.params.id).then(result => {
+    if (result) {
+      result.rating = (result.rating * result.reviews.length + req.body.rating )
+       / (result.reviews.length + 1)
+      result.reviews.push(req.body.review)
+      result.save()
+    } else {
+      res.status(404).send('resource not found')
+    }
+  }).catch(error => {
+    log(error)
+    if (isMongoError(error)) {
+      res.status(500).send('internal server error')
+    } else {
+      res.status(400).send('bad request')
+    }
+  })
+})
+
+// rent bike to user
+// expects: 
+// {
+//   uid: userid
+// }
+router.post('/api/bikes/:id/rent', mongoChecker, idChecker, async (req, res) => {
+  if (!ObjectID.isValid(req.body.uid)) {
+    return
+  }
+  try {
+    const bike = await Bike.findById(req.params.id)
+    const user = await User.findById(req.body.uid)
+    if (bike && user) {
+      bike.renter = uid
+      bike.save()
+    } else {
+      res.status(404).send('resource not found')
+    }
+  } catch (error) {
+    log(error)
+    if (isMongoError(error)) {
+      res.status(500).send('internal server error')
+    } else {
+      res.status(400).send('bad request')
+    }
+  } 
+})
+
+// return bike
+router.post('/api/bikes/:id/return', mongoChecker, idChecker, (req, res) => {
+  Bike.findById(req.params.id).then(result => {
+    if (result) {
+      result.prevRenters.push(result.renter)
+      result.renter = null
+      result.save()
     } else {
       res.status(404).send('resource not found')
     }

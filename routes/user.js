@@ -51,6 +51,29 @@ router.get('/api/users', mongoChecker, (req, res) => {
   })
 })
 
+// get user by email & password
+// expects:
+// {
+//   email: 'user email',
+//   password: 'password'
+// }
+router.get('/api/users/login', mongoChecker, (req, res) => {
+  User.findByEmailPassword(req.body.email, req.body.password).then(result => {
+    if (result) {
+      res.send(result)
+    } else {
+      res.status(404).send('resource not found')
+    }
+  }).catch(error => {
+    log(error)
+    if (isMongoError(error)) {
+      res.status(500).send('internal server error')
+    } else {
+      res.status(400).send('bad request')
+    }
+  })
+})
+
 // create user
 // Expects:
 // {
@@ -110,7 +133,7 @@ router.get('/api/users/:id', mongoChecker, idChecker, (req, res) => {
 //   rating: rating given by review,
 //   review: 'the review'
 // }
-router.patch('/api/users/:id/reviews', mongoChecker, idChecker, (req, res) => {
+router.post('/api/users/:id/reviews', mongoChecker, idChecker, (req, res) => {
   User.findById(req.params.id).then(result => {
     if (!result) {
       res.status(404).send('resource not found')
