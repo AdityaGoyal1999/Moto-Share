@@ -42,20 +42,6 @@ const mongoChecker = (req, res, next) => {
     }   
 }
 
-<<<<<<< HEAD
-// session middleware
-app.use(session({
-    secret: 'hardcoded secret',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        expires: 60000,
-        httpOnly: true,
-    }
-}))
-
-app.use(require('./routes/user'))
-=======
 // Middleware for authentication of resources
 const authenticate = (req, res, next) => {
     if (req.session.user) {
@@ -99,7 +85,6 @@ app.get("/api/users/check-session", (req, res) => {
     }
 });
 
->>>>>>> session-authentication
 
 app.use(express.static(path.join(__dirname, '/client/build')))
 

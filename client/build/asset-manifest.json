@@ -1,31 +1,18 @@
 {
   "files": {
-<<<<<<< HEAD
     "main.css": "/static/css/main.bfe6c0ab.chunk.css",
-    "main.js": "/static/js/main.616c2c8a.chunk.js",
-    "main.js.map": "/static/js/main.616c2c8a.chunk.js.map",
-=======
-    "main.css": "/static/css/main.e54c619d.chunk.css",
-    "main.js": "/static/js/main.471e9898.chunk.js",
-    "main.js.map": "/static/js/main.471e9898.chunk.js.map",
->>>>>>> session-authentication
+    "main.js": "/static/js/main.fc115b6e.chunk.js",
+    "main.js.map": "/static/js/main.fc115b6e.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.893c1bcf.js",
     "runtime-main.js.map": "/static/js/runtime-main.893c1bcf.js.map",
     "static/css/2.93291aea.chunk.css": "/static/css/2.93291aea.chunk.css",
     "static/js/2.ca488075.chunk.js": "/static/js/2.ca488075.chunk.js",
     "static/js/2.ca488075.chunk.js.map": "/static/js/2.ca488075.chunk.js.map",
     "index.html": "/index.html",
-<<<<<<< HEAD
-    "precache-manifest.437b4c073795550e76bd55e566c5b4c6.js": "/precache-manifest.437b4c073795550e76bd55e566c5b4c6.js",
+    "precache-manifest.3d86d48b4b97ac152a8db173dab26ba6.js": "/precache-manifest.3d86d48b4b97ac152a8db173dab26ba6.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.93291aea.chunk.css.map": "/static/css/2.93291aea.chunk.css.map",
     "static/css/main.bfe6c0ab.chunk.css.map": "/static/css/main.bfe6c0ab.chunk.css.map",
-=======
-    "precache-manifest.6a188f1af59ec2edfc92c15bdd8de087.js": "/precache-manifest.6a188f1af59ec2edfc92c15bdd8de087.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.93291aea.chunk.css.map": "/static/css/2.93291aea.chunk.css.map",
-    "static/css/main.e54c619d.chunk.css.map": "/static/css/main.e54c619d.chunk.css.map",
->>>>>>> session-authentication
     "static/js/2.ca488075.chunk.js.LICENSE.txt": "/static/js/2.ca488075.chunk.js.LICENSE.txt",
     "static/media/Profilepic.jpg": "/static/media/Profilepic.33e98c73.jpg",
     "static/media/motorcycle.jpg": "/static/media/motorcycle.a5cd0f95.jpg",
@@ -35,12 +22,7 @@
     "static/js/runtime-main.893c1bcf.js",
     "static/css/2.93291aea.chunk.css",
     "static/js/2.ca488075.chunk.js",
-<<<<<<< HEAD
     "static/css/main.bfe6c0ab.chunk.css",
-    "static/js/main.616c2c8a.chunk.js"
-=======
-    "static/css/main.e54c619d.chunk.css",
-    "static/js/main.471e9898.chunk.js"
->>>>>>> session-authentication
+    "static/js/main.fc115b6e.chunk.js"
   ]
 }

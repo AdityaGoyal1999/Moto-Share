@@ -1,10 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-<<<<<<< HEAD:client/build/precache-manifest.437b4c073795550e76bd55e566c5b4c6.js
-    "revision": "f7edacb7eae25faef99bd34e7dd2828f",
-=======
-    "revision": "fcea986716d2c290bc8c811fd8263042",
->>>>>>> session-authentication:client/build/precache-manifest.6a188f1af59ec2edfc92c15bdd8de087.js
+    "revision": "797f255a05596b6e70168cdeb6bd5b61",
     "url": "/index.html"
   },
   {
@@ -12,13 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/css/2.93291aea.chunk.css"
   },
   {
-<<<<<<< HEAD:client/build/precache-manifest.437b4c073795550e76bd55e566c5b4c6.js
-    "revision": "950d2814676f11eb6062",
+    "revision": "bab5a7ef8debb97b4711",
     "url": "/static/css/main.bfe6c0ab.chunk.css"
-=======
-    "revision": "e3dc80d61a8f82a5c1e8",
-    "url": "/static/css/main.e54c619d.chunk.css"
->>>>>>> session-authentication:client/build/precache-manifest.6a188f1af59ec2edfc92c15bdd8de087.js
   },
   {
     "revision": "194695e7f3a372c8d8c1",
@@ -29,13 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.ca488075.chunk.js.LICENSE.txt"
   },
   {
-<<<<<<< HEAD:client/build/precache-manifest.437b4c073795550e76bd55e566c5b4c6.js
-    "revision": "950d2814676f11eb6062",
-    "url": "/static/js/main.616c2c8a.chunk.js"
-=======
-    "revision": "e3dc80d61a8f82a5c1e8",
-    "url": "/static/js/main.471e9898.chunk.js"
->>>>>>> session-authentication:client/build/precache-manifest.6a188f1af59ec2edfc92c15bdd8de087.js
+    "revision": "bab5a7ef8debb97b4711",
+    "url": "/static/js/main.fc115b6e.chunk.js"
   },
   {
     "revision": "c0a56281906e56cd35f1",
