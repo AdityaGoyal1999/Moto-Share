@@ -1,3 +1,8 @@
+import axios from "axios";
+
+// The SERVER_BASE_URL environment variable should be defined when deploying
+// axios.defaults.baseURL = process.env.SERVER_BASE_URL || "http://localhost:5000";
+
 // Send a request to check if a user is logged in through the session cookie
 export const checkSession = (app) => {
     const url = `/api/users/check-session`;
@@ -49,18 +54,16 @@ export const addUser = (formComp) => {
     // the URL for the request
     const url = "/api/users";
 
-    const user = formComp.state
-
     // Create our request constructor with all the parameters we need
     const request = new Request(url, {
         method: "post",
-        body: JSON.stringify(user),
+        body: JSON.stringify(formComp),
         headers: {
             Accept: "application/json, text/plain, */*",
             "Content-Type": "application/json"
         }
     });
-
+    console.log(formComp)
     // Send the request with fetch()
     fetch(request)
         .then(function (res) {
@@ -69,7 +72,7 @@ export const addUser = (formComp) => {
             if (res.status === 200) {
 
             } else {
-          
+
             }
         })
         .catch(error => {
