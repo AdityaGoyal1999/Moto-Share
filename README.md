@@ -102,7 +102,7 @@ The new opened page will give you the functionality to post a new ad.
   * expects: 
   ```json
   {
-    "rating": numberRating,
+    "rating": 5,
     "review": "The review as a string"
   }
   ```
@@ -187,7 +187,7 @@ The new opened page will give you the functionality to post a new ad.
   ```json
   {
     "name": "name string",
-    "price": priceNumber,
+    "price": 5,
     "avail-from": "yyyy-mm-dd",
     "avail-to": "yyyy-mm-dd",
     "location": "location details",
@@ -237,7 +237,7 @@ The new opened page will give you the functionality to post a new ad.
   ```json
   {
     "name": "name string",
-    "price": priceNumber,
+    "price": 10,
     "avail-from": "yyyy-mm-dd",
     "avail-to": "yyyy-mm-dd",
     "location": "location details",
@@ -276,7 +276,7 @@ The new opened page will give you the functionality to post a new ad.
   * expects:
   ```json
   {
-    "rating": number,
+    "rating": 5,
     "review": "review string"
   }
   ```
