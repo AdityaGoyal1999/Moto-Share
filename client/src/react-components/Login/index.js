@@ -4,17 +4,6 @@ import {login} from '../../actions/user'
 
 import './style.css'
 
-// <form id='loginForm'>
-//   <label>Username:</label>
-//   <input type='text' placeholder='Enter username' name='username' required />
-//   <label>Password:</label>
-//   <input type='password' placeholder='Enter password' name='password' required />
-//   <Button onClick={handleSubmit}>Log In</Button>
-//   <label className='errorMessage'>Error: Username and Password not found</label>
-// </form>
-
-
-
 // The login form
 class Login extends React.Component {
   constructor(props) {
@@ -23,7 +12,7 @@ class Login extends React.Component {
         email: null,
         password: null,
     }
-    // this.props.history.push('/login')
+    this.props.history.push('/login')
 }
 handleOnChangeEmail = (new_email) => {
     this.setState((state) => {
@@ -43,7 +32,7 @@ handleOnChangePassword = (new_password) => {
   });
 };
 
-handleSubmit = async (event, app) => {
+handleSubmit = async (event) => {
   const form = event.currentTarget;
   if (form.checkValidity() === false) {
       console.log("cas");
@@ -57,24 +46,23 @@ handleSubmit = async (event, app) => {
   };
   try {
       console.log("login")
-      login(payload);
-      
-    //   app.setState({currentUser: responseData.currentUser})
-    //   console.log(responseData)
-    //   console.log(app.state.currentUser)
-    //   console.log(errorMessage)
-      // console.log(responseData);
-      //
-      // if (!responseData) {
-      //     alert(errorMessage);
-      // } else {
-      //     // successfully logged in
-      //     this.context.setCurrentUser({
-      //         accessToken: responseData.accessToken,
-      //         userId: responseData.userId,
-      //     });
-      //     this.props.history.push("/landing");
-      // }
+      login(payload)
+          .then(json => {
+              console.log("inside login json ", json)
+              if (json.error === ""){
+                  this.props.history.push("/loggedIn");
+              }else{
+                  console.log("Error ")
+
+                  // return null
+              }
+          })
+          .catch(error => {
+              window.location.reload(false)
+              // document.querySelector("input[name='email']").value = ""
+              // document.querySelector("input[name='password']").value = ""
+              console.log(error);
+          });
   } catch (error) {
       alert(
           "An error occurred connecting to the server," +

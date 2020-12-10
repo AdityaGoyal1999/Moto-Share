@@ -96,17 +96,17 @@ router.post('/api/users/login', mongoChecker, async (req, res) => {
   let user = await User.findOne({email: req.body.email}).exec();
   // if the email does not exist
   if (!user) {
-      return res.status(400).json({error: 'No User'});
+      return res.status.send(400).json({error: 'Unable to login'});
   }
 
   //check if password is correct
   const validPassword = await bcrypt.compare(req.body.password, user.password);
   if (!validPassword)
-      return res.status(400).json({error: 'Password is incorrect'});
+      return res.status.send(400).json({error: 'Password is incorrect'});
 
   req.session.user = user._id;
   req.session.email = user.email;
-  res.send({ currentUser: user._id });
+  res.send({ currentUser: user._id, error: ''});
   
   // const accessToken = jwt.sign({userId: user}, 'SECRET_TOKEN');//should be user._Id?
   // res.header('auth-token', accessToken).json({accessToken: accessToken, userId: user._id});

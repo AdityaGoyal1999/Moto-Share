@@ -19,33 +19,12 @@ const axiosRequest = (method, url, data) => {
         return { responseData: null, errorMessage: error.response.data.error };
       });
   };
-  
+
 
 export const addUser = (payload) => {
-    const returnVal = axiosRequest("POST", "/api/users", payload);
-    return returnVal;
-};
 
-export const getUserByID = (id) => {
-    const returnVal = axiosRequest("GET", "/api/users/" + id);
-    return returnVal;
-};
-
-export const addReview = (id, payload) => {
-    const returnVal = axiosRequest("POST", "/api/users/" + id + "/reviews", payload);
-    return returnVal;
-};
-
-export const deleteUserByID = (id) => {
-    const returnVal = axiosRequest("DELETE", "/api/users/" + id);
-    return returnVal;
-};
-
-
-export const login = (payload) => {
-    
     // the URL for the request
-    const url = "/api/users/login";
+    const url = "/api/users";
 
     // Create our request constructor with all the parameters we need
     const request = new Request(url, {
@@ -67,11 +46,57 @@ export const login = (payload) => {
             }
         })
         .then(json => {
-            // the resolved promise with the JSON body
-            // userList.setState({ userList: json.users });
+            // console.log("json", json, json.password, json.email)
+            // console.log("payload", payload.password, payload.email)
+            const pload = {
+                email: payload.email,
+                password: payload.password
+            }
+            login(pload)
         })
         .catch(error => {
             console.log(error);
+        });
+};
+
+export const getUserByID = (id) => {
+    return axiosRequest("GET", "/api/users/" + id);
+};
+
+export const addReview = (id, payload) => {
+    return axiosRequest("POST", "/api/users/" + id + "/reviews", payload);
+};
+
+export const deleteUserByID = (id) => {
+    return axiosRequest("DELETE", "/api/users/" + id);
+};
+
+
+export const login = (payload) => {
+    
+    // the URL for the request
+    const url = "/api/users/login";
+
+    // Create our request constructor with all the parameters we need
+    const request = new Request(url, {
+        method: "post",
+        body: JSON.stringify(payload),
+        headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json"
+        }
+    });
+
+
+    // const obj = null
+    return fetch(request)
+        .then(res => {
+            if (res.status === 200) {
+                // return a promise that resolves with the JSON body
+                return res.json();
+            } else {
+                alert("Could not get users");
+            }
         });
 };
 
@@ -97,24 +122,24 @@ export const checkSession = (app) => {
   
 };
 
-// 
-export const getUserByID = (id) => {
-    const url = `/api/users/`+id;
 
-    fetch(url)
-    .then(res => {
-        if (res.status === 200) {
-            return res.json();
-        }
-    })
-    .then(json => {
-        
-    })
-    .catch(error => {
-        console.log(error);
-    });
-  
-};
+// export const getUserByID = (id) => {
+//     const url = `/api/users/`+id;
+//
+//     fetch(url)
+//     .then(res => {
+//         if (res.status === 200) {
+//             return res.json();
+//         }
+//     })
+//     .then(json => {
+//
+//     })
+//     .catch(error => {
+//         console.log(error);
+//     });
+//
+// };
 
 
 // export const getUsers = (userList) => {
@@ -134,38 +159,6 @@ export const getUserByID = (id) => {
 //         .then(json => {
 //             // the resolved promise with the JSON body
 //             userList.setState({ userList: json.users });
-//         })
-//         .catch(error => {
-//             console.log(error);
-//         });
-// };
-
-
-// A function to send a POST request with a new student
-// export const addUser = (formComp) => {
-//     // the URL for the request
-//     const url = "/api/users";
-
-//     // Create our request constructor with all the parameters we need
-//     const request = new Request(url, {
-//         method: "post",
-//         body: JSON.stringify(formComp),
-//         headers: {
-//             Accept: "application/json, text/plain, */*",
-//             "Content-Type": "application/json"
-//         }
-//     });
-//     console.log(formComp)
-//     // Send the request with fetch()
-//     fetch(request)
-//         .then(function (res) {
-
-//             // Handle response we get from the API.
-//             if (res.status === 200) {
-
-//             } else {
-
-//             }
 //         })
 //         .catch(error => {
 //             console.log(error);

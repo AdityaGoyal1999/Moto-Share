@@ -22,7 +22,7 @@ class PostedAdsPage extends React.Component {
     // These will be SERVER CALL to get the acutal data:
     // {saleInfo, ads} = getUserData()
 
-    user  = getUserByID(this.props.currentUser)
+    const user  = getUserByID(this.props.currentUser)
     
 
     this.state = {

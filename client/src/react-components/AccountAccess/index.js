@@ -16,9 +16,9 @@ class AccountAccess extends React.Component {
     // Display the correct form
     const getForm = (isLoginView) => {
       if (isLoginView) {
-        return <Login app={this.props.app} />
+        return <Login {...this.props} app={this.props.app} />
       } else {
-        return <Signup />
+        return <Signup {...this.props}/>
       }
     }
 
