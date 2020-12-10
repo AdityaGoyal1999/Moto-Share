@@ -1,6 +1,7 @@
 'use strict'
 const log = console.log
 const express = require('express')
+const bcrypt = require('bcryptjs')
 const router = express.Router()
 
 const { mongoose } = require('../db/mongoose')
@@ -28,6 +29,7 @@ const mongoChecker = (req, res, next) => {
   }
 }
 
+
 // middleware to check valid id param
 const idChecker = (req, res, next) => {
   if(!ObjectID.isValid(req.params.id)) {
@@ -37,6 +39,16 @@ const idChecker = (req, res, next) => {
   }
   next()
 }
+
+
+// A route to check if a user is logged in on the session
+router.get("/api/users/check-session", (req, res) => {
+  if (req.session.user) {
+      res.send({ currentUser: req.session.email });
+  } else {
+      res.status(401).send();
+  }
+});
 
 // get all users
 router.get('/api/users', mongoChecker, (req, res) => {
@@ -58,22 +70,48 @@ router.get('/api/users', mongoChecker, (req, res) => {
 //   email: 'user email',
 //   password: 'password'
 // }
-router.get('/api/users/login', mongoChecker, (req, res) => {
-  User.findByEmailPassword(req.body.email, req.body.password).then(result => {
-    if (result) {
-      res.send(result)
-    } else {
-      res.status(404).send('resource not found')
-    }
-  }).catch(error => {
-    log(error)
-    if (isMongoError(error)) {
-      res.status(500).send('internal server error')
-    } else {
-      res.status(400).send('bad request')
-    }
-  })
-})
+// router.get('/api/users/login', mongoChecker, (req, res) => {
+//   User.findByEmailPassword(req.body.email, req.body.password).then(result => {
+//     if (result) {
+//       res.send(result)
+//     } else {
+//       res.status(404).send('resource not found')
+//     }
+//   }).catch(error => {
+//     log(error)
+//     if (isMongoError(error)) {
+//       res.status(500).send('internal server error')
+//     } else {
+//       res.status(400).send('bad request')
+//     }
+//   })
+// })
+
+router.post('/api/users/login', mongoChecker, async (req, res) => {
+  //Validating login registration details
+  // let {error} = loginValidation(req.body);
+  // if (error)
+  //     return res.status(400).json({error: error.details[0].message});
+
+  let user = await User.findOne({email: req.body.email}).exec();
+  // if the email does not exist
+  if (!user) {
+      return res.status(400).json({error: 'No User'});
+  }
+
+  //check if password is correct
+  const validPassword = await bcrypt.compare(req.body.password, user.password);
+  if (!validPassword)
+      return res.status(400).json({error: 'Password is incorrect'});
+
+  req.session.user = user._id;
+  req.session.email = user.email;
+  req.session.save()
+  res.send({ currentUser: user.email });
+  
+  // const accessToken = jwt.sign({userId: user}, 'SECRET_TOKEN');//should be user._Id?
+  // res.header('auth-token', accessToken).json({accessToken: accessToken, userId: user._id});
+});
 
 // create user
 // Expects:

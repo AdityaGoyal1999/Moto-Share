@@ -71,18 +71,9 @@ app.use(
         },
         store: new MongoStore({ mongooseConnection: mongoose.connection })
     })
-);
-
-
-// A route to check if a user is logged in on the session
-app.get("/api/users/check-session", (req, res) => {
+  );
   
-    if (req.session.user) {
-        res.send({ currentUser: req.session.email });
-    } else {
-        res.status(401).send();
-    }
-});
+  
 
 app.use(require('./routes/user'))
 app.use(require('./routes/bike'))

@@ -30,7 +30,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
 		minlength: 4,
-		unique: true,
     },
     location: String,
     rating: Number,

@@ -8,11 +8,15 @@ import Footer1 from '../Footer1'
 
 // Holds signup and login pages
 class AccountAccess extends React.Component {
+  constructor(props){
+    super(props)
+  }
+
   render () {
     // Display the correct form
     const getForm = (isLoginView) => {
       if (isLoginView) {
-        return <Login />
+        return <Login app={this.props.app} />
       } else {
         return <Signup />
       }

@@ -11,12 +11,16 @@ import Results from './react-components/Results'
 import PostAd from './react-components/PostAd'
 import CompleteBikeInfo from './react-components/Results/AdsBoard/CompleteBikeInfo'
 import User from './react-components/UserAccount'
+import Login from './react-components/Login'
 import { checkSession } from "./actions/user";
 
 class App extends React.Component {
 
   componentDidMount() {
-    checkSession(this)
+    const {responseData, errorMessage} = checkSession(this)
+    if (responseData) {
+      this.setState({currentUser: responseData.currentUser})
+    }
   }
 
   state = {
@@ -31,7 +35,8 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' render={() => <HomePage />} />
           <Route exact path='/loggedIn' render={() => <HomePage loggedIn={true}/>} />
-          <Route exact path='/login' render={() => <AccountAccess isLoginView={true} />} />
+          <Route exact path='/login' render={() =>  <AccountAccess isLoginView={true} app={this} />} />
+          <Route exact path='/login' render={() =>  <Login {...this.props} app={this} />} />
           <Route exact path='/signup' render={() => <AccountAccess isLoginView={false} />} />
           <Route exact path="/admin" render={() => <AdminDataTableView loggedIn={true}/>} />
           <Route exact path="/postedads" render={() => <PostedAds />} />
