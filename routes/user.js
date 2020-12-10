@@ -107,10 +107,6 @@ router.post('/api/users', mongoChecker, (req, res) => {
 })
 
 // get user by id
-// expects:
-// {
-//   id: ObjectID
-// }
 router.get('/api/users/:id', mongoChecker, idChecker, (req, res) => {
   User.findById(req.params.id).then(result => {
     if (!result) {

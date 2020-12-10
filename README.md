@@ -1,14 +1,19 @@
 # MotoShare
 A platform to rent-share motorcycles.
+https://aqueous-badlands-56300.herokuapp.com/
 
 ## Set Up
 1. Clone the repository. 
-2. Navigate to the local repository. 
-3. Run `npm run-script setup`
-4. Run `npm run-script build-run` 
+2. Navigate to the local repository.
+#### Set up Local Database
+3. Create local folder 'localdb'
+4. Run `mongod --dbpath localdb`
+#### Build and run server
+5. Run `npm run-script setup`
+6. Run `npm run-script build-run` 
 
 ## Instructions to the TA
-You being with the home page. From here you can login as a user or admin.(Details given in the Login Section below)
+You begin with the home page. From here you can login as a user or admin. (Details given in the Login Section below)
 
 - Once logged in as a <b>User</b>, the person can press on the ‘ACTIONS’ button on the top of the screen.
 - In the ‘ACTIONS’ menu, you can go either to the ‘My account’ page which has info about your account(Hard coded), ‘My ads’ which contain ads for bikes posted by you and ‘Log out’.
@@ -18,8 +23,278 @@ You being with the home page. From here you can login as a user or admin.(Detail
 - Finally, you can see your posted ads either through a button on the 'My ads' page, or by pressing the MotoShare icon in the top left, returning to the home page and clicking 'post an ad' in the how it works section.
 The new opened page will give you the functionality to post a new ad.
 - For logging in as the <b>admin</b>, go to the login page by pressing login button at the top. Enter ‘admin’ as user and the same as password. Then you’ll be greeted to the admin side of the website.(For now, we have the same login page for user and admin but in the next phase, we’ll create a different hidden login page for admins)
+---
+## Api Routes
+### User Routes:
+- **GET** /api/users
+  * Get all users
+  * expects: no req body
+  * returns: array of user objects:
+  ```json
+  [{
+    "reviews": [],
+    "bikes": [],
+    "_id": "5fd28ef0c732a14b0883f7bb",
+    "email": "email@string.com",
+    "password": "$2a$10$DIFifY8EzYDXVTveJ8Pg7.BZCjHMwMyI4XL7moN0ML2TYFIFmo8S2",
+    "name": "name string",
+    "location": "",
+    "rating": -1,
+    "rentedTo": 0,
+    "__v": 0
+  }]
+  ```
+- **POST** /api/users
+  * Creates new user
+  * expects: 
+  ```json
+  {
+    "email": "email@string.com",
+    "password": "passwordstring",
+    "name": "name string"
+  }
+  ```
+  * returns: A user object:
+  ```json
+  {
+    "reviews": [],
+    "bikes": [],
+    "_id": "5fd28ef0c732a14b0883f7bb",
+    "email": "email@string.com",
+    "password": "$2a$10$DIFifY8EzYDXVTveJ8Pg7.BZCjHMwMyI4XL7moN0ML2TYFIFmo8S2",
+    "name": "name string",
+    "location": "",
+    "rating": -1,
+    "rentedTo": 0,
+    "__v": 0
+  }
+  ```
+- **GET** /api/users/login
+  * Gets user by email/password
+  * expects: 
+  ```json
+  {
+    "email": "email@string.com",
+    "password": "passwordstring"
+  }
+  ```
+  * returns: user object if found:
+  ```json
+  {
+    "reviews": [],
+    "bikes": [],
+    "_id": "5fd28ef0c732a14b0883f7bb",
+    "email": "email@string.com",
+    "password": "$2a$10$DIFifY8EzYDXVTveJ8Pg7.BZCjHMwMyI4XL7moN0ML2TYFIFmo8S2",
+    "name": "name string",
+    "location": "",
+    "rating": -1,
+    "rentedTo": 0,
+    "__v": 0
+  }
+  ```
+- **GET** /api/users/:id
+  * Gets user by id
+  * expects: no body
+  * returns: user object if found
+- **POST** /api/users/:id/reviews
+  * Posts a review for user of given id
+  * expects: 
+  ```json
+  {
+    "rating": numberRating,
+    "review": "The review as a string"
+  }
+  ```
+- **PATCH** /api/users/:id/image
+  * Updates a user's image
+  * expects:
+  ```json
+  {
+    "image_id": "the image's id string",
+    "image_url": "the image's url string"
+  }
+  ```
+  * returns: review and updated user if found:
+  ```json
+  {
+    "review": {
+        "rating": 5,
+        "review": "The review as a string"
+    },
+    "user": {
+        "reviews": [
+            "The review as a string"
+        ],
+        "bikes": [],
+        "_id": "5fd28ef0c732a14b0883f7bb",
+        "email": "email@string.com",
+        "password": "$2a$10$DIFifY8EzYDXVTveJ8Pg7.BZCjHMwMyI4XL7moN0ML2TYFIFmo8S2",
+        "name": "name string",
+        "location": "",
+        "rating": 5,
+        "rentedTo": 0,
+        "__v": 0
+    }
+  }
+  ```
+- **DELETE** /api/users/:id
+  * Deletes a user by id
+  * expects: no body
+  * returns: deleted user and deleted bikes:
+  ```json
+  {
+    "user": {
+        "reviews": [],
+        "bikes": [],
+        "_id": "5fd290c2c732a14b0883f7bc",
+        "email": "to@delete.com",
+        "password": "$2a$10$j9pb26Gtk6zls2Z6ReSVk.aqViRrf/l76cZ.Jsej4zbhen40zQwI2",
+        "name": "to delete",
+        "location": "",
+        "rating": -1,
+        "rentedTo": 0,
+        "__v": 0
+    },
+    "deletedBikes": []
+  }
+  ```
 
-
+### Bike routes:
+- **GET** /api/bikes
+  * Gets all bikes
+  * expects: no body
+  * returns: array of bike objects:
+  ```json
+  [{
+        "reviews": [],
+        "prevRenters": [],
+        "_id": "5fd291fbc732a14b0883f7bd",
+        "name": "name string",
+        "price": 5,
+        "location": "location details",
+        "licence": "licence plate string",
+        "description": "Description of Bike",
+        "image_id": "image_id string",
+        "image_url": "image_url string",
+        "owner": "5fd28ef0c732a14b0883f7bb",
+        "__v": 0
+  }]
+  ```
+- **POST** /api/users/:id
+  * Creates a new bike for given user id
+  * expects: 
+  ```json
+  {
+    "name": "name string",
+    "price": priceNumber,
+    "avail-from": "yyyy-mm-dd",
+    "avail-to": "yyyy-mm-dd",
+    "location": "location details",
+    "licence_plate": "licence plate string",
+    "description": "Description of Bike",
+    "image_id": "image_id string",
+    "image_url": "image_url string"
+  }
+  ```
+  * returns: Bike object and owner user object:
+  ```json
+  {
+    "bike": {
+        "reviews": [],
+        "prevRenters": [],
+        "_id": "5fd291fbc732a14b0883f7bd",
+        "name": "name string",
+        "price": 5,
+        "location": "location details",
+        "licence": "licence plate string",
+        "description": "Description of Bike",
+        "image_id": "image_id string",
+        "image_url": "image_url string",
+        "owner": "5fd28ef0c732a14b0883f7bb"
+    },
+    "owner": {
+        "reviews": [
+            "The review as a string"
+        ],
+        "bikes": [
+            "5fd291fbc732a14b0883f7bd"
+        ],
+        "_id": "5fd28ef0c732a14b0883f7bb",
+        "email": "email@string.com",
+        "password": "$2a$10$DIFifY8EzYDXVTveJ8Pg7.BZCjHMwMyI4XL7moN0ML2TYFIFmo8S2",
+        "name": "name string",
+        "location": "",
+        "rating": 5,
+        "rentedTo": 0,
+        "__v": 1
+    }
+  }
+  ```
+- **POST** /api/bikes/:id
+  * Updates bike info for given bike id
+  * expects: 
+  ```json
+  {
+    "name": "name string",
+    "price": priceNumber,
+    "avail-from": "yyyy-mm-dd",
+    "avail-to": "yyyy-mm-dd",
+    "location": "location details",
+    "licence_plate": "licence plate string",
+    "description": "Description of Bike",
+    "image_id": "image_id string",
+    "image_url": "image_url string"
+  }
+  ```
+  * returns: updated bike object
+  ```json
+  {
+    "reviews": [],
+    "prevRenters": [],
+    "_id": "5fd291fbc732a14b0883f7bd",
+    "name": "name string",
+    "price": 10,
+    "location": "new location details",
+    "licence": "licence plate string",
+    "description": "Description of Bike",
+    "image_id": "new image_id string",
+    "image_url": "image_url string",
+    "owner": "5fd28ef0c732a14b0883f7bb",
+    "__v": 0
+  }
+  ```
+- **GET** /api/bikes/:id
+  * Gets bike by id
+  * expects: no body
+  * retusn: bike object if found
+- **DELETE** /api/bikes/:id
+  * Deletes bike by id
+  * expects: no body
+- **POST** /api/bikes/:id/reviews
+  * Posts a review for bike by id
+  * expects:
+  ```json
+  {
+    "rating": number,
+    "review": "review string"
+  }
+  ```
+  * returns: updated bike object
+- **POST** /api/bikes/:id/rent
+  * Rent a bike to a user
+  * expects: 
+  ```json
+  {
+    "uid": "id of existing user"
+  }
+  ```
+  * returns: updated bike object
+- **POST** /api/bikes/:id/return
+  * Returns a bike from current renter
+  * expects: no body
+  * returns: updated bike object
+---
 ## Login Credentials for Testing Purposes
 
 ### User:
