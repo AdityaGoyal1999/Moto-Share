@@ -16,19 +16,20 @@ import { checkSession } from "./actions/user";
 
 class App extends React.Component {
 
-  componentDidMount() {
-    const {responseData, errorMessage} = checkSession(this)
-    if (responseData) {
-      this.setState({currentUser: responseData.currentUser})
+  constructor(props){
+    super(props)
+    this.state = {
+      currentUser: null
     }
   }
 
-  state = {
-    currentUser: null
+  componentDidMount() {
+    checkSession(this)
   }
 
 
   render() {
+    console.log(this.state.currentUser)
     const { currentUser } = this.state;
     return (
       <BrowserRouter>
@@ -36,7 +37,7 @@ class App extends React.Component {
           <Route exact path='/' render={() => <HomePage />} />
           <Route exact path='/loggedIn' render={() => <HomePage loggedIn={true}/>} />
           <Route exact path='/login' render={() =>  <AccountAccess isLoginView={true} app={this} />} />
-          <Route exact path='/login' render={() =>  <Login {...this.props} app={this} />} />
+          <Route exact path='/login' render={() =>  <Login {...this.props} currentUser={this.state.currentUser} />} />
           <Route exact path='/signup' render={() => <AccountAccess isLoginView={false} />} />
           <Route exact path="/admin" render={() => <AdminDataTableView loggedIn={true}/>} />
           <Route exact path="/postedads" render={() => <PostedAds />} />

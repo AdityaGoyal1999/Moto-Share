@@ -57,11 +57,11 @@ handleSubmit = async (event, app) => {
   };
   try {
       console.log("login")
-      const { responseData, errorMessage } = await login(payload);
+      login(payload);
       
-      app.setState({currentUser: responseData.currentUser})
-      console.log(responseData)
-      console.log(app.state.currentUser)
+    //   app.setState({currentUser: responseData.currentUser})
+    //   console.log(responseData)
+    //   console.log(app.state.currentUser)
     //   console.log(errorMessage)
       // console.log(responseData);
       //

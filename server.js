@@ -1,6 +1,7 @@
 'use strict'
 const express = require('express')
 const path = require('path')
+const cors = require('cors')
 
 const app = express()
 
@@ -58,6 +59,12 @@ const authenticate = (req, res, next) => {
         res.status(401).send("Unauthorized")
     }
 }
+
+app.use(cors({
+    origin:['http://localhost:5000'],
+    methods:['GET','POST'],
+    credentials: true // enable set cookie
+}));
 
 // Create a session and session cookie
 app.use(

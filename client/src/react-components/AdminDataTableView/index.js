@@ -47,7 +47,6 @@ class AccountInfo extends React.Component {
                             Bookings Table</Button>
                     </div>
                     <div id='TableTitleContainer'>
-
                         {this.state.usertable ? <h2 id='TableTitle'> Users </h2>: null}
                         {this.state.adtable ? <h2 id='TableTitle'> Ads </h2>: null}
                         {this.state.borrowedtable ?  <h2 id='TableTitle'> Bookings </h2>: null}

@@ -1,5 +1,7 @@
 import axios from "axios";
 
+axios.defaults.withCredentials = true
+
 // The SERVER_BASE_URL environment variable should be defined when deploying
 axios.defaults.baseURL = process.env.SERVER_BASE_URL || "http://localhost:5000";
 
@@ -24,16 +26,6 @@ export const addUser = (payload) => {
     return returnVal;
 };
 
-export const login = (payload) => {
-    const returnVal = axiosRequest("POST", "/api/users/login", payload);
-    
-    // console.log("before "+ app.state.currentUser)
-    // app.setState(returnVal)
-    // console.log("after "+ app.state.currentUser)
-    // console.log("return "+ returnVal.currentUser)
-    return returnVal;
-};
-
 export const getUserByID = (id) => {
     const returnVal = axiosRequest("GET", "/api/users/" + id);
     return returnVal;
@@ -49,32 +41,81 @@ export const deleteUserByID = (id) => {
     return returnVal;
 };
 
-export const checkSession = (app) => {
-    const returnVal = axiosRequest("GET", `/api/users/check-session`);
-    return returnVal;
-}
+
+export const login = (payload) => {
+    
+    // the URL for the request
+    const url = "/api/users/login";
+
+    // Create our request constructor with all the parameters we need
+    const request = new Request(url, {
+        method: "post",
+        body: JSON.stringify(payload),
+        headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json"
+        }
+    });
+
+    fetch(request)
+        .then(res => {
+            if (res.status === 200) {
+                // return a promise that resolves with the JSON body
+                return res.json();
+            } else {
+                alert("Could not get users");
+            }
+        })
+        .then(json => {
+            // the resolved promise with the JSON body
+            // userList.setState({ userList: json.users });
+        })
+        .catch(error => {
+            console.log(error);
+        });
+};
 
 
 // Send a request to check if a user is logged in through the session cookie
-// export const checkSession = (app) => {
-//     const url = `/api/users/check-session`;
+export const checkSession = (app) => {
+    const url = `/api/users/check-session`;
 
-//     fetch(url)
-//     .then(res => {
-//         if (res.status === 200) {
-//             return res.json();
-//         }
-//     })
-//     .then(json => {
-//         if (json && json.currentUser) {
-//             app.setState({ currentUser: json.currentUser });
-//         }
-//     })
-//     .catch(error => {
-//         console.log(error);
-//     });
+    fetch(url)
+    .then(res => {
+        if (res.status === 200) {
+            return res.json();
+        }
+    })
+    .then(json => {
+        if (json && json.currentUser) {
+            app.setState({ currentUser: json.currentUser });
+        }
+    })
+    .catch(error => {
+        console.log(error);
+    });
   
-// };
+};
+
+// 
+export const getUserByID = (id) => {
+    const url = `/api/users/`+id;
+
+    fetch(url)
+    .then(res => {
+        if (res.status === 200) {
+            return res.json();
+        }
+    })
+    .then(json => {
+        
+    })
+    .catch(error => {
+        console.log(error);
+    });
+  
+};
+
 
 // export const getUsers = (userList) => {
     
@@ -99,8 +140,9 @@ export const checkSession = (app) => {
 //         });
 // };
 
-// // A function to send a POST request with a new student
-// export const addUser2 = (formComp) => {
+
+// A function to send a POST request with a new student
+// export const addUser = (formComp) => {
 //     // the URL for the request
 //     const url = "/api/users";
 

@@ -106,8 +106,7 @@ router.post('/api/users/login', mongoChecker, async (req, res) => {
 
   req.session.user = user._id;
   req.session.email = user.email;
-  req.session.save()
-  res.send({ currentUser: user.email });
+  res.send({ currentUser: user._id });
   
   // const accessToken = jwt.sign({userId: user}, 'SECRET_TOKEN');//should be user._Id?
   // res.header('auth-token', accessToken).json({accessToken: accessToken, userId: user._id});

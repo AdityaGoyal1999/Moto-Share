@@ -4,11 +4,13 @@ import './style.css'
 import AdsBoard from './AdsBoard'
 import NavBar from '../NavBar'
 import Footer1 from '../Footer1'
+import {getUserByID} from '../../actions/user'
 
 // eslint-disable-next-line
 const getUserData = event => {
   event.preventDefault()
   // SERVER CALL goes here to get Ad Data
+
 }
 
 /* Component that shows all the Ads that the User has posted*/
@@ -19,6 +21,9 @@ class PostedAdsPage extends React.Component {
 
     // These will be SERVER CALL to get the acutal data:
     // {saleInfo, ads} = getUserData()
+
+    user  = getUserByID(this.props.currentUser)
+    
 
     this.state = {
       // ads: ads
