@@ -36,27 +36,27 @@ export const addUser = (payload) => {
         }
     });
 
-    fetch(request)
-        .then(res => {
-            if (res.status === 200) {
-                // return a promise that resolves with the JSON body
-                return res.json();
-            } else {
-                alert("Could not get users");
-            }
-        })
-        .then(json => {
-            // console.log("json", json, json.password, json.email)
-            // console.log("payload", payload.password, payload.email)
-            const pload = {
-                email: payload.email,
-                password: payload.password
-            }
-            login(pload)
-        })
-        .catch(error => {
-            console.log(error);
-        });
+    return fetch(request)
+        // .then(res => {
+        //     if (res.status === 200) {
+        //         // return a promise that resolves with the JSON body
+        //         return res.json();
+        //     } else {
+        //         alert("Could not get users");
+        //     }
+        // })
+        // .then(json => {
+        //     // console.log("json", json, json.password, json.email)
+        //     // console.log("payload", payload.password, payload.email)
+        //     const pload = {
+        //         email: payload.email,
+        //         password: payload.password
+        //     }
+        //     login(pload)
+        // })
+        // .catch(error => {
+        //     console.log(error);
+        // });
 };
 
 export const getUserByID = (id) => {
@@ -90,14 +90,14 @@ export const login = (payload) => {
 
     // const obj = null
     return fetch(request)
-        .then(res => {
-            if (res.status === 200) {
-                // return a promise that resolves with the JSON body
-                return res.json();
-            } else {
-                alert("Could not get users");
-            }
-        });
+        // .then(res => {
+        //     if (res.status === 200) {
+        //         // return a promise that resolves with the JSON body
+        //         return res.json();
+        //     } else {
+        //         return res.status
+        //     }
+        // });
 };
 
 
@@ -117,7 +117,7 @@ export const checkSession = (app) => {
         }
     })
     .catch(error => {
-        console.log(error);
+        // console.log(error);
     });
   
 };

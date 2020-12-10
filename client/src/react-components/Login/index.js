@@ -35,7 +35,6 @@ handleOnChangePassword = (new_password) => {
 handleSubmit = async (event) => {
   const form = event.currentTarget;
   if (form.checkValidity() === false) {
-      console.log("cas");
       event.preventDefault();
       event.stopPropagation();
       return;
@@ -47,23 +46,32 @@ handleSubmit = async (event) => {
   try {
       console.log("login")
       login(payload)
+          .then(res => {
+              if (res.status === 200) {
+                  // return a promise that resolves with the JSON body
+                  return res.json();
+              } else {
+                  return res.status
+              }
+          })
           .then(json => {
               console.log("inside login json ", json)
-              if (json.error === ""){
+              if (json !== 400){
                   this.props.history.push("/loggedIn");
               }else{
-                  console.log("Error ")
-
-                  // return null
+                  console.log("inside second then else condition ")
+                  // document.querySelector("input[name='email']").value = ""
+                  document.querySelector("input[name='password']").value = ""
+                  document.querySelector("#incorrect").innerHTML = "Your login credentials could not be verified, please try again."
+                  document.querySelector("input[name='password']").placeHolder = "Incorrect Password Try Again"
               }
           })
           .catch(error => {
-              window.location.reload(false)
-              // document.querySelector("input[name='email']").value = ""
-              // document.querySelector("input[name='password']").value = ""
-              console.log(error);
+              console.log(error)
+              // window.location.reload(false)
           });
   } catch (error) {
+      console.log("in second catch")
       alert(
           "An error occurred connecting to the server," +
           "please make sure you have a working internet connect"
@@ -108,10 +116,10 @@ handleSubmit = async (event) => {
       <Container>
             <Row>
                 <Col md={{ span: 8, offset: 2 }}>
+                    <p id="incorrect"> </p>
                     <Form.Group
                         id="login-form"
                         className="mx-auto"
-                        // onSubmit={this.handleSubmit}
                     >
                         <Form.Control
                             className="my-3 mx-auto"

@@ -1,7 +1,7 @@
 import React from 'react'
 // import { Button } from '@material-ui/core'
 import { Container, Col, Row, Button, Form } from "react-bootstrap";
-import {addUser} from '../../actions/user'
+import {addUser, login} from '../../actions/user'
 
 import './style.css'
 
@@ -73,7 +73,6 @@ class Signup extends React.Component {
     handleSubmit = async (event) => {
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
-            console.log("cas");
             event.preventDefault();
             event.stopPropagation();
             return;
@@ -82,39 +81,38 @@ class Signup extends React.Component {
             email: this.state.email,
             password: this.state.password,
             name: this.state.name
-            // location: this.state.location
         };
         try {
             console.log("signup")
-            const { responseData, errorMessage } = await addUser(payload);
-            console.log(responseData)
-            console.log(errorMessage)
-            // console.log(responseData);
-            //
-            // if (!responseData) {
-            //     alert(errorMessage);
-            // } else {
-            //     // successfully logged in
-            //     this.context.setCurrentUser({
-            //         accessToken: responseData.accessToken,
-            //         userId: responseData.userId,
-            //     });
-            //     this.props.history.push("/landing");
-            // }
+            addUser(payload)
+                .then(res => {
+                    if (res.status === 200) {
+                        // return a promise that resolves with the JSON body
+                        return res.json();
+                    } else {
+                        return res.status
+                    }
+                })
+                .then(json => {
+                    console.log("inside login json ", json)
+                    if (json !== 500) {
+                        this.props.history.push("/loggedIn");
+                    } else {
+                        console.log("inside second then else condition ")
+                        window.location.reload(false)
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                });
         } catch (error) {
+            console.log("in second catch")
             alert(
                 "An error occurred connecting to the server," +
                 "please make sure you have a working internet connect"
             );
         }
     }
-    // Handle form submission
-    // const handleSubmit = event => {
-    // if (validateForm()) {
-    //   // server call goes here to handle sign up
-    //   window.open('/', '_self')
-    // }
-    // }
 
   render () {
       // const validateInitalEmail
@@ -166,7 +164,7 @@ class Signup extends React.Component {
                     <Form.Group
                         id="registration-form"
                         className="mx-auto"
-                        // onSubmit={this.handleSubmit}
+                        onSubmit={this.handleSubmit}
                     >
                         <Form.Control
                             className="my-3 mx-auto"

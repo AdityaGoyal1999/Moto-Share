@@ -96,17 +96,17 @@ router.post('/api/users/login', mongoChecker, async (req, res) => {
   let user = await User.findOne({email: req.body.email}).exec();
   // if the email does not exist
   if (!user) {
-      return res.status.send(400).json({error: 'Unable to login'});
+      return res.status(400).json({error: 'Unable to login'});
   }
 
   //check if password is correct
   const validPassword = await bcrypt.compare(req.body.password, user.password);
   if (!validPassword)
-      return res.status.send(400).json({error: 'Password is incorrect'});
+      return res.status(400).json({error: 'Password is incorrect'});
 
   req.session.user = user._id;
   req.session.email = user.email;
-  res.send({ currentUser: user._id, error: ''});
+  res.send({ currentUser: user._id});
   
   // const accessToken = jwt.sign({userId: user}, 'SECRET_TOKEN');//should be user._Id?
   // res.header('auth-token', accessToken).json({accessToken: accessToken, userId: user._id});
@@ -119,7 +119,7 @@ router.post('/api/users/login', mongoChecker, async (req, res) => {
 //   password: 'minlength6',
 //   name: 'min length 4',
 // }
-router.post('/api/users', mongoChecker, (req, res) => {
+router.post('/api/users', mongoChecker, async (req, res) => {
   const newUser = new User({
     email: req.body.email,
     password: req.body.password,
@@ -131,16 +131,20 @@ router.post('/api/users', mongoChecker, (req, res) => {
     bikes: []
   })
 
-  newUser.save().then((result) => {
-    res.send(result)
-  }).catch(error => {
-    log(error)
-    if (isMongoError) {
-      res.status(500).send('internal server error')
-    } else {
-      res.status(400).send('bad request')
-    }
-  })
+  newUser.save()
+      .then((result) => {
+          req.session.user = result._id;
+          req.session.email = result.email;
+          res.send(result)
+        })
+      .catch(error => {
+        log(error)
+        if (isMongoError) {
+          return res.status(500).json('internal server error')
+        } else {
+          return res.status(400).json('bad request')
+        }
+      })
 })
 
 // get user by id

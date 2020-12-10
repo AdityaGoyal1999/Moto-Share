@@ -28,9 +28,9 @@ const UserSchema = new mongoose.Schema({
     },
     name: {
         type: String,
-        required: true,
 		minlength: 4,
-    },
+		required: true,
+	},
     location: String,
     rating: Number,
     reviews: [String],
