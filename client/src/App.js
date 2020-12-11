@@ -33,7 +33,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route exact path='/' render={() => <HomePage loggedIn={currentUser !== null}/>} />
-          <Route exact path='/loggedIn' render={() => <HomePage loggedIn={true}/>} />
+          <Route exact path='/loggedIn' render={() => <HomePage loggedIn={true} />} />
           <Route exact path='/login' render={(props) =>  <AccountAccess {...props} isLoginView={true} app={this} />} />
           <Route exact path='/signup' render={(props) => <AccountAccess {...props} isLoginView={false} />} />
           <Route exact path="/admin" render={(props) => <AdminDataTableView {...props} loggedIn={true}/>} />

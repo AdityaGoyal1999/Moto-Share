@@ -45,7 +45,7 @@ const idChecker = async (req, res, next) => {
 
 
 // A route to check if a user is logged in on the session
-router.get("/api/users/check-session", (req, res) => {
+router.get("/api/users/check-session", async (req, res) => {
   if (req.session.user) {
       res.send({ currentUser: req.session.user });
   } else {
@@ -54,18 +54,18 @@ router.get("/api/users/check-session", (req, res) => {
 });
 
 // get all users
-router.get('/api/users', mongoChecker, (req, res) => {
-  User.find().then(result => {
-    res.send(result)
-  }).catch(error => {
-    log(error)
-    if (isMongoError(error)) {
-      res.status(500).send('internal server error')
-    } else {
-      res.status(400).send('bad request')
-    }
-  })
-})
+// router.get('/api/users', mongoChecker, (req, res) => {
+//   User.find().then(result => {
+//     res.send(result)
+//   }).catch(error => {
+//     log(error)
+//     if (isMongoError(error)) {
+//       res.status(500).send('internal server error')
+//     } else {
+//       res.status(400).send('bad request')
+//     }
+//   })
+// })
 
 // get user by email & password
 // expects:
@@ -113,6 +113,17 @@ router.post('/api/users/login', mongoChecker, async (req, res) => {
   
 });
 
+// A route to logout a user
+router.get("api/users/logout", async (req, res) => {
+  // Remove the session
+  req.session.destroy(error => {
+      if (error) {
+          res.status(500).send(error);
+      } else {
+          res.send()
+      }
+  });
+});
 
 
 
@@ -158,23 +169,23 @@ router.post('/api/users', mongoChecker, async (req, res) => {
 // }
 router.get('/api/users/:id', mongoChecker, idChecker, async (req, res) => {
 
-  const user = await User.findById(req.params.id)
-  res.send(user)
+  // const user = await User.findById(req.params.id)
+  // res.send(user)
 
-  // User.findById(req.params.id).exec().then(result => {
-  //   if (!result) {
-  //     res.status(404).send('resource not found')
-  //   } else {
-  //     res.send(result)
-  //   }
-  // }).catch(error => {
-  //   log(error)
-  //   if (isMongoError(error)) {
-  //     res.status(500).send('internal server error')
-  //   } else {
-  //     res.status(400).send('bad request')
-  //   }
-  // })
+  User.findById(req.params.id).exec().then(result => {
+    if (!result) {
+      res.status(404).send('resource not found')
+    } else {
+      res.send(result)
+    }
+  }).catch(error => {
+    log(error)
+    if (isMongoError(error)) {
+      res.status(500).send('internal server error')
+    } else {
+      res.status(400).send('bad request')
+    }
+  })
 })
 
 

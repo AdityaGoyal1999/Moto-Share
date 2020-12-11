@@ -60,7 +60,7 @@ export const addUser = (payload) => {
 };
 
 export const getUserByID = (app, id) => {
-    const url = `/api/users/`+id;
+    const url = "/api/users/"+id;
 
     fetch(url)
         .then(res => {
@@ -98,13 +98,44 @@ export const getUserByID = (app, id) => {
         });
 };
 
-export const addReview = (id, payload) => {
-    return axiosRequest("POST", "/api/users/" + id + "/reviews", payload);
+
+export const getUserBikesByID = (app, id) => {
+    const url = "/api/users/bikes/"+id;
+
+    fetch(url)
+        .then(res => {
+            if (res.status === 200) {
+                // return a promise that resolves with the JSON body
+                return res.json();
+            } else {
+                alert("Could not get user");
+            }
+        })
+        .then(json => {
+
+            for (let i = 0; i < json.bikes.length; i++) {
+                
+
+                app.setState({
+                    bikes: [...app.state.bikes, json.bikes[i]]
+                })
+            }
+
+
+        })
+        .catch(error => {
+            console.log(error);
+        });
 };
 
-export const deleteUserByID = (id) => {
-    return axiosRequest("DELETE", "/api/users/" + id);
-};
+
+// export const addReview = (id, payload) => {
+//     return axiosRequest("POST", "/api/users/" + id + "/reviews", payload);
+// };
+
+// export const deleteUserByID = (id) => {
+//     return axiosRequest("DELETE", "/api/users/" + id);
+// };
 
 
 export const login = (payload) => {
@@ -136,14 +167,35 @@ export const login = (payload) => {
 };
 
 
+export const logoutUser = () => {
+    
+    // the URL for the request
+    const url = "/api/users/logout";
+
+
+    // const obj = null
+    return fetch(url)
+        .then(res => {
+            if (res.status === 200) {
+                // return a promise that resolves with the JSON body
+                console.log("logged out user")
+            } else {
+                console.log("logged out user")
+                return res.status
+            }
+        });
+};
+
 // Send a request to check if a user is logged in through the session cookie
-export const checkSession = (app) => {
+export const checkSession = async (app) => {
     const url = `/api/users/check-session`;
 
-    fetch(url)
+    await fetch(url)
     .then(res => {
         if (res.status === 200) {
             return res.json();
+        } else {
+            return {currentUser: null}
         }
     })
     .then(json => {

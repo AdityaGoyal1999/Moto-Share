@@ -21,14 +21,13 @@ class User extends React.Component {
 			bikes: [],
 			reviews: []
 		}
-
-		getUserByID(this, this.props.match.params.id)	
+		
+		getUserByID(this, this.props.match.params.id)
 		
 	}
 
   	render () {
 		const {name, location, rentedTo, rating, bikes, reviews} = this.state
-
 		return (
 			<div className="completeAd">
 				<NavBar loggedIn={true}/>

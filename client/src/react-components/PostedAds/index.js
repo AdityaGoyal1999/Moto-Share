@@ -4,7 +4,8 @@ import './style.css'
 import AdsBoard from './AdsBoard'
 import NavBar from '../NavBar'
 import Footer1 from '../Footer1'
-import {getUserByID} from '../../actions/user'
+import {getUserBikesByID} from '../../actions/user'
+import {getBikeByID} from '../../actions/bike'
 
 // eslint-disable-next-line
 const getUserData = event => {
@@ -22,15 +23,20 @@ class PostedAdsPage extends React.Component {
     // These will be SERVER CALL to get the acutal data:
     // {saleInfo, ads} = getUserData()
 
-    const user  = getUserByID(this.props.currentUser)
-    
-    
     this.state = {
-      // ads: ads
-      // saleInfo: saleInfo
+      bikes_ids: [],
+      bike_info: []
+		}
+		
+		getUserBikesByID(this, this.props.match.params.id)
+
+    console.log(this.state.bike_info)
+
+    for(let i = 0; i < this.state.bikes_ids.length; i++) {
+      getBikeByID(this, this.state.bikes_ids[i]) 
     }
 
-    
+    console.log(this.state.bike_info)
   }
 
   /* Creating sample data for testing purposes (NOTE: Numerical values are random) */

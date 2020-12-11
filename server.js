@@ -73,7 +73,7 @@ app.use(
         resave: false,
         saveUninitialized: false,
         cookie: {
-            expires: 60000,
+            expires: 1000*60*60,
             httpOnly: true
         },
         store: new MongoStore({ mongooseConnection: mongoose.connection })
