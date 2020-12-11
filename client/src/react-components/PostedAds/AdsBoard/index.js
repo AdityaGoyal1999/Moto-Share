@@ -16,8 +16,9 @@ class AdsBoard extends React.Component {
 
     // React Ref is created here for animating scroll purposes
     this.adRef = React.createRef();
-
+  
     const { ads, saleInfo } = this.props 
+    console.log("ads " + ads)
     this.state = {
       ads: ads,
       saleInfo : saleInfo

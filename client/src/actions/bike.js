@@ -40,9 +40,6 @@ export const getBikeByID = async (app, id) => {
         app.setState({
             bikes_info: [...app.state.bikes_info, json]
         })
-        app.setState({
-            rendered: true
-        })
     })
     .catch(error => {
         console.log(error);

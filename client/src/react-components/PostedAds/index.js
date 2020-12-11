@@ -26,6 +26,7 @@ class PostedAdsPage extends React.Component {
     this.state = {
       bikes_ids: [],
       bikes_info: [],
+      num_bikes: null,
       rendered: false
 		}
 		
@@ -103,9 +104,7 @@ class PostedAdsPage extends React.Component {
   }
   
     render () {
-    console.log(this.state.rendered)
-    console.log(this.state.bikes_info)
-    return this.state.rendered === true ? (
+    return this.state.bikes_info.length === this.state.num_bikes ? (
       <div id='postedAds'>
         <NavBar />
         <AdsBoard ads={this.data()[0]} saleInfo={this.data()[1]} />
