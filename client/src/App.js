@@ -37,11 +37,11 @@ class App extends React.Component {
           <Route exact path='/login' render={(props) =>  <AccountAccess {...props} isLoginView={true} app={this} />} />
           <Route exact path='/signup' render={(props) => <AccountAccess {...props} isLoginView={false} />} />
           <Route exact path="/admin" render={(props) => <AdminDataTableView {...props} loggedIn={true}/>} />
-          <Route exact path="/postedads" render={(props) => <PostedAds {...props} currentUser={this.state.currentUser} />} />
+          <Route exact path="/postedads" render={(props) => currentUser ? <PostedAds {...props} currentUser={this.state.currentUser} /> : <AccountAccess {...props} isLoginView={false} />} />
           <Route exact path='/results' render={(props) => <Results {...props}/>} />
-          <Route exact path='/postad' render={(props) => <PostAd {...props} currentUser={this.state.currentUser}/>} />
+          <Route exact path='/postad' render={currentUser ? (props) => <PostAd {...props} currentUser={this.state.currentUser}/> : (props) => <AccountAccess {...props} isLoginView={false} />}  />
           <Route exact path='/CompleteBikeInfo' render={(props) => <CompleteBikeInfo {...props}/>} />
-          <Route exact path="/User" render={(props)=> <User {...props} loggedIn={true}/>} />
+          <Route exact path="/User/:id" render={(props)=> <User {...props} currentUser={this.state.currentUser} loggedIn={true}/>} />
           
           {/* Change this later */}
           <Route render={() => <div>404 Not found</div>} />
