@@ -157,21 +157,25 @@ router.post('/api/users', mongoChecker, async (req, res) => {
 // {
 //   id: ObjectID
 // }
-router.get('/api/users/:id', mongoChecker, idChecker, (req, res) => {
-  User.findById(req.params.id).exec().then(result => {
-    if (!result) {
-      res.status(404).send('resource not found')
-    } else {
-      res.send(result)
-    }
-  }).catch(error => {
-    log(error)
-    if (isMongoError(error)) {
-      res.status(500).send('internal server error')
-    } else {
-      res.status(400).send('bad request')
-    }
-  })
+router.get('/api/users/:id', mongoChecker, idChecker, async (req, res) => {
+
+  const user = await User.findById(req.params.id)
+  res.send(user)
+
+  // User.findById(req.params.id).exec().then(result => {
+  //   if (!result) {
+  //     res.status(404).send('resource not found')
+  //   } else {
+  //     res.send(result)
+  //   }
+  // }).catch(error => {
+  //   log(error)
+  //   if (isMongoError(error)) {
+  //     res.status(500).send('internal server error')
+  //   } else {
+  //     res.status(400).send('bad request')
+  //   }
+  // })
 })
 
 

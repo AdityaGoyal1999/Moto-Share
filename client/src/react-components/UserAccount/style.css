@@ -92,4 +92,8 @@ h2{
 	padding: 5px;
 }
 
+#comments {
+	overflow-y: scroll;
+	max-height: 400px;
+}
 

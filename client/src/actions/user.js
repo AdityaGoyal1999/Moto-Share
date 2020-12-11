@@ -64,21 +64,34 @@ export const getUserByID = (app, id) => {
 
     fetch(url)
         .then(res => {
-            return res.json()
+            if (res.status === 200) {
+                // return a promise that resolves with the JSON body
+                return res.json();
+            } else {
+                alert("Could not get user");
+            }
         })
         .then(json => {
-            console.log(json.name)
-            console.log(app.state.user_id)
             app.setState({
                 user_id: json._id,
                 name: json.name,
                 location: json.location,
                 rentedTo: json.rentedTo,
                 rating: json.rating,
-                bikes: json.bikes,
-                reviews: json.reviews
             });
-            console.log(app.state.user_id)
+
+            for (let i = 0; i < json.bikes.length; i++) {
+                app.setState({
+                    bikes: [...app.state.bikes, json.bikes[i]]
+                })
+            }
+
+            for (let i = 0; i < json.reviews.length; i++) {
+                app.setState({
+                    reviews: [...app.state.reviews, json.reviews[i]]
+                })
+            }
+
         })
         .catch(error => {
             console.log(error);

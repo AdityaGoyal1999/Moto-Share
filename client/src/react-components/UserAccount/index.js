@@ -5,6 +5,7 @@ import img from '../Results/static/motorcycle.jpg'
 import NavBar from '../NavBar'
 import Footer from '../Footer1'
 import {getUserByID} from '../../actions/user'
+import { Alert } from "react-bootstrap";
 
 class User extends React.Component {
 
@@ -17,19 +18,17 @@ class User extends React.Component {
 			location: null,
 			rentedTo: null,
 			rating: null,
-			bikes: null,
-			reviews: null
+			bikes: [],
+			reviews: []
 		}
+
+		getUserByID(this, this.props.match.params.id)	
 		
-		getUserByID(this, this.props.match.params.id)
 	}
 
-	// componentDidMount(){
-		
-	// }
-
   	render () {
-		const {name, location, rentedTo, rating, bikes} = this.state
+		const {name, location, rentedTo, rating, bikes, reviews} = this.state
+
 		return (
 			<div className="completeAd">
 				<NavBar loggedIn={true}/>
@@ -62,24 +61,9 @@ class User extends React.Component {
 							<div id="CommentHeading">
 								<span className="textBold">Comments</span>
 							</div>
-							<div className="comment">
-								<div className="senderName">
-								John Doe
-								</div>
-								<div className="commentContent">
-									Jane is absolutely a delite rent from.
-								</div>
+							<div id="comments">
+								{reviews.map(review => { return <div className="comment"><div className="commentContent"> {review}</div></div> })}
 							</div>
-
-							<div className="comment">
-								<div className="senderName">
-								Jane Doe
-								</div>
-								<div className="commentContent">
-									Really helpful
-								</div>
-							</div>
-
 						</div>
 
 					</div>
