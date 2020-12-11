@@ -79,3 +79,37 @@ export const deleteBikeById = async (id) => {
     });
         
 };
+
+export const searchBikes = async (app, payload) => {
+    // the URL for the request
+    const url = "/api/bikes/search";
+
+    const request = new Request(url, {
+        method: "post",
+        body: JSON.stringify(payload),
+        headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json"
+        }
+    });
+
+    return await fetch(request)
+        .then(res => {
+            if (res.status === 200) {
+                return res.json();
+            } else {
+                alert("Could not get bike");
+            }
+        })
+        .then(json => {
+            app.setState({
+                bikes_info: [...app.state.bikes, json]
+            })
+            app.setState({
+                rendered: true
+            })
+        })
+        .catch(error => {
+            console.log(error);
+        });
+};

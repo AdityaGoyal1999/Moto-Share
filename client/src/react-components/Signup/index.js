@@ -164,7 +164,7 @@ class Signup extends React.Component {
                     <Form.Group
                         id="registration-form"
                         className="mx-auto"
-                        onSubmit={this.handleSubmit}
+                        onFormSubmit={this.handleSubmit}
                     >
                         <Form.Control
                             className="my-3 mx-auto"

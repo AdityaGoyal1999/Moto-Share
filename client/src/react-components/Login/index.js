@@ -120,6 +120,7 @@ handleSubmit = async (event) => {
                     <Form.Group
                         id="login-form"
                         className="mx-auto"
+                        onFormSubmit={(e) => this.handleSubmit(e, app)}
                     >
                         <Form.Control
                             className="my-3 mx-auto"

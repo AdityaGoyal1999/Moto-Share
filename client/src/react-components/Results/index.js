@@ -5,6 +5,8 @@ import './style.css'
 import AdsBoard from './AdsBoard'
 import NavBar from '../NavBar'
 import Footer from '../Footer1'
+import { searchBikes } from '../../../actions/bike'
+
 
 // eslint-disable-next-line
 const getAdData = event => {
@@ -13,256 +15,265 @@ const getAdData = event => {
 }
 
 class Results extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            ads: []
+        }
+    }
+    componentDidMount() {
+        searchBikes(this)
+    }
 
     createSampleAds() {
         const ads = []
-        // sample data for now, api call goes below!
-        const results = [{
-                reviews: [
-                    "Review string"
-                ],
-                prevRenters: [],
-                _id: "5fd291fbc732a14b0883f7bd",
-                name: "name string",
-                price: 10,
-                location: "new location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "new image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 1,
-                rating: 5
-            },
-            {
-                reviews: [],
-                prevRenters: [],
-                _id: "5fd2e633604f214d40b220e9",
-                name: "kawasaki",
-                price: 5,
-                location: "location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 0
-            },
-            {
-                reviews: [],
-                prevRenters: [],
-                _id: "5fd2e642604f214d40b220ea",
-                name: "motoshare",
-                price: 5,
-                location: "location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 0
-            },
-            {
-                reviews: [],
-                prevRenters: [],
-                _id: "5fd2e6a0604f214d40b220eb",
-                name: "Harley Davidson",
-                price: 5,
-                location: "location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 0
-            },
-            {
-                reviews: [
-                    "Review string"
-                ],
-                prevRenters: [],
-                _id: "5fd291fbc732a14b0883f7bd",
-                name: "name string",
-                price: 10,
-                location: "new location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "new image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 1,
-                rating: 5
-            },
-            {
-                reviews: [],
-                prevRenters: [],
-                _id: "5fd2e633604f214d40b220e9",
-                name: "kawasaki",
-                price: 5,
-                location: "location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 0
-            },
-            {
-                reviews: [],
-                prevRenters: [],
-                _id: "5fd2e642604f214d40b220ea",
-                name: "motoshare",
-                price: 5,
-                location: "location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 0
-            },
-            {
-                reviews: [],
-                prevRenters: [],
-                _id: "5fd2e6a0604f214d40b220eb",
-                name: "Harley Davidson",
-                price: 5,
-                location: "location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 0
-            },
-            {
-                reviews: [
-                    "Review string"
-                ],
-                prevRenters: [],
-                _id: "5fd291fbc732a14b0883f7bd",
-                name: "name string",
-                price: 10,
-                location: "new location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "new image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 1,
-                rating: 5
-            },
-            {
-                reviews: [],
-                prevRenters: [],
-                _id: "5fd2e633604f214d40b220e9",
-                name: "kawasaki",
-                price: 5,
-                location: "location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 0
-            },
-            {
-                reviews: [],
-                prevRenters: [],
-                _id: "5fd2e642604f214d40b220ea",
-                name: "motoshare",
-                price: 5,
-                location: "location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 0
-            },
-            {
-                reviews: [],
-                prevRenters: [],
-                _id: "5fd2e6a0604f214d40b220eb",
-                name: "Harley Davidson",
-                price: 5,
-                location: "location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 0
-            },
-            {
-                reviews: [
-                    "Review string"
-                ],
-                prevRenters: [],
-                _id: "5fd291fbc732a14b0883f7bd",
-                name: "name string",
-                price: 10,
-                location: "new location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "new image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 1,
-                rating: 5
-            },
-            {
-                reviews: [],
-                prevRenters: [],
-                _id: "5fd2e633604f214d40b220e9",
-                name: "kawasaki",
-                price: 5,
-                location: "location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 0
-            },
-            {
-                reviews: [],
-                prevRenters: [],
-                _id: "5fd2e642604f214d40b220ea",
-                name: "motoshare",
-                price: 5,
-                location: "location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 0
-            },
-            {
-                reviews: [],
-                prevRenters: [],
-                _id: "5fd2e6a0604f214d40b220eb",
-                name: "Harley Davidson",
-                price: 5,
-                location: "location details",
-                licence: "licence plate string",
-                description: "Description of Bike",
-                image_id: "image_id string",
-                image_url: "image_url string",
-                owner: "5fd28ef0c732a14b0883f7bb",
-                __v: 0
-            }]
-        for (let i = 0; i < results.length; i++) {
-            ads.push({ 
-                id: i, 
-                name: results[i].name,
-                img_id: results[i].img_id,
-                img_url: results[i].img_url,
-                price: results[i].price,
-                location: results[i].location 
-            })
-        }
+        // // sample data for now, api call goes below!
+        // const results = [{
+        //         reviews: [
+        //             "Review string"
+        //         ],
+        //         prevRenters: [],
+        //         _id: "5fd291fbc732a14b0883f7bd",
+        //         name: "name string",
+        //         price: 10,
+        //         location: "new location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "new image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 1,
+        //         rating: 5
+        //     },
+        //     {
+        //         reviews: [],
+        //         prevRenters: [],
+        //         _id: "5fd2e633604f214d40b220e9",
+        //         name: "kawasaki",
+        //         price: 5,
+        //         location: "location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 0
+        //     },
+        //     {
+        //         reviews: [],
+        //         prevRenters: [],
+        //         _id: "5fd2e642604f214d40b220ea",
+        //         name: "motoshare",
+        //         price: 5,
+        //         location: "location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 0
+        //     },
+        //     {
+        //         reviews: [],
+        //         prevRenters: [],
+        //         _id: "5fd2e6a0604f214d40b220eb",
+        //         name: "Harley Davidson",
+        //         price: 5,
+        //         location: "location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 0
+        //     },
+        //     {
+        //         reviews: [
+        //             "Review string"
+        //         ],
+        //         prevRenters: [],
+        //         _id: "5fd291fbc732a14b0883f7bd",
+        //         name: "name string",
+        //         price: 10,
+        //         location: "new location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "new image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 1,
+        //         rating: 5
+        //     },
+        //     {
+        //         reviews: [],
+        //         prevRenters: [],
+        //         _id: "5fd2e633604f214d40b220e9",
+        //         name: "kawasaki",
+        //         price: 5,
+        //         location: "location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 0
+        //     },
+        //     {
+        //         reviews: [],
+        //         prevRenters: [],
+        //         _id: "5fd2e642604f214d40b220ea",
+        //         name: "motoshare",
+        //         price: 5,
+        //         location: "location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 0
+        //     },
+        //     {
+        //         reviews: [],
+        //         prevRenters: [],
+        //         _id: "5fd2e6a0604f214d40b220eb",
+        //         name: "Harley Davidson",
+        //         price: 5,
+        //         location: "location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 0
+        //     },
+        //     {
+        //         reviews: [
+        //             "Review string"
+        //         ],
+        //         prevRenters: [],
+        //         _id: "5fd291fbc732a14b0883f7bd",
+        //         name: "name string",
+        //         price: 10,
+        //         location: "new location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "new image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 1,
+        //         rating: 5
+        //     },
+        //     {
+        //         reviews: [],
+        //         prevRenters: [],
+        //         _id: "5fd2e633604f214d40b220e9",
+        //         name: "kawasaki",
+        //         price: 5,
+        //         location: "location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 0
+        //     },
+        //     {
+        //         reviews: [],
+        //         prevRenters: [],
+        //         _id: "5fd2e642604f214d40b220ea",
+        //         name: "motoshare",
+        //         price: 5,
+        //         location: "location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 0
+        //     },
+        //     {
+        //         reviews: [],
+        //         prevRenters: [],
+        //         _id: "5fd2e6a0604f214d40b220eb",
+        //         name: "Harley Davidson",
+        //         price: 5,
+        //         location: "location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 0
+        //     },
+        //     {
+        //         reviews: [
+        //             "Review string"
+        //         ],
+        //         prevRenters: [],
+        //         _id: "5fd291fbc732a14b0883f7bd",
+        //         name: "name string",
+        //         price: 10,
+        //         location: "new location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "new image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 1,
+        //         rating: 5
+        //     },
+        //     {
+        //         reviews: [],
+        //         prevRenters: [],
+        //         _id: "5fd2e633604f214d40b220e9",
+        //         name: "kawasaki",
+        //         price: 5,
+        //         location: "location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 0
+        //     },
+        //     {
+        //         reviews: [],
+        //         prevRenters: [],
+        //         _id: "5fd2e642604f214d40b220ea",
+        //         name: "motoshare",
+        //         price: 5,
+        //         location: "location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 0
+        //     },
+        //     {
+        //         reviews: [],
+        //         prevRenters: [],
+        //         _id: "5fd2e6a0604f214d40b220eb",
+        //         name: "Harley Davidson",
+        //         price: 5,
+        //         location: "location details",
+        //         licence: "licence plate string",
+        //         description: "Description of Bike",
+        //         image_id: "image_id string",
+        //         image_url: "image_url string",
+        //         owner: "5fd28ef0c732a14b0883f7bb",
+        //         __v: 0
+        //     }]
+        // for (let i = 0; i < results.length; i++) {
+        //     ads.push({
+        //         id: i,
+        //         name: results[i].name,
+        //         img_id: results[i].img_id,
+        //         img_url: results[i].img_url,
+        //         price: results[i].price,
+        //         location: results[i].location
+        //     })
+        // }
         return ads;
     }
 
@@ -270,7 +281,7 @@ class Results extends React.Component {
 
         return ( 
             <div id = 'postedAds' >
-            <NavBar / >
+            <NavBar />
             <div className="container">
                 <AdsBoard ads = { this.createSampleAds() }/>
             </div>
