@@ -5,7 +5,7 @@ import './style.css'
 import AdsBoard from './AdsBoard'
 import NavBar from '../NavBar'
 import Footer from '../Footer1'
-import { searchBikes } from '../../../actions/bike'
+import { searchBikes } from '../../actions/bike'
 
 
 // eslint-disable-next-line
@@ -22,11 +22,17 @@ class Results extends React.Component {
         }
     }
     componentDidMount() {
-        searchBikes(this)
+        const payload = {
+            location: this.props.match.params.location,
+            availabilityStart: this.props.match.params.pickup,
+            availabilityEnd: this.props.match.params.dropoff
+        }
+        searchBikes(this, payload)
+
     }
 
     createSampleAds() {
-        const ads = []
+        // const ads = this,
         // // sample data for now, api call goes below!
         // const results = [{
         //         reviews: [
@@ -274,11 +280,11 @@ class Results extends React.Component {
         //         location: results[i].location
         //     })
         // }
-        return ads;
+        return this.state.ads
     }
 
     render() {
-
+        // console.log(this.state.)
         return ( 
             <div id = 'postedAds' >
             <NavBar />

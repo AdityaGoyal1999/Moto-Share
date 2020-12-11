@@ -102,12 +102,13 @@ export const searchBikes = async (app, payload) => {
             }
         })
         .then(json => {
-            app.setState({
-                bikes_info: [...app.state.bikes, json]
-            })
-            app.setState({
-                rendered: true
-            })
+            
+            for (let i = 0; i < json.length; i++) {
+                app.setState({
+                    ads: [...app.state.ads, json[i]]
+                })
+            }
+    
         })
         .catch(error => {
             console.log(error);
