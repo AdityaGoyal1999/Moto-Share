@@ -44,7 +44,7 @@ const idChecker = (req, res, next) => {
 // A route to check if a user is logged in on the session
 router.get("/api/users/check-session", (req, res) => {
   if (req.session.user) {
-      res.send({ currentUser: req.session.email });
+      res.send({ currentUser: req.session.user });
   } else {
       res.status(401).send();
   }

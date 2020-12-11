@@ -29,6 +29,8 @@ class PostedAdsPage extends React.Component {
       // ads: ads
       // saleInfo: saleInfo
     }
+
+    
   }
 
   /* Creating sample data for testing purposes (NOTE: Numerical values are random) */

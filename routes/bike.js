@@ -67,19 +67,19 @@ router.get('/api/bikes', mongoChecker, (req, res) => {
 //   'image_id': 'id', //OPTIONAL
 //   'image_url': 'url //OPTIONAL
 // }
-router.post('/api/users/:id', mongoChecker, idChecker, (req, res) => {
+router.post('/api/bike/user/:id', mongoChecker, idChecker, (req, res) => {
   const bike = new Bike({
     name: req.body.name,
     price: req.body.price,
-    avail_from: req.body.avail_from,
-    avail_to: req.body.avail_to,
+    availabilityStart: req.body.avail_from,
+    availabilityEnd: req.body.avail_to,
     location: req.body.location,
     licence: req.body.licence_plate,
     description: req.body.description,
     image_id: req.body.image_id || '',
     image_url: req.body.image_url || ''
   })
-  
+
   User.findById(req.params.id).then(result => {
     if (result) {
 			bike.owner = result
@@ -125,6 +125,7 @@ router.patch('/api/bikes/:id', mongoChecker, idChecker, (req, res) => {
     'image_id': req.body.image_id || '',
     'image_url': req.body.image_url || ''
   }, { new: true }).then(result => {
+    console.log(result)
     if (result) {
       result.save()
       res.send(result)

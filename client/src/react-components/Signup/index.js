@@ -72,11 +72,11 @@ class Signup extends React.Component {
 
     handleSubmit = async (event) => {
         const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-            return;
-        }
+        // if (form.checkValidity() === false) {
+        //     event.preventDefault();
+        //     event.stopPropagation();
+        //     return;
+        // }
         const payload = {
             email: this.state.email,
             password: this.state.password,

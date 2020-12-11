@@ -8,6 +8,9 @@ import PostAdInfo from './PostAdInfo'
 
 /* Ad Submission Component */
 class PostAd extends React.Component {
+  constructor(props){
+    super(props)
+  }
 
   render () {
 
@@ -16,7 +19,7 @@ class PostAd extends React.Component {
         <NavBar />
         <div id="adsInfo">
           <PostImages />
-          <PostAdInfo />
+          <PostAdInfo {...this.props} currentUser={this.props.currentUser} />
         </div>
         <Footer1 />
       </div>
