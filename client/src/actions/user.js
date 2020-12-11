@@ -107,6 +107,12 @@ export const getUserBikesByID = async (app, id) => {
             }
         })
         .then(json => {
+            if(json.bikes.length === 0) {
+                app.setState({
+                    rendered: true
+                })
+            }
+
             for (let i = 0; i < json.bikes.length; i++) {
                 console.log(json.bikes[i])
                 // app.setState({

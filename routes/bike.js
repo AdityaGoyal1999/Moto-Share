@@ -78,23 +78,23 @@ router.get('/api/bikes', mongoChecker, (req, res) => {
 //
 //   'image': file // OPTIONAL
 // }
-router.post('/api/bikes/user/:id', mongoChecker, idChecker, multipartMiddleware, async (req, res) => {
+router.post('/api/bikes/user/:id', mongoChecker, idChecker, async (req, res) => {
   let image_id = ''
   let image_url = ''
-  if (req.files) {
-    try{
-      await cloudinary.uploader.upload(
-      req.files.image.path,
-      function (result) {
-        image_id = result.public_id
-        image_url = result.url
-      }
-      )
-    } catch (error) {
-      log(error)
-      res.status(400).send('bad request')
-    }
-  }
+  // if (req.files) {
+  //   try{
+  //     await cloudinary.uploader.upload(
+  //     req.files.image.path,
+  //     function (result) {
+  //       image_id = result.public_id
+  //       image_url = result.url
+  //     }
+  //     )
+  //   } catch (error) {
+  //     log(error)
+  //     res.status(400).send('bad request')
+  //   }
+  // }
   
   const bike = new Bike({
     name: req.body.name,
@@ -212,7 +212,7 @@ router.delete('/api/bikes/:id', mongoChecker, idChecker, async (req, res) => {
       const owner = await User.findById(deleted.owner)
       owner.bikes = owner.bikes.filter(bike => bike.toString() !== deleted._id.toString())
       owner.save()
-      await cloudinary.uploader.destroy(deleted.image_id)
+      // await cloudinary.uploader.destroy(deleted.image_id)
       res.send(deleted)
     } else {
       res.status(404).send('resource not found')
