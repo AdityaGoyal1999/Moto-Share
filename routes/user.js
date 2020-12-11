@@ -114,7 +114,7 @@ router.post('/api/users/login', mongoChecker, async (req, res) => {
 });
 
 // A route to logout a user
-router.get("api/users/logout", async (req, res) => {
+router.get("/api/users/logout", async (req, res) => {
   // Remove the session
   req.session.destroy(error => {
       if (error) {
@@ -123,6 +123,8 @@ router.get("api/users/logout", async (req, res) => {
           res.send()
       }
   });
+  // req.session = null
+  // res.send(200)
 });
 
 

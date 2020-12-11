@@ -1,10 +1,5 @@
 import axios from "axios";
 
-axios.defaults.withCredentials = true
-
-// The SERVER_BASE_URL environment variable should be defined when deploying
-axios.defaults.baseURL = process.env.SERVER_BASE_URL || "http://localhost:5000";
-
 
 /* Helper function (not exported) to make requests and return the result in a
  * uniform format. */
@@ -167,23 +162,24 @@ export const login = (payload) => {
 };
 
 
-export const logoutUser = () => {
+export const logoutUser = async () => {
     
     // the URL for the request
     const url = "/api/users/logout";
 
-
     // const obj = null
-    return fetch(url)
+    await fetch(url)
         .then(res => {
             if (res.status === 200) {
                 // return a promise that resolves with the JSON body
                 console.log("logged out user")
             } else {
-                console.log("logged out user")
+                console.log("ERROR")
                 return res.status
             }
-        });
+        }).catch(error => {
+            console.log("ERROR in logout")
+        })
 };
 
 // Send a request to check if a user is logged in through the session cookie

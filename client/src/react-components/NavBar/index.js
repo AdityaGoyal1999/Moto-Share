@@ -60,6 +60,7 @@ class NavBar extends React.Component {
             <MenuItem><a href='/postedads'>My Ads</a></MenuItem>
             {/* Temporary, in phase 2 log in/out is handled by server calls in one view */}
             <MenuItem><a href='/' onClick={this.logout}>Log Out</a></MenuItem>
+            {/* <MenuItem onClick={this.logout}>Log Out</MenuItem> */}
           </Menu>
         </div>
       )

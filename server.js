@@ -60,11 +60,11 @@ const authenticate = (req, res, next) => {
     }
 }
 
-app.use(cors({
-    origin:['http://localhost:5000'],
-    methods:['GET','POST'],
-    credentials: true // enable set cookie
-}));
+// app.use(cors({
+//     origin:['http://localhost:5000'],
+//     methods:['GET','POST'],
+//     credentials: true // enable set cookie
+// }));
 
 // Create a session and session cookie
 app.use(
@@ -76,7 +76,8 @@ app.use(
             expires: 1000*60*60,
             httpOnly: true
         },
-        store: new MongoStore({ mongooseConnection: mongoose.connection })
+        store: new MongoStore({ mongooseConnection: mongoose.connection}),
+        unset: 'destroy' 
     })
   );
   

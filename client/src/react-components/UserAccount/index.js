@@ -5,7 +5,6 @@ import img from '../Results/static/motorcycle.jpg'
 import NavBar from '../NavBar'
 import Footer from '../Footer1'
 import {getUserByID} from '../../actions/user'
-import { Alert } from "react-bootstrap";
 
 class User extends React.Component {
 
