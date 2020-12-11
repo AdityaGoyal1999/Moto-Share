@@ -8,6 +8,7 @@ const { mongoose } = require('../db/mongoose')
 const { ObjectID } = require('mongodb')
 const { User } = require('../models/user')
 const { Bike } = require('../models/bike')
+const { Booking } = require('../models/Bookings')
 
 // body-parser: middleware for parsing HTTP JSON body into a usable object
 const bodyParser = require('body-parser')
