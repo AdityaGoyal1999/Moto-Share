@@ -4,15 +4,18 @@ import './style.css'
 
 
 class Ads extends React.Component {
+  constructor(props){
+    super(props)
+  }
 
   render () {
-
+    console.log(this.props.bike_id)
     return (
             <div className="col s12 m12 l4">
-            <a className="cardHover" href="./CompleteBikeInfo">
+            <a className="cardHover" href={`/CompleteBikeInfo/${this.props.bike_id}`}>
             <div className="card">
               <div className="card-image">
-                <img id='bikeImg' src={this.props.image_url} alt='ad' />
+                {/* <img id='bikeImg' src={this.props.image_url} alt='ad' /> */}
               </div>
               <div className="card-content">
                 <span className="card-title">{this.props.name}</span>

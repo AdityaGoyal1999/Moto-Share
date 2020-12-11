@@ -11,8 +11,9 @@ class AdsBoard extends React.Component {
 
             for (let i = 0; i < this.props.ads.length; i++) {
                 const currAd = this.props.ads[i]
-                adElements.push( < Ads 
-                        key = { currAd.id }
+                // console.log(currAd._id)
+                adElements.push( < Ads
+                        bike_id = { currAd._id }
                         name = { currAd.name }
                         img_url = { currAd.image_url }
                         price = { currAd.price }
@@ -20,7 +21,7 @@ class AdsBoard extends React.Component {
                     />)
                 }
 
-            return ( 
+            return (
                 <div id = 'adsBoard' >
                     <div className="row search">
                         <div className="input-field col s10">
@@ -31,14 +32,14 @@ class AdsBoard extends React.Component {
                         <i className="material-icons right">search</i>
                         </button>
                     </div>
-                    
-            <h2> Results for {this.props.search_term} <span role='img' aria-label='bike emoji'>🏍️</span> </h2> 
-                    <div id = "adsView" > 
+
+            <h2> Results for {this.props.search_term} <span role='img' aria-label='bike emoji'>🏍️</span> </h2>
+                    <div id = "adsView" >
                     <div className="row">
-                        
-                        { adElements } 
+
+                        { adElements }
                         </div>
-                    </div> 
+                    </div>
                 </div>
             );
     }
