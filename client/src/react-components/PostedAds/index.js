@@ -81,23 +81,23 @@ class PostedAdsPage extends React.Component {
     // This data comes from this.state.ads
     const names = this.state.bikes_info.map(bike => bike.name)
     const prices = this.state.bikes_info.map(bike => bike.price)
-    const ratings = this.state.bikes_info.map(bike => bike.price)
     const description = this.state.bikes_info.map(bike => bike.description)
 
     // console.log(names, prices, description)
     // This data will come from this.state.userInfo
-    const numBikeSold = this.state.bikes_info.map(bike => bike.price)
-    const totalBikeTips = this.state.bikes_info.map(bike => bike.price)
-    const totalBikeDays = this.state.bikes_info.map(bike => bike.price)
+    const numBikeSold = this.state.bikes_info.map(bike => bike.prevRenters.length)
+    const licence = this.state.bikes_info.map(bike => bike.licence)
+    const location = this.state.bikes_info.map(bike => bike.location)
 
     const ads = []
     const saleInfo = []
 
     // Adding all the sample data to be pushed to child components
     for (let i = 0; i < this.state.bikes_info.length; i++) {
-      ads.push({id:i, name:names[i], price:prices[i], rating:ratings[i], description:description[i]})
-      const totalEarning = totalBikeTips[i] + (totalBikeDays[i] * prices[i])
-      saleInfo.push({numSold:numBikeSold[i], totalTips:totalBikeTips[i], totalDays:totalBikeDays[i], totalEarnings:totalEarning})
+      const bike_id = this.state.bikes_info[i]._id
+      ads.push({id:i, bike_id:bike_id, name:names[i], price:prices[i], description:description[i]})
+      // const totalEarning = (totalBikeDays[i] * prices[i])
+      saleInfo.push({numSold:numBikeSold[i], licence:licence[i], location:location[i]})
     }
     return [ads, saleInfo];
   }
