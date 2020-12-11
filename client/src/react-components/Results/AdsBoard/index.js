@@ -11,8 +11,12 @@ class AdsBoard extends React.Component {
 
             for (let i = 0; i < this.props.ads.length; i++) {
                 const currAd = this.props.ads[i]
-                adElements.push( < Ads key = { currAd.id }
-                    description = { currAd.description }
+                adElements.push( < Ads 
+                        key = { currAd.id }
+                        name = { currAd.name }
+                        img_url = { currAd.image_url }
+                        price = { currAd.price }
+                        location = { currAd.location }
                     />)
                 }
 
@@ -28,7 +32,7 @@ class AdsBoard extends React.Component {
                         </button>
                     </div>
                     
-                    <h2> Results for "Harley Davidson" <span role='img' aria-label='bike emoji'>🏍️</span> </h2> 
+            <h2> Results for {this.props.search_term} <span role='img' aria-label='bike emoji'>🏍️</span> </h2> 
                     <div id = "adsView" > 
                     <div className="row">
                         

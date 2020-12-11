@@ -6,6 +6,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import easyScroll from 'easy-scroll';
 import { Button } from '@material-ui/core'
+import {deleteBikeById} from '../../../actions/bike'
 
 /* Overall Component that shows Information about Ads */
 class AdsBoard extends React.Component {
@@ -38,7 +39,7 @@ class AdsBoard extends React.Component {
       const ad = this.state.ads[id]
       let adInfoDisplay = (`<h4>Name: </h4><span id="adTextInfo">${ad.name}</span>`) 
       adInfoDisplay += (`<h4>Price: </h4><span id="adTextInfo">$ ${ad.price} / day</span>`)
-      adInfoDisplay += (`<h4>Rating: </h4><span id="adTextInfo">${ad.rating} / 5.0</span>`)
+      // adInfoDisplay += (`<h4>Rating: </h4><span id="adTextInfo">${ad.rating} / 5.0</span>`)
       adInfoDisplay += (`<h4>Description: </h4><span id="adTextInfo"> ${ad.description}</span>`)
       document.getElementById("adDetails").innerHTML = adInfoDisplay
     }
@@ -52,16 +53,16 @@ class AdsBoard extends React.Component {
     } else {
       const saleInfo = this.state.saleInfo[id]
       let saleInfoDisplay = `<h4>Number of Times Rented: </h4><span id="adTextInfo">${saleInfo.numSold} times</span>`
-      saleInfoDisplay += (`<h4>Number of Days Rented: </h4><span id="adTextInfo">${saleInfo.totalDays} days</span>`)
-      saleInfoDisplay += (`<h4>Total Tips: </h4><span id="adTextInfo">$ ${saleInfo.totalTips} </span>`)
-      saleInfoDisplay += (`<h4>Total Earnings: </h4><span id="adTextInfo">$ ${saleInfo.totalEarnings} </span>`)
+      saleInfoDisplay += (`<h4>License Number: </h4><span id="adTextInfo">${saleInfo.licence}</span>`)
+      // saleInfoDisplay += (`<h4>Total Tips: </h4><span id="adTextInfo">$ ${saleInfo.totalTips} </span>`)
+      saleInfoDisplay += (`<h4>Location: </h4><span id="adTextInfo"> ${saleInfo.location} </span>`)
       document.getElementById("saleInfo").innerHTML = saleInfoDisplay
     }
 
   }
 
   /* Updates Ad Details display below carousal */
-  deleteAd = (id) => {
+  deleteAd = (id, bike_id) => {
 
     // SERVER CALL to remove ad here
 
@@ -87,6 +88,8 @@ class AdsBoard extends React.Component {
       this.updateSaleInfo(0)
     }
 
+    deleteBikeById(bike_id)
+
     this.render()
   }
 
@@ -100,7 +103,7 @@ class AdsBoard extends React.Component {
       <Ads id={currAd.id} 
            name={currAd.name} 
            price={currAd.price} 
-           rating={currAd.rating} 
+           bike_id={currAd.bike_id}
            handleClick={this.updateAdInfo}
            deleteAd={this.deleteAd}
            key={i}

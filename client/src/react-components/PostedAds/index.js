@@ -4,11 +4,14 @@ import './style.css'
 import AdsBoard from './AdsBoard'
 import NavBar from '../NavBar'
 import Footer1 from '../Footer1'
+import {getUserBikesByID} from '../../actions/user'
+import {getBikeByID} from '../../actions/bike'
 
 // eslint-disable-next-line
 const getUserData = event => {
   event.preventDefault()
   // SERVER CALL goes here to get Ad Data
+
 }
 
 /* Component that shows all the Ads that the User has posted*/
@@ -21,10 +24,30 @@ class PostedAdsPage extends React.Component {
     // {saleInfo, ads} = getUserData()
 
     this.state = {
-      // ads: ads
-      // saleInfo: saleInfo
-    }
+      bikes_ids: [],
+      bikes_info: [],
+      rendered: false
+		}
+		
+		// getUserBikesByID(this, this.props.currentUser)
+
+
+    // for(let i = 0; i < this.state.bikes_ids.length; i++) {
+    //   getBikeByID(this, this.state.bikes_ids[i]) 
+    // }
+
+    // console.log(this.state.bike_info)
   }
+
+  async componentDidMount() {
+    await getUserBikesByID(this, this.props.currentUser)
+    // console.log(this.state.bikes_info)
+    // this.setState({
+    //   data: [...this.state.data, this.data()[0], this.data()[0] ]
+    // })
+
+  }
+
 
   /* Creating sample data for testing purposes (NOTE: Numerical values are random) */
   createSampleData () {
@@ -50,16 +73,45 @@ class PostedAdsPage extends React.Component {
     }
     return [ads, saleInfo];
   }
-  
-  render () {
 
-    return (
+  /* Creating sample data for testing purposes (NOTE: Numerical values are random) */
+  data () {
+
+
+    // This data comes from this.state.ads
+    const names = this.state.bikes_info.map(bike => bike.name)
+    const prices = this.state.bikes_info.map(bike => bike.price)
+    const description = this.state.bikes_info.map(bike => bike.description)
+
+    // console.log(names, prices, description)
+    // This data will come from this.state.userInfo
+    const numBikeSold = this.state.bikes_info.map(bike => bike.prevRenters.length)
+    const licence = this.state.bikes_info.map(bike => bike.licence)
+    const location = this.state.bikes_info.map(bike => bike.location)
+
+    const ads = []
+    const saleInfo = []
+
+    // Adding all the sample data to be pushed to child components
+    for (let i = 0; i < this.state.bikes_info.length; i++) {
+      const bike_id = this.state.bikes_info[i]._id
+      ads.push({id:i, bike_id:bike_id, name:names[i], price:prices[i], description:description[i]})
+      // const totalEarning = (totalBikeDays[i] * prices[i])
+      saleInfo.push({numSold:numBikeSold[i], licence:licence[i], location:location[i]})
+    }
+    return [ads, saleInfo];
+  }
+  
+    render () {
+    console.log(this.state.rendered)
+    console.log(this.state.bikes_info)
+    return this.state.rendered === true ? (
       <div id='postedAds'>
         <NavBar />
-        <AdsBoard ads={this.createSampleData()[0]} saleInfo={this.createSampleData()[1]} />
+        <AdsBoard ads={this.data()[0]} saleInfo={this.data()[1]} />
         <Footer1 />
       </div>
-    )
+    ) : <div>Loading Your Page</div>
   }
 }
 

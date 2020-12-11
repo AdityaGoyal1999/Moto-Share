@@ -15,30 +15,33 @@ import { checkSession } from "./actions/user";
 
 class App extends React.Component {
 
+  constructor(props){
+    super(props)
+    this.state = {
+      currentUser: null
+    }
+  }
+
   componentDidMount() {
     checkSession(this)
+    console.log(this.state.currentUser)
   }
-
-  state = {
-    currentUser: null
-  }
-
 
   render() {
     const { currentUser } = this.state;
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path='/' render={() => <HomePage />} />
-          <Route exact path='/loggedIn' render={() => <HomePage loggedIn={true}/>} />
-          <Route exact path='/login' render={() => <AccountAccess isLoginView={true} />} />
-          <Route exact path='/signup' render={() => <AccountAccess isLoginView={false} />} />
-          <Route exact path="/admin" render={() => <AdminDataTableView loggedIn={true}/>} />
-          <Route exact path="/postedads" render={() => <PostedAds />} />
-          <Route exact path='/results' render={() => <Results />} />
-          <Route exact path='/postad' render={() => <PostAd />} />
-          <Route exact path='/CompleteBikeInfo' render={() => <CompleteBikeInfo />} />
-          <Route exact path="/User" render={()=> <User loggedIn={true}/>} />
+          <Route exact path='/' render={() => <HomePage loggedIn={currentUser !== null}/>} />
+          <Route exact path='/loggedIn' render={() => <HomePage loggedIn={true} />} />
+          <Route exact path='/login' render={(props) =>  <AccountAccess {...props} isLoginView={true} app={this} />} />
+          <Route exact path='/signup' render={(props) => <AccountAccess {...props} isLoginView={false} />} />
+          <Route exact path="/admin" render={(props) => <AdminDataTableView {...props} loggedIn={true}/>} />
+          <Route exact path="/postedads" render={(props) => currentUser ? <PostedAds {...props} currentUser={this.state.currentUser} /> : <AccountAccess {...props} isLoginView={false} />} />
+          <Route exact path='/results' render={(props) => <Results {...props}/>} />
+          <Route exact path='/postad' render={currentUser ? (props) => <PostAd {...props} currentUser={this.state.currentUser}/> : (props) => <AccountAccess {...props} isLoginView={false} />}  />
+          <Route exact path='/CompleteBikeInfo' render={(props) => <CompleteBikeInfo {...props}/>} />
+          <Route exact path="/User/:id" render={(props)=> <User {...props} currentUser={this.state.currentUser} loggedIn={true}/>} />
           
           {/* Change this later */}
           <Route render={() => <div>404 Not found</div>} />

@@ -12,7 +12,7 @@ class HomePage extends React.Component {
   render () {
     return (
       <div id='homeContainer'>
-        <NavBar loggedIn={this.props.loggedIn} />
+        <NavBar loggedIn={this.props.loggedIn}  />
         <Hero />
         <SearchBox />
         <HomeCards />

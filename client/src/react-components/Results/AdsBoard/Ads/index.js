@@ -1,7 +1,6 @@
 import React from 'react'
 
 import './style.css'
-import img from './../../static/motorcycle.jpg'
 
 
 class Ads extends React.Component {
@@ -13,11 +12,11 @@ class Ads extends React.Component {
             <a className="cardHover" href="./CompleteBikeInfo">
             <div className="card">
               <div className="card-image">
-                <img id="adImg" src={img} alt='ad' />
+                <img id='bikeImg' src={this.props.image_url} alt='ad' />
               </div>
               <div className="card-content">
-                <span className="card-title">{this.props.description}</span>
-                <p><b>$100 per day</b><br /> 321, Bloor Street,<br /> Toronto.</p>
+                <span className="card-title">{this.props.name}</span>
+                <p><b>{this.props.price} per day</b><br />{this.props.location}</p>
               </div>
             </div>
             </a>

@@ -14,12 +14,12 @@ class Ads extends React.Component {
   }
 
   /* Handle request to delete ad*/
-  deleteAd = (id) => {
-    this.props.deleteAd(id)
+  deleteAd = (id, bike_id) => {
+    this.props.deleteAd(id, bike_id)
   }
 
   render () {
-    const { id, name, price} = this.props;
+    const { id, name, price, bike_id} = this.props;
 
     return (
       <div className='adsUser' >
@@ -33,7 +33,7 @@ class Ads extends React.Component {
           <span className="adCardTitle"><strong>Price</strong>: $ {price} / day </span>
         </div>
         {/* Delete button */}
-        <Link href="#" ><DeleteIcon color="primary" onClick={() => this.deleteAd(id)}/> </Link>
+        <Link href="#" ><DeleteIcon color="primary" onClick={() => this.deleteAd(id, bike_id)}/> </Link>
       </div>
       
     )

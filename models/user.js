@@ -28,14 +28,13 @@ const UserSchema = new mongoose.Schema({
     },
     name: {
         type: String,
-        required: true,
 		minlength: 4,
-		unique: true,
-    },
+		required: true,
+	},
     location: String,
     rating: Number,
     reviews: [String],
-    rentedTo: Number,
+    rentedTo: Number,  // Check if this needs to be here
     bikes: [{type: Schema.ObjectId, ref: 'BikeSchema'}],
     image_id: {
         type: String,

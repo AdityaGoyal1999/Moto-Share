@@ -11,7 +11,6 @@ const BikeSchema = new mongoose.Schema({
         type: String,
 		required: true,
 		minlength: 4,
-		unique: true,
     },
     location: String,
     rating: Number,
@@ -27,7 +26,6 @@ const BikeSchema = new mongoose.Schema({
     licence: String,
     description: String,
     renter: {type: Schema.ObjectId, ref: 'UserSchema'},
-    reviews: [String],
     prevRenters: [{type: Schema.ObjectId, ref: 'UserSchema'}],
     image_id: {
         type: String,

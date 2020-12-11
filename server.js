@@ -1,6 +1,7 @@
 'use strict'
 const express = require('express')
 const path = require('path')
+const cors = require('cors')
 
 const app = express()
 
@@ -59,6 +60,12 @@ const authenticate = (req, res, next) => {
     }
 }
 
+// app.use(cors({
+//     origin:['http://localhost:5000'],
+//     methods:['GET','POST'],
+//     credentials: true // enable set cookie
+// }));
+
 // Create a session and session cookie
 app.use(
     session({
@@ -66,23 +73,15 @@ app.use(
         resave: false,
         saveUninitialized: false,
         cookie: {
-            expires: 60000,
+            expires: 1000*60*60,
             httpOnly: true
         },
-        store: new MongoStore({ mongooseConnection: mongoose.connection })
+        store: new MongoStore({ mongooseConnection: mongoose.connection}),
+        unset: 'destroy' 
     })
-);
-
-
-// A route to check if a user is logged in on the session
-app.get("/api/users/check-session", (req, res) => {
+  );
   
-    if (req.session.user) {
-        res.send({ currentUser: req.session.email });
-    } else {
-        res.status(401).send();
-    }
-});
+  
 
 app.use(require('./routes/user'))
 app.use(require('./routes/bike'))
