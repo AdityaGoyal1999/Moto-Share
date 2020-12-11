@@ -11,6 +11,10 @@ import 'materialize-css/dist/css/materialize.min.css'
 class CompleteDescription extends React.Component {
 
   render () {
+		const rentBike = () => {
+			//api call goes here
+			console.log('rented')
+		}
 
     return (
     	<div className="completeAd">
@@ -73,6 +77,8 @@ class CompleteDescription extends React.Component {
 		    					Absolute head turner!
 		    				</div>
 		    			</div>
+
+							<button className='rentButton btn waves-effect waves-light' onclick={rentBike()}>Rent Bike!</button>
 
 		    		</div>
 
