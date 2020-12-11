@@ -12,7 +12,7 @@ class Ads extends React.Component {
             <a className="cardHover" href="./CompleteBikeInfo">
             <div className="card">
               <div className="card-image">
-                <img id={this.props.img_id} src={this.props.img_url} alt='ad' />
+                <img id='bikeImg' src={this.props.image_url} alt='ad' />
               </div>
               <div className="card-content">
                 <span className="card-title">{this.props.name}</span>

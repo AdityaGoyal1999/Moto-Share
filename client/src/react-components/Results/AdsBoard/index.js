@@ -14,8 +14,7 @@ class AdsBoard extends React.Component {
                 adElements.push( < Ads 
                         key = { currAd.id }
                         name = { currAd.name }
-                        img_id = { currAd.img_id }
-                        img_url = { currAd.img_url }
+                        img_url = { currAd.image_url }
                         price = { currAd.price }
                         location = { currAd.location }
                     />)

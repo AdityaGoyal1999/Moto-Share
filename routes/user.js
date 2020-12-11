@@ -282,7 +282,9 @@ router.delete('/api/users/:id', mongoChecker, idChecker, async (req, res) => {
   try {  
     const user = await User.findByIdAndDelete(req.params.id)
     if (user) {
-      await cloudinary.uploader.destroy(user.image_id)
+      if (user.image_id) {
+        await cloudinary.uploader.destroy(user.image_id)
+      }
       let deletedBikes = []
       for (let i = 0; i < user.bikes.length; i++) {
         const bike = await Bike.findByIdAndDelete(user.bikes[i])

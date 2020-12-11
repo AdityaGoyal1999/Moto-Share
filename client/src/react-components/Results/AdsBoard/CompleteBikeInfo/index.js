@@ -12,28 +12,62 @@ class CompleteDescription extends React.Component {
 
   render () {
 		const rentBike = () => {
-			//api call goes here
+			// api call goes here
 			console.log('rented')
+		}
+
+		// put api call here, assign to bike object
+		const bike = {
+			"reviews": ["Great bike! Such a smooth ride!", "It was alright I guess..."],
+			"prevRenters": [],
+			"_id": "5fd3c2f846cd40375c8c7bcf",
+			"name": "Bike",
+			"price": 5,
+			"availabilityStart": "2020-02-02T00:00:00.000Z",
+			"availabilityEnd": "2020-02-03T00:00:00.000Z",
+			"location": "Winnipeg",
+			"licence": "ksdjnf",
+			"description": "A real good bike",
+			"image_id": "yeirxbewxirapk6lzyd6",
+			"image_url": "http://res.cloudinary.com/jblcloud/image/upload/v1607713508/yeirxbewxirapk6lzyd6.png",
+			"owner": "5fd3c27046cd40375c8c7bce",
+			"rating": 4
+		}
+		
+		// put api call here, assign to user object
+		const user = {
+			"reviews": [],
+			"bikes": [
+					"5fd3c2f846cd40375c8c7bcf"
+			],
+			"_id": "5fd3c27046cd40375c8c7bce",
+			"email": "a@a.com",
+			"password": "$2a$10$gaZWRhxivVyhoVdNEmpXN.NrPS98AUU.a9QGTLFKWpnLL1dM4853O",
+			"name": "Julien",
+			"location": "",
+			"rating": 0,
+			"rentedTo": 0,
+			"__v": 0
 		}
 
     return (
     	<div className="completeAd">
 	    	<NavBar />
 	    	<div className="modifiedContainer">
-		    	<h2>Harley Davidson</h2>
+		    	<h2>{bike.name}</h2>
 		    	<div className="row">
 		    	<div className="col s12 m12 l6">
 		    		<div className="imgDiv">
-		    			<img src={img} className="imgObj" alt='Motorcycle' />
+		    			<img src={bike.image_url} className="imgObj" alt='Motorcycle' />
 		    		</div>
 		    		<a href="../User">
 		    		<div className="SellerInfo">
 		    			<div className="row">
 	    					<div className="col s12 m12 l4">
-	    						<img src='/person.jpg' className="imgSeller" alt='Seller' />
+	    						<img src={user.image_url} className="imgSeller" alt='Seller' />
 	    					</div>
 	    					<div className="col s12 m12 l8">
-	    					 <span id="SellerName">Jane Doe</span><br /><span className="Rating"></span>
+	    					 <span id="SellerName">{user.name}</span><br /><span className="Rating"></span>
 	    					 <span className="textNonBold">4.9 <i className="material-icons icon-gold">star</i><span className="reviewCount">(20)</span></span>
 	    					</div>
 		    			</div>
@@ -43,40 +77,31 @@ class CompleteDescription extends React.Component {
 		    	<div className="col s12 m12 l6">
 		    		<div className="container">
 		    			<div className="textLine">
-		    				<span className="textBold">Owner</span> <span className="textNonBold">Aditya Goyal</span>
+		    				<span className="textBold">Owner</span> <span className="textNonBold">{user.name}</span>
 		    			</div>
 
 		    			<div className="textLine">
-		    				<span className="textBold">Location</span> <span className="textNonBold">321 Bloor Street West,<br /> Toronto, Canada.</span>
+		    				<span className="textBold">Location</span> <span className="textNonBold">{bike.location}</span>
 		    			</div>
 
 		    			<div className="textLine">
-		    				<span className="textBold">Price</span> <span className="textNonBold">$100 per day</span>
+		    				<span className="textBold">Price</span> <span className="textNonBold">{bike.price}</span>
 		    			</div>
 
 		    			<div className="textLine">
-		    				<span className="textBold">Rating</span> <span className="textNonBold">4.9 <i className="material-icons icon-gold">star</i><span className="reviewCount">(20)</span></span>
+		    				<span className="textBold">Rating</span> <span className="textNonBold">{bike.rating} <i className="material-icons icon-gold">star</i><span className="reviewCount">({bike.reviews.length})</span></span>
 		    			</div>
 		    			<div id="CommentHeading">
 		    				<span className="textBold">Comments</span>
 		    			</div>
-		    			<div className="comment">
-		    				<div className="senderName">
-		    				John Doe
-		    				</div>
-		    				<div className="commentContent">
-		    					Amazing bike and even better seller!
-		    				</div>
-		    			</div>
 
-		    			<div className="comment">
-		    				<div className="senderName">
-		    				Jane Doe
-		    				</div>
-		    				<div className="commentContent">
-		    					Absolute head turner!
-		    				</div>
-		    			</div>
+							{bike.reviews.map(review => (
+								<div className="comment">
+									<div className="commentContent">
+										{review}
+									</div>
+								</div>
+							))}
 
 							<button className='rentButton btn waves-effect waves-light' onclick={rentBike()}>Rent Bike!</button>
 
