@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import {getBikeByID} from './bike'
 
 /* Helper function (not exported) to make requests and return the result in a
  * uniform format. */
@@ -94,10 +94,10 @@ export const getUserByID = (app, id) => {
 };
 
 
-export const getUserBikesByID = (app, id) => {
-    const url = "/api/users/bikes/"+id;
+export const getUserBikesByID = async (app, id) => {
+    const url = "/api/users/"+id;
 
-    fetch(url)
+    return await fetch(url)
         .then(res => {
             if (res.status === 200) {
                 // return a promise that resolves with the JSON body
@@ -107,13 +107,12 @@ export const getUserBikesByID = (app, id) => {
             }
         })
         .then(json => {
-
             for (let i = 0; i < json.bikes.length; i++) {
-                
-
-                app.setState({
-                    bikes: [...app.state.bikes, json.bikes[i]]
-                })
+                console.log(json.bikes[i])
+                // app.setState({
+                //     bikes_ids: [...app.state.bikes_ids, json.bikes[i]]
+                // })
+                getBikeByID(app, json.bikes[i])
             }
 
 
