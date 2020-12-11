@@ -59,8 +59,30 @@ export const addUser = (payload) => {
         // });
 };
 
-export const getUserByID = (id) => {
-    return axiosRequest("GET", "/api/users/" + id);
+export const getUserByID = (app, id) => {
+    const url = `/api/users/`+id;
+
+    fetch(url)
+        .then(res => {
+            return res.json()
+        })
+        .then(json => {
+            console.log(json.name)
+            console.log(app.state.user_id)
+            app.setState({
+                user_id: json._id,
+                name: json.name,
+                location: json.location,
+                rentedTo: json.rentedTo,
+                rating: json.rating,
+                bikes: json.bikes,
+                reviews: json.reviews
+            });
+            console.log(app.state.user_id)
+        })
+        .catch(error => {
+            console.log(error);
+        });
 };
 
 export const addReview = (id, payload) => {

@@ -24,7 +24,7 @@ class PostedAdsPage extends React.Component {
 
     const user  = getUserByID(this.props.currentUser)
     
-
+    
     this.state = {
       // ads: ads
       // saleInfo: saleInfo

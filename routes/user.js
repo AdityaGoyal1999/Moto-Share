@@ -31,8 +31,11 @@ const mongoChecker = (req, res, next) => {
 
 
 // middleware to check valid id param
-const idChecker = (req, res, next) => {
-  if(!ObjectID.isValid(req.params.id)) {
+const idChecker = async (req, res, next) => {
+  console.log("idchecker "+req.params.id)
+  const check = ObjectID.isValid(req.params.id)
+  console.log("This is the check: "+check)
+  if(!check) {
     log('invalid id')
     res.status(404).send()
     return
@@ -108,9 +111,10 @@ router.post('/api/users/login', mongoChecker, async (req, res) => {
   req.session.email = user.email;
   res.send({ currentUser: user._id});
   
-  // const accessToken = jwt.sign({userId: user}, 'SECRET_TOKEN');//should be user._Id?
-  // res.header('auth-token', accessToken).json({accessToken: accessToken, userId: user._id});
 });
+
+
+
 
 // create user
 // Expects:
@@ -125,7 +129,7 @@ router.post('/api/users', mongoChecker, async (req, res) => {
     password: req.body.password,
     name: req.body.name,
     location: '',
-    rating: -1,
+    rating: 0,
     reviews: [],
     rentedTo: 0,
     bikes: []
@@ -153,7 +157,7 @@ router.post('/api/users', mongoChecker, async (req, res) => {
 //   id: ObjectID
 // }
 router.get('/api/users/:id', mongoChecker, idChecker, (req, res) => {
-  User.findById(req.params.id).then(result => {
+  User.findById(req.params.id).exec().then(result => {
     if (!result) {
       res.status(404).send('resource not found')
     } else {
@@ -168,6 +172,7 @@ router.get('/api/users/:id', mongoChecker, idChecker, (req, res) => {
     }
   })
 })
+
 
 // leave a review for a user
 // expects:
