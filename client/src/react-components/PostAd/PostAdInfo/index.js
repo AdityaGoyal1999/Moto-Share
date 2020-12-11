@@ -95,8 +95,8 @@ class PostAdInfo extends React.Component {
         const payload = {
             name: this.state.name,
             price: this.state.price,
-            avail_from: this.state.fromAvaliability,
-            avail_to: this.state.toAvaliability,
+            availabilityStart: this.state.fromAvaliability,
+            availabilityEnd: this.state.toAvaliability,
             location: this.state.pickupLocation,
             licence_plate: this.state.driversLicense,
             description: this.state.description
