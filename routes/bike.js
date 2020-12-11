@@ -304,4 +304,30 @@ router.post('/api/bikes/:id/return', mongoChecker, idChecker, (req, res) => {
   })
 })
 
+// get search results
+router.post('/api/bikes/search', async (req, res) => {
+  const start = new Date(req.body.availabilityStart)
+  const end = new Date(req.body.availabilityEnd)
+  Bike.find(
+      {
+        "location" : {$eq: req.body.location},
+        "availabilityStart" : {$gte : start},
+        "availabilityEnd" : {$lte: end}
+      }
+  ).then(result => {
+    if (result) {
+      res.send(result)
+    } else {
+      res.status(404).send('resource not found')
+    }
+  }).catch(error => {
+    log(error)
+    if (isMongoError(error)) {
+      res.status(500).send('internal server error')
+    } else {
+      res.status(400).send('bad request')
+    }
+  })
+})
+
 module.exports = router
