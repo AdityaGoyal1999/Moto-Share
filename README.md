@@ -181,7 +181,7 @@ The new opened page will give you the functionality to post a new ad.
         "__v": 0
   }]
   ```
-- **POST** /api/users/:id
+- **POST** /api/bikes/user/:id
   * Creates a new bike for given user id
   * expects: 
   ```json
