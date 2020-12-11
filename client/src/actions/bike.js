@@ -22,12 +22,12 @@ export const addBike = (payload, id) => {
 
 
 // Add Bike to user
-export const getBikeByID = (app, id) => {
+export const getBikeByID = async (app, id) => {
 
     // the URL for the request
-    const url = "/api/bike/user/"+id;
+    const url = "/api/bikes/"+id;
 
-    fetch(url)
+    return await fetch(url)
     .then(res => {
         if (res.status === 200) {
             // return a promise that resolves with the JSON body
@@ -38,7 +38,10 @@ export const getBikeByID = (app, id) => {
     })
     .then(json => {
         app.setState({
-            bikes: [...app.state.bike_info, json]
+            bikes_info: [...app.state.bikes_info, json]
+        })
+        app.setState({
+            rendered: true
         })
     })
     .catch(error => {

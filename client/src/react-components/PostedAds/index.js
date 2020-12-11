@@ -25,19 +25,29 @@ class PostedAdsPage extends React.Component {
 
     this.state = {
       bikes_ids: [],
-      bike_info: []
+      bikes_info: [],
+      rendered: false
 		}
 		
-		getUserBikesByID(this, this.props.match.params.id)
+		// getUserBikesByID(this, this.props.currentUser)
 
-    console.log(this.state.bike_info)
 
-    for(let i = 0; i < this.state.bikes_ids.length; i++) {
-      getBikeByID(this, this.state.bikes_ids[i]) 
-    }
+    // for(let i = 0; i < this.state.bikes_ids.length; i++) {
+    //   getBikeByID(this, this.state.bikes_ids[i]) 
+    // }
 
-    console.log(this.state.bike_info)
+    // console.log(this.state.bike_info)
   }
+
+  async componentDidMount() {
+    await getUserBikesByID(this, this.props.currentUser)
+    // console.log(this.state.bikes_info)
+    // this.setState({
+    //   data: [...this.state.data, this.data()[0], this.data()[0] ]
+    // })
+
+  }
+
 
   /* Creating sample data for testing purposes (NOTE: Numerical values are random) */
   createSampleData () {
@@ -63,16 +73,45 @@ class PostedAdsPage extends React.Component {
     }
     return [ads, saleInfo];
   }
-  
-  render () {
 
-    return (
+  /* Creating sample data for testing purposes (NOTE: Numerical values are random) */
+  data () {
+
+
+    // This data comes from this.state.ads
+    const names = this.state.bikes_info.map(bike => bike.name)
+    const prices = this.state.bikes_info.map(bike => bike.price)
+    const ratings = this.state.bikes_info.map(bike => bike.price)
+    const description = this.state.bikes_info.map(bike => bike.description)
+
+    // console.log(names, prices, description)
+    // This data will come from this.state.userInfo
+    const numBikeSold = this.state.bikes_info.map(bike => bike.price)
+    const totalBikeTips = this.state.bikes_info.map(bike => bike.price)
+    const totalBikeDays = this.state.bikes_info.map(bike => bike.price)
+
+    const ads = []
+    const saleInfo = []
+
+    // Adding all the sample data to be pushed to child components
+    for (let i = 0; i < this.state.bikes_info.length; i++) {
+      ads.push({id:i, name:names[i], price:prices[i], rating:ratings[i], description:description[i]})
+      const totalEarning = totalBikeTips[i] + (totalBikeDays[i] * prices[i])
+      saleInfo.push({numSold:numBikeSold[i], totalTips:totalBikeTips[i], totalDays:totalBikeDays[i], totalEarnings:totalEarning})
+    }
+    return [ads, saleInfo];
+  }
+  
+    render () {
+    console.log(this.state.rendered)
+    console.log(this.state.bikes_info)
+    return this.state.rendered === true ? (
       <div id='postedAds'>
         <NavBar />
-        <AdsBoard ads={this.createSampleData()[0]} saleInfo={this.createSampleData()[1]} />
+        <AdsBoard ads={this.data()[0]} saleInfo={this.data()[1]} />
         <Footer1 />
       </div>
-    )
+    ) : <div>Loading Your Page</div>
   }
 }
 

@@ -24,11 +24,11 @@ class App extends React.Component {
 
   componentDidMount() {
     checkSession(this)
+    console.log(this.state.currentUser)
   }
 
   render() {
     const { currentUser } = this.state;
-    console.log(this.state.currentUser)
     return (
       <BrowserRouter>
         <Switch>
