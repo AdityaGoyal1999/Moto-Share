@@ -66,18 +66,18 @@ router.get("/api/users/check-session", async (req, res) => {
 });
 
 // get all users
-// router.get('/api/users', mongoChecker, (req, res) => {
-//   User.find().then(result => {
-//     res.send(result)
-//   }).catch(error => {
-//     log(error)
-//     if (isMongoError(error)) {
-//       res.status(500).send('internal server error')
-//     } else {
-//       res.status(400).send('bad request')
-//     }
-//   })
-// })
+router.get('/api/users', mongoChecker, (req, res) => {
+  User.find().then(result => {
+    res.send(result)
+  }).catch(error => {
+    log(error)
+    if (isMongoError(error)) {
+      res.status(500).send('internal server error')
+    } else {
+      res.status(400).send('bad request')
+    }
+  })
+})
 
 // get user by email & password
 // expects:
