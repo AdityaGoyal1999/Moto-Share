@@ -4,7 +4,7 @@ const express = require('express')
 const router = express.Router()
 
 const { mongoose } = require('../db/mongoose')
-const { ObjectID, ObjectId } = require('mongodb')
+const { ObjectID } = require('mongodb')
 const { User } = require('../models/user')
 const { Bike } = require('../models/bike')
 
@@ -12,6 +12,18 @@ const { Bike } = require('../models/bike')
 const bodyParser = require('body-parser')
 const { mongo } = require('mongoose')
 router.use(bodyParser.json())
+
+// multipart middleware
+const multipart = require('connect-multiparty')
+const multipartMiddleware = multipart()
+
+// cloudinary config
+const cloudinary = require('cloudinary')
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME || 'jblcloud',
+  api_key: process.env.API_KEY || '615272663218367',
+  api_secret: process.env.API_SECRET || '8DiQuqz_zEe2aFqxWr1688QM2Vs'
+})
 
 function isMongoError (error) { // checks for first error returned by promise rejection if Mongo database suddently disconnects
   return typeof error === 'object' && error !== null && error.name === "MongoNetworkError"
@@ -21,20 +33,20 @@ function isMongoError (error) { // checks for first error returned by promise re
 const mongoChecker = (req, res, next) => {
   // check mongoose connection established.
   if (mongoose.connection.readyState !== 1) {
-  log('Issue with mongoose connection')
-  res.status(500).send('Internal server error')
-  return
+    log('Issue with mongoose connection')
+    res.status(500).send('Internal server error')
+    return
   } else {
-  next()
+    next()
   }
 }
 
 // middleware to check valid id param
 const idChecker = (req, res, next) => {
   if(!ObjectID.isValid(req.params.id)) {
-  log('invalid id')
-  res.status(404).send()
-  return
+    log('invalid id')
+    res.status(404).send()
+    return
   }
   next()
 }
@@ -64,10 +76,26 @@ router.get('/api/bikes', mongoChecker, (req, res) => {
 //   'licence_plate': 'licence plate',
 //   'description': 'description',
 //
-//   'image_id': 'id', //OPTIONAL
-//   'image_url': 'url //OPTIONAL
+//   'image': file // OPTIONAL
 // }
-router.post('/api/bike/user/:id', mongoChecker, idChecker, (req, res) => {
+router.post('/api/bikes/user/:id', mongoChecker, idChecker, multipartMiddleware, async (req, res) => {
+  let image_id = ''
+  let image_url = ''
+  if (req.files) {
+    try{
+      await cloudinary.uploader.upload(
+      req.files.image.path,
+      function (result) {
+        image_id = result.public_id
+        image_url = result.url
+      }
+      )
+    } catch (error) {
+      log(error)
+      res.status(400).send('bad request')
+    }
+  }
+  
   const bike = new Bike({
     name: req.body.name,
     price: req.body.price,
@@ -76,8 +104,8 @@ router.post('/api/bike/user/:id', mongoChecker, idChecker, (req, res) => {
     location: req.body.location,
     licence: req.body.licence_plate,
     description: req.body.description,
-    image_id: req.body.image_id || '',
-    image_url: req.body.image_url || ''
+    image_id: image_id,
+    image_url: image_url
   })
 
   User.findById(req.params.id).then(result => {
@@ -110,10 +138,26 @@ router.post('/api/bike/user/:id', mongoChecker, idChecker, (req, res) => {
 //   'location': 'location details',
 //   'licence_plate': 'licence plate',
 //   'description': 'description',
-//   'image_id': 'id', //OPTIONAL
-//   'image_url': 'url //OPTIONAL
+//   'image': file
 // }
-router.patch('/api/bikes/:id', mongoChecker, idChecker, (req, res) => {
+router.patch('/api/bikes/:id', mongoChecker, idChecker, multipartMiddleware, async (req, res) => {
+  let image_id = ''
+  let image_url = ''
+  if (req.files) {
+    try{
+      await cloudinary.uploader.upload(
+      req.files.image.path,
+      function (result) {
+        image_id = result.public_id
+        image_url = result.url
+      }
+      )
+    } catch (error) {
+      log(error)
+      res.status(400).send('bad request')
+    }
+  }
+  
   Bike.findByIdAndUpdate(req.params.id, {
     'name': req.body.name,
     'price': req.body.price,
@@ -122,8 +166,8 @@ router.patch('/api/bikes/:id', mongoChecker, idChecker, (req, res) => {
     'location': req.body.location,
     'licence': req.body.licence_plate,
     'description': req.body.description,
-    'image_id': req.body.image_id || '',
-    'image_url': req.body.image_url || ''
+    'image_id': image_id,
+    'image_url': image_url
   }, { new: true }).then(result => {
     console.log(result)
     if (result) {
@@ -168,6 +212,7 @@ router.delete('/api/bikes/:id', mongoChecker, idChecker, async (req, res) => {
       const owner = await User.findById(deleted.owner)
       owner.bikes = owner.bikes.filter(bike => bike.toString() !== deleted._id.toString())
       owner.save()
+      await cloudinary.uploader.destroy(deleted.image_id)
       res.send(deleted)
     } else {
       res.status(404).send('resource not found')

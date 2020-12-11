@@ -13,6 +13,18 @@ const { Bike } = require('../models/bike')
 const bodyParser = require('body-parser')
 router.use(bodyParser.json())
 
+// multipart middleware
+const multipart = require('connect-multiparty')
+const multipartMiddleware = multipart()
+
+// cloudinary config
+const cloudinary = require('cloudinary')
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME || 'jblcloud',
+  api_key: process.env.API_KEY || '615272663218367',
+  api_secret: process.env.API_SECRET || '8DiQuqz_zEe2aFqxWr1688QM2Vs'
+})
+
 function isMongoError (error) { // checks for first error returned by promise rejection if Mongo database suddently disconnects
   return typeof error === 'object' && error !== null && error.name === "MongoNetworkError"
 }
@@ -224,12 +236,29 @@ router.post('/api/users/:id/reviews', mongoChecker, idChecker, (req, res) => {
 // update user image
 // expects:
 // {
-//   image_id: 'image id',
-//   image_url: 'image url'
+//   'image': file
 // }
-router.patch('/api/users/:id/image', mongoChecker, idChecker, (req, res) => {
+router.patch('/api/users/:id/image', mongoChecker, idChecker, multipartMiddleware, async (req, res) => {
+  let image_id = ''
+  let image_url = ''
+  if (req.files) {
+    try{
+      await cloudinary.uploader.upload(
+      req.files.image.path,
+      function (result) {
+        image_id = result.public_id
+        image_url = result.url
+      }
+      )
+    } catch (error) {
+      log(error)
+      res.status(400).send('bad request')
+    }
+  }
+
   User.findByIdAndUpdate(req.params.id, {
-    $set: req.body
+    image_id: image_id,
+    image_url: image_url
   }, { new: true }).then(result => {
     if (!result) {
       res.status(404).send('resource not found')
@@ -253,9 +282,11 @@ router.delete('/api/users/:id', mongoChecker, idChecker, async (req, res) => {
   try {  
     const user = await User.findByIdAndDelete(req.params.id)
     if (user) {
+      await cloudinary.uploader.destroy(user.image_id)
       let deletedBikes = []
       for (let i = 0; i < user.bikes.length; i++) {
         const bike = await Bike.findByIdAndDelete(user.bikes[i])
+        await cloudinary.uploader.destroy(bike.image_id)
         deletedBikes.push(bike)
       }
       res.send({ user: user, deletedBikes: deletedBikes })
