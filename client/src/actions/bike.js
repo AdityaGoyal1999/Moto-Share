@@ -172,25 +172,3 @@ export const getBikesRentedTo = async (app, id) => {
         }
     })
 }
-
-export const getAllBikes = async () => {
-    const url = '/api/bikes'
-    const request = new Request(url, {
-        method: 'get',
-        headers: {
-            Accept: "application/json, text/plain, */*",
-            "Content-Type": "application/json"
-        }
-    })
-
-    return await fetch(request)
-    .then(res => {
-        if (res.status === 200) {
-            return res.json()
-        } else {
-            console.log(res)
-            alert('could not get data')
-        }
-    })
-    .catch(error => console.log(error))
-}

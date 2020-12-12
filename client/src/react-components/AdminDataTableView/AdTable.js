@@ -7,7 +7,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {getAllBikes} from '../../actions/bike'
 
 const useStyles = makeStyles({
     table: {
@@ -16,18 +15,85 @@ const useStyles = makeStyles({
 });
 
 // GET ALL BIKES API CALL
-const bikes = []
-getAllBikes().then(result => {
-    if (res) {
-        bikes = result
+const bikes = [
+    {
+        "reviews": [
+            "Review string"
+        ],
+        "prevRenters": [],
+        "_id": "5fd291fbc732a14b0883f7bd",
+        "name": "name string",
+        "price": 10,
+        "location": "new location details",
+        "licence": "licence plate string",
+        "description": "Description of Bike",
+        "image_id": "new image_id string",
+        "image_url": "image_url string",
+        "owner": "5fd28ef0c732a14b0883f7bb",
+        "__v": 1,
+        "rating": 5
+    },
+    {
+        "reviews": [],
+        "prevRenters": [],
+        "_id": "5fd2e633604f214d40b220e9",
+        "name": "kawasaki",
+        "price": 5,
+        "location": "location details",
+        "licence": "licence plate string",
+        "description": "Description of Bike",
+        "image_id": "image_id string",
+        "image_url": "image_url string",
+        "owner": "5fd28ef0c732a14b0883f7bb",
+        "__v": 0
+    },
+    {
+        "reviews": [],
+        "prevRenters": [],
+        "_id": "5fd2e642604f214d40b220ea",
+        "name": "motoshare",
+        "price": 5,
+        "location": "location details",
+        "licence": "licence plate string",
+        "description": "Description of Bike",
+        "image_id": "image_id string",
+        "image_url": "image_url string",
+        "owner": "5fd28ef0c732a14b0883f7bb",
+        "__v": 0
+    },
+    {
+        "reviews": [],
+        "prevRenters": [],
+        "_id": "5fd2e6a0604f214d40b220eb",
+        "name": "Harley Davidson",
+        "price": 5,
+        "location": "location details",
+        "licence": "licence plate string",
+        "description": "Description of Bike",
+        "image_id": "image_id string",
+        "image_url": "image_url string",
+        "owner": "5fd28ef0c732a14b0883f7bb",
+        "__v": 0
+    },
+    {
+        "reviews": [],
+        "prevRenters": [],
+        "_id": "5fd3c2f846cd40375c8c7bcf",
+        "name": "Bike",
+        "price": 5,
+        "availabilityStart": "2020-02-02T00:00:00.000Z",
+        "availabilityEnd": "2020-02-03T00:00:00.000Z",
+        "location": "Winnipeg",
+        "licence": "ksdjnf",
+        "description": "A real good bike",
+        "image_id": "yeirxbewxirapk6lzyd6",
+        "image_url": "http://res.cloudinary.com/jblcloud/image/upload/v1607713508/yeirxbewxirapk6lzyd6.png",
+        "owner": "5fd3c27046cd40375c8c7bce",
+        "__v": 0
     }
-})
+]
 
 const handleClick = event => {
-    // prevent editing ids
-    if (event.target.classList.contains('_id')) {
-        return
-    }
     let val = event.target.innerText
     val = prompt(`Enter a new value for ${val}`, val)
     if (val) {
