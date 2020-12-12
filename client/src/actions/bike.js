@@ -17,7 +17,7 @@ export const addBike = (payload, id) => {
     });
 
     return fetch(request)
-        
+
 };
 
 
@@ -44,7 +44,7 @@ export const getBikeByID = async (app, id) => {
     .catch(error => {
         console.log(error);
     });
-        
+
 };
 
 // Add Bike to user
@@ -77,7 +77,7 @@ export const deleteBikeById = async (id) => {
     .catch(error => {
         console.log(error);
     });
-        
+
 };
 
 export const searchBikes = async (app, payload) => {
@@ -94,17 +94,17 @@ export const searchBikes = async (app, payload) => {
             if (res.status === 200) {
                 return res.json();
             } else {
-                alert("Could not get bike");
+                return {}
             }
         })
         .then(json => {
-            
+
             for (let i = 0; i < json.length; i++) {
                 app.setState({
                     ads: [...app.state.ads, json[i]]
                 })
             }
-    
+
         })
         .catch(error => {
             console.log(error);

@@ -285,11 +285,11 @@ class Results extends React.Component {
 
     render() {
         // console.log(this.state.)
-        return ( 
+        return (
             <div id = 'postedAds' >
             <NavBar />
             <div className="container">
-                <AdsBoard ads = { this.createSampleAds() }/>
+              {this.createSampleAds().length === 0 ? <div id="results"><h1>No Bikes Found :(</h1></div> : <AdsBoard ads = { this.createSampleAds() }/>}
             </div>
             <Footer />
             </div>

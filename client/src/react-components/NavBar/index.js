@@ -9,7 +9,8 @@ class NavBar extends React.Component {
     super(props)
     this.state = {
       currentUser: null,
-      anchorEl: null
+      anchorEl: null,
+      adminID: null
     }
   }
 
@@ -34,7 +35,7 @@ class NavBar extends React.Component {
       anchorEl: null
     })
   }
-  
+
   logout = () => {
     logoutUser()
   }
@@ -61,6 +62,7 @@ class NavBar extends React.Component {
             {/* Temporary, in phase 2 log in/out is handled by server calls in one view */}
             <MenuItem><a href='/' onClick={this.logout}>Log Out</a></MenuItem>
             {/* <MenuItem onClick={this.logout}>Log Out</MenuItem> */}
+            {this.state.currentUser === this.state.adminID ? <MenuItem><a href='/admin'>Admin</a></MenuItem> : <div></div>}
           </Menu>
         </div>
       )
