@@ -140,9 +140,8 @@ export const rentBikeById = async (id, uid) => {
     .catch(error => console.log(error))
 }
 
-export const getBikesRentedTo = async id => {
+export const getBikesRentedTo = async (app, id) => {
     const url = `/api/bikes/to/${id}`
-
     const request = new Request(url, {
         method: 'get',
         headers: {
@@ -158,6 +157,18 @@ export const getBikesRentedTo = async id => {
         } else {
             console.log(res)
             alert('No bikes found')
+        }
+    })
+    .then(json => {
+
+        app.setState({
+            num_bikes: json.length
+        })
+
+        for (let i = 0; i < json.length; i++) {
+            app.setState({
+                bikes_info: [...app.state.bikes_info, json[i]]
+            })
         }
     })
 }

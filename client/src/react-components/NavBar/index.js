@@ -10,7 +10,7 @@ class NavBar extends React.Component {
     this.state = {
       currentUser: null,
       anchorEl: null,
-      adminID: null
+      adminID: '5fd4222e70326d36bcb52ad2'
     }
   }
 

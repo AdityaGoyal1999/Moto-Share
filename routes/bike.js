@@ -105,7 +105,8 @@ router.post('/api/bikes/user/:id', mongoChecker, idChecker, async (req, res) => 
     licence: req.body.licence_plate,
     description: req.body.description,
     image_id: image_id,
-    image_url: image_url
+    image_url: image_url,
+    renter: ""
   })
 
   User.findById(req.params.id).then(result => {
@@ -333,7 +334,7 @@ router.post('/api/bikes/search', async (req, res) => {
 // get bikes rented to user by id
 router.get('/api/bikes/to/:id', mongoChecker, idChecker, (req, res) => {
   Bike.find({
-    "rented": {$eq: req.params.id}
+    "renter": {$eq: req.params.id}
   }).then(result => {
     if (result) {
       res.send(result)

@@ -10,12 +10,12 @@ import {getBikesRentedTo} from '../../actions/bike'
 const getRentedBikes = event => {
   event.preventDefault()
   // SERVER CALL goes here to get Ad Data
-  uid = this.props.currentUser || '5fd3c27046cd40375c8c7bce'
-  bikes = getBikesRentedTo(uid)
+  // uid = this.props.currentUser || '5fd3c27046cd40375c8c7bce'
+  // bikes = getBikesRentedTo(uid)
 }
 
 /* Component that shows all the Ads that the User has posted*/
-class PostedAdsPage extends React.Component {
+class RentedAdsPage extends React.Component {
   
   constructor(props) {
     super(props)
@@ -41,7 +41,8 @@ class PostedAdsPage extends React.Component {
   }
 
   async componentDidMount() {
-    await getUserBikesByID(this, this.props.currentUser)
+      await getBikesRentedTo(this, this.props.currentUser)
+    
     // console.log(this.state.bikes_info)
     // this.setState({
     //   data: [...this.state.data, this.data()[0], this.data()[0] ]
@@ -103,7 +104,7 @@ class PostedAdsPage extends React.Component {
     return [ads, saleInfo];
   }
   
-    render () {
+  render () {
     return this.state.bikes_info.length === this.state.num_bikes ? (
       <div id='postedAds'>
         <NavBar />
@@ -114,4 +115,4 @@ class PostedAdsPage extends React.Component {
   }
 }
 
-export default PostedAdsPage
+export default RentedAdsPage

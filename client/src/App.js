@@ -12,6 +12,7 @@ import Results from './react-components/Results'
 import PostAd from './react-components/PostAd'
 import CompleteBikeInfo from './react-components/Results/AdsBoard/CompleteBikeInfo'
 import User from './react-components/UserAccount'
+import RentedAdsPage from './react-components/RentedAds'
 import { checkSession } from "./actions/user";
 
 class App extends React.Component {
@@ -44,6 +45,7 @@ class App extends React.Component {
           <Route exact path='/postad' render={currentUser ? (props) => <PostAd {...props} currentUser={this.state.currentUser}/> : (props) => <AccountAccess {...props} isLoginView={false} />}  />
           <Route exact path='/CompleteBikeInfo/:id' render={(props) => <CompleteBikeInfo {...props}/>} />
           <Route exact path="/User/:id" render={(props)=> <User {...props} currentUser={this.state.currentUser} loggedIn={true}/>} />
+          <Route exact path="/rented" render={(props) => currentUser ? <RentedAdsPage {...props} currentUser={this.state.currentUser} /> : <AccountAccess {...props} isLoginView={false} />} />
 
           {/* Change this later */}
           <Route render={() => <div>404 Not found</div>} />
