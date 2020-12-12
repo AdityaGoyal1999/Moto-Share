@@ -310,7 +310,7 @@ The new opened page will give you the functionality to post a new ad.
 | user9 | user9  | user9    | Waterloo	  | []      |    -1    |      0     | ["User9 is good"]	       |  | Normal |
 
 |  Name	| Availibility Start | Availibility End   |  Location |  Owner 	|Price|Licence| Reviews      	    |  Renter 	| Previous Renters | image_id | image_url | Rating | Description | ID |
-|:-----:|:------------------:|:------------------:|:---------:|:-------:|:---:|:-----:|:-----------------:|:--------:|:----------------:|:--------:|:---------:|:------:|:-------------------:
+|:-----:|:------------------:|:------------------:|:---------:|:-------:|:---:|:-----:|:-----------------:|:--------:|:----------------:|:--------:|:---------:|:------:|:------------------:|:--:|
 | bike0 | December 1st, 2020 | December 1st, 2020 | Toronto   | user1   |  1  |0001   | ["Bike0 is good"] |          | [] | admin  | | -1 | "A Bike" | |
 | bike1	| December 2nd, 2020 | December 2nd, 2020 | Toronto	  | user2   |  2  |0002   | ["Bike1 is good"] |          | [] | Normal | | -1 | "A Bike" | |
 | bike2 | December 3rd, 2020 | December 3rd, 2020 | Toronto	  | user3   |  3  |0003   | ["Bike2 is good"] |          | [] | Normal | | -1 | "A Bike" | |
