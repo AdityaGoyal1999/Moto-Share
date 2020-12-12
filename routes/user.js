@@ -16,6 +16,8 @@ router.use(bodyParser.json())
 // multipart middleware
 const multipart = require('connect-multiparty')
 const multipartMiddleware = multipart()
+const default_id = 'yeirxbewxirapk6lzyd6'
+const default_url = 'https://res.cloudinary.com/jblcloud/image/upload/v1607713508/yeirxbewxirapk6lzyd6.png'
 
 // cloudinary config
 const cloudinary = require('cloudinary')
@@ -79,29 +81,6 @@ router.get('/api/users', mongoChecker, (req, res) => {
   })
 })
 
-// get user by email & password
-// expects:
-// {
-//   email: 'user email',
-//   password: 'password'
-// }
-// router.get('/api/users/login', mongoChecker, (req, res) => {
-//   User.findByEmailPassword(req.body.email, req.body.password).then(result => {
-//     if (result) {
-//       res.send(result)
-//     } else {
-//       res.status(404).send('resource not found')
-//     }
-//   }).catch(error => {
-//     log(error)
-//     if (isMongoError(error)) {
-//       res.status(500).send('internal server error')
-//     } else {
-//       res.status(400).send('bad request')
-//     }
-//   })
-// })
-
 router.post('/api/users/login', mongoChecker, async (req, res) => {
   //Validating login registration details
   // let {error} = loginValidation(req.body);
@@ -138,8 +117,6 @@ router.get("/api/users/logout", async (req, res) => {
   // req.session = null
   // res.send(200)
 });
-
-
 
 // create user
 // Expects:
@@ -257,8 +234,8 @@ router.patch('/api/users/:id/image', mongoChecker, idChecker, multipartMiddlewar
   }
 
   User.findByIdAndUpdate(req.params.id, {
-    image_id: image_id,
-    image_url: image_url
+    image_id: image_id || default_id,
+    image_url: image_url || defaulut_url
   }, { new: true }).then(result => {
     if (!result) {
       res.status(404).send('resource not found')

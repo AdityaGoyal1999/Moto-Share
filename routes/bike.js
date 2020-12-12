@@ -16,6 +16,8 @@ router.use(bodyParser.json())
 // multipart middleware
 const multipart = require('connect-multiparty')
 const multipartMiddleware = multipart()
+const default_id = 'motorc_nvtdlh'
+const default_url = 'https://res.cloudinary.com/jblcloud/image/upload/v1607737396/motorc_nvtdlh.png'
 
 // cloudinary config
 const cloudinary = require('cloudinary')
@@ -78,23 +80,23 @@ router.get('/api/bikes', mongoChecker, (req, res) => {
 //
 //   'image': file // OPTIONAL
 // }
-router.post('/api/bikes/user/:id', mongoChecker, idChecker, async (req, res) => {
+router.post('/api/bikes/user/:id', mongoChecker, idChecker, multipartMiddleware, async (req, res) => {
   let image_id = ''
   let image_url = ''
-  // if (req.files) {
-  //   try{
-  //     await cloudinary.uploader.upload(
-  //     req.files.image.path,
-  //     function (result) {
-  //       image_id = result.public_id
-  //       image_url = result.url
-  //     }
-  //     )
-  //   } catch (error) {
-  //     log(error)
-  //     res.status(400).send('bad request')
-  //   }
-  // }
+  if (req.files) {
+    try{
+      await cloudinary.uploader.upload(
+      req.files.image.path,
+      function (result) {
+        image_id = result.public_id
+        image_url = result.url
+      }
+      )
+    } catch (error) {
+      log(error)
+      res.status(400).send('bad request')
+    }
+  }
   
   const bike = new Bike({
     name: req.body.name,
@@ -104,8 +106,8 @@ router.post('/api/bikes/user/:id', mongoChecker, idChecker, async (req, res) => 
     location: req.body.location,
     licence: req.body.licence_plate,
     description: req.body.description,
-    image_id: image_id,
-    image_url: image_url
+    image_id: image_id || default_id,
+    image_url: image_url || default_url
   })
 
   User.findById(req.params.id).then(result => {
@@ -166,8 +168,8 @@ router.patch('/api/bikes/:id', mongoChecker, idChecker, multipartMiddleware, asy
     'location': req.body.location,
     'licence': req.body.licence_plate,
     'description': req.body.description,
-    'image_id': image_id,
-    'image_url': image_url
+    'image_id': image_id || default_id,
+    'image_url': image_url || default_url
   }, { new: true }).then(result => {
     console.log(result)
     if (result) {
