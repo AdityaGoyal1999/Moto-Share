@@ -118,10 +118,10 @@ export const searchBikes = async (app, payload) => {
 export const rentBikeById = async (id, uid) => {
     const url = `/api/bikes/${id}/rent`
 
-    let bodyY = {uid: uid}
+    let reqBody = {uid: uid}
     const request = new Request(url, {
         method: 'post',
-        body: JSON.stringify(bodyY),
+        body: JSON.stringify(reqBody),
         headers: {
             Accept: "application/json, text/plain, */*",
             "Content-Type": "application/json"
@@ -138,4 +138,26 @@ export const rentBikeById = async (id, uid) => {
         }
     })
     .catch(error => console.log(error))
+}
+
+export const getBikesRentedTo = async id => {
+    const url = `/api/bikes/to/${id}`
+
+    const request = new Request(url, {
+        method: 'get',
+        headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json"
+        }
+    })
+
+    return await fetch(request)
+    .then(res => {
+        if (res.status === 200) {
+            return res.json()
+        } else {
+            console.log(res)
+            alert('No bikes found')
+        }
+    })
 }

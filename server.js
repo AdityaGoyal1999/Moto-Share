@@ -92,7 +92,7 @@ app.use(express.static(path.join(__dirname, '/client/build')))
 
 app.get('*', (req, res) => {
     const goodRoutes = ['/', '/loggedIn', '/login', '/signup', '/admin', 
-    '/postedads', '/results', '/postad', '/CompleteBikeInfo', '/User']
+    '/postedads', '/results', '/postad', '/CompleteBikeInfo', '/User', '/rentedads']
     if (!goodRoutes.includes(req.url)) {
         res.status(404)
     }

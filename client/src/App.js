@@ -7,6 +7,7 @@ import HomePage from './react-components/HomePage'
 import AccountAccess from './react-components/AccountAccess'
 import AdminDataTableView from "./react-components/AdminDataTableView";
 import PostedAds from './react-components/PostedAds';
+import RentedAds from './react-components/RentedAds';
 import Results from './react-components/Results'
 import PostAd from './react-components/PostAd'
 import CompleteBikeInfo from './react-components/Results/AdsBoard/CompleteBikeInfo'
@@ -38,6 +39,7 @@ class App extends React.Component {
           <Route exact path='/signup' render={(props) => <AccountAccess {...props} isLoginView={false} />} />
           <Route exact path="/admin" render={(props) => <AdminDataTableView {...props} loggedIn={true}/>} />
           <Route exact path="/postedads" render={(props) => currentUser ? <PostedAds {...props} currentUser={this.state.currentUser} /> : <AccountAccess {...props} isLoginView={false} />} />
+          <Route exact path="/rentedads" render={(props) => currentUser ? <RentedAds {...props} currentUser={this.state.currentUser} /> : <AccountAccess {...props} isLoginView={false} />} />
           <Route exact path='/results/:location/:pickup/:dropoff' render={(props) => <Results {...props} />} />
           <Route exact path='/postad' render={currentUser ? (props) => <PostAd {...props} currentUser={this.state.currentUser}/> : (props) => <AccountAccess {...props} isLoginView={false} />}  />
           <Route exact path='/CompleteBikeInfo/:id' render={(props) => <CompleteBikeInfo {...props}/>} />
