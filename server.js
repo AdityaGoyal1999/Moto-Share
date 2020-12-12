@@ -80,7 +80,9 @@ app.use(
         unset: 'destroy' 
     })
   );
+
   
+app.use(cors());
   
 
 app.use(require('./routes/user'))
