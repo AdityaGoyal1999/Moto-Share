@@ -300,31 +300,27 @@ The new opened page will give you the functionality to post a new ad.
 |:-----:|:------:|:--------:|:----------:|:-------:|:--------:|:----------:|:------------------------:|:------------------------:|:--------:|
 | admin | admin  | admin    | Toronto    | []      |    -1    |      0     | []                       | 5fd4222e70326d36bcb52ad2 | admin  |
 | user1	| user1  | user1    | Toronto	   | []      |    -1    |      0     | ["User1 is good"]	       | 5fd422c570326d36bcb52ad3 | Normal |
-| user2 | user2  | user2    | Toronto	   | []      |    -1    |      0     | ["User2 is good"]	       |  | Normal |
-| user3 | user3  | user3    | Waterloo	  | []      |    -1    |      0     | ["User3 is good"]	       |  | Normal |
-| user4	| user4  | user4    | Waterloo	  | []      |    -1    |      0     | ["User4 is good"]	       |  | Normal |
-| user5 | user5  | user5    | Toronto	   | []      |    -1    |      0     | ["User5 is good"]	       |  | Normal |
-| user6	| user6  | user6    | Waterloo	  | []      |    -1    |      0     | ["User6 is good"]	       |  | Normal |
-| user7 | uesr7  | user7    | Waterloo	  | []      |    -1    |      0     | ["User7 is good"]	       |  | Normal |
-| user8 | user8  | user8    | Toronto	   | []      |    -1    |      0     | ["User8 is good"]	       |  | Normal |
-| user9 | user9  | user9    | Waterloo	  | []      |    -1    |      0     | ["User9 is good"]	       |  | Normal |
+| user2 | user2  | user2    | Toronto	   | []      |    -1    |      0     | ["User2 is good"]	       | 5fd42783eba0262aacc22ad8 | Normal |
+| user3 | user3  | user3    | Waterloo	  | []      |    -1    |      0     | ["User3 is good"]	       | 5fd427afeba0262aacc22ad9 | Normal |
+| user4	| user4  | user4    | Waterloo	  | []      |    -1    |      0     | ["User4 is good"]	       | 5fd427d2eba0262aacc22ada | Normal |
+| user5 | user5  | user5    | Toronto	   | []      |    -1    |      0     | ["User5 is good"]	       | 5fd4283feba0262aacc22adb | Normal |
+| user6	| user6  | user6    | Waterloo	  | []      |    -1    |      0     | ["User6 is good"]	       | 5fd4286aeba0262aacc22adc | Normal |
+| user7 | uesr7  | user7    | Waterloo	  | []      |    -1    |      0     | ["User7 is good"]	       | 5fd42884eba0262aacc22add | Normal |
+| user8 | user8  | user8    | Toronto	   | []      |    -1    |      0     | ["User8 is good"]	       | 5fd42896eba0262aacc22ade | Normal |
+| user9 | user9  | user9    | Waterloo	  | []      |    -1    |      0     | ["User9 is good"]	       | 5fd428adeba0262aacc22adf | Normal |
 
-|  Name	| Availibility Start | Availibility End   |  Location |  Owner 	|Price|Licence| Reviews |  Renter 	| Previous Renters | image_id | image_url | Rating | Description | ID |
-|:-----:|:------------------:|:------------------:|:---------:|:-------:|:---:|:-----:|:-------:|:--------:|:----------------:|:--------:|:---------:|:------:|:------------------:|:--:|
-| bike0 | December 1st, 2020 | December 1st, 2020 | Toronto   | user1   |  1  |0001   |  [""]   |          | [] | admin  | | -1 | "A Bike" | |
-| bike1	| December 2nd, 2020 | December 2nd, 2020 | Toronto	  | user2   |  2  |0002   |  [""]   |          | [] | Normal | | -1 | "A Bike" | |
-| bike2 | December 3rd, 2020 | December 3rd, 2020 | Toronto	  | user3   |  3  |0003   |  [""]   |          | [] | Normal | | -1 | "A Bike" | |
-| bike3 | December 4th, 2020 | December 4th, 2020 | Waterloo	 | user4   |  4  |0004   |  [""]   |          | [] | Normal | | -1 | "A Bike" | |
-| bike4	| December 5th, 2020 | December 5th, 2020 | Waterloo	 | user5   |  5  |0005   |  [""]   |          | [] | Normal | | -1 | "A Bike" | |
-| bike5 | December 6th, 2020 | December 6th, 2020 | Toronto	  | user6   |  6  |0006   |  [""]	  |          | [] | Normal | | -1 | "A Bike" | |
-| bike6	| December 7th, 2020 | December 7th, 2020 | Waterloo	 | user7   |  7  |0007   |  [""]	  |          | [] | Normal | | -1 | "A Bike" | |
-| bike7 | December 8th, 2020 | December 8th, 2020 | Waterloo	 | user8   |  8  |0008   |  [""]  	|          | [] | Normal | | -1 | "A Bike" | |
-| bike8 | December 9th, 2020 | December 9th, 2020 | Toronto	  | user9   |  9  |0009   |  [""]	  |          | [] | Normal | | -1 | "A Bike" | |
-| bike9 | December 10th, 2020| December 10th, 2020| Waterloo	 | user9   |  10 |0010   |  [""]	  |          | [] | Normal | | -1 | "A Bike" | |
-
-### User:
-**Username**: user \
-**Password**: user
+|  Name	| Availibility Start | Availibility End   |  Location |  Owner 	|Price|Licence|Reviews|  Renter 	| Previous Renters | image_id | image_url | Rating | Description | ID |
+|:-----:|:------------------:|:------------------:|:---------:|:-------:|:---:|:-----:|:-----:|:--------:|:----------------:|:--------:|:---------:|:------:|:------------------:|:--:|
+| bike0 | December 1st, 2020 | December 1st, 2020 | Toronto   | user1   |  1  |0001   |  []   |   null   | [] | motorc_nvtdlh  | https://res.cloudinary.com/jblcloud/image/upload/v1607737396/motorc_nvtdlh.png | -1 | "A Bike" | |
+| bike1	| December 2nd, 2020 | December 2nd, 2020 | Toronto	  | user2   |  2  |0002   |  []   |   null   | [] | motorc_nvtdlh | https://res.cloudinary.com/jblcloud/image/upload/v1607737396/motorc_nvtdlh.png | -1 | "A Bike" | |
+| bike2 | December 3rd, 2020 | December 3rd, 2020 | Toronto	  | user3   |  3  |0003   |  []   |   null   | [] | motorc_nvtdlh | https://res.cloudinary.com/jblcloud/image/upload/v1607737396/motorc_nvtdlh.png | -1 | "A Bike" | |
+| bike3 | December 4th, 2020 | December 4th, 2020 | Waterloo	 | user4   |  4  |0004   |  []   |   null   | [] | motorc_nvtdlh | https://res.cloudinary.com/jblcloud/image/upload/v1607737396/motorc_nvtdlh.png | -1 | "A Bike" | |
+| bike4	| December 5th, 2020 | December 5th, 2020 | Waterloo	 | user5   |  5  |0005   |  []   |   null   | [] | motorc_nvtdlh | https://res.cloudinary.com/jblcloud/image/upload/v1607737396/motorc_nvtdlh.png | -1 | "A Bike" | |
+| bike5 | December 6th, 2020 | December 6th, 2020 | Toronto	  | user6   |  6  |0006   |  []	  |   null   | [] | motorc_nvtdlh | https://res.cloudinary.com/jblcloud/image/upload/v1607737396/motorc_nvtdlh.png | -1 | "A Bike" | |
+| bike6	| December 7th, 2020 | December 7th, 2020 | Waterloo	 | user7   |  7  |0007   |  []	  |   null   | [] | motorc_nvtdlh | https://res.cloudinary.com/jblcloud/image/upload/v1607737396/motorc_nvtdlh.png | -1 | "A Bike" | |
+| bike7 | December 8th, 2020 | December 8th, 2020 | Waterloo	 | user8   |  8  |0008   |  []  	|   null   | [] | motorc_nvtdlh | https://res.cloudinary.com/jblcloud/image/upload/v1607737396/motorc_nvtdlh.png | -1 | "A Bike" | |
+| bike8 | December 9th, 2020 | December 9th, 2020 | Toronto	  | user9   |  9  |0009   |  []	  |   null   | [] | motorc_nvtdlh | https://res.cloudinary.com/jblcloud/image/upload/v1607737396/motorc_nvtdlh.png | -1 | "A Bike" | |
+| bike9 | December 10th, 2020| December 10th, 2020| Waterloo	 | user9   |  10 |0010   |  []	  |   null   | [] | motorc_nvtdlh | https://res.cloudinary.com/jblcloud/image/upload/v1607737396/motorc_nvtdlh.png | -1 | "A Bike" | |
 
 ### Admin:
 **Username**: admin \

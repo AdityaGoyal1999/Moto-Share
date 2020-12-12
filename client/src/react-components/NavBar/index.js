@@ -60,8 +60,9 @@ class NavBar extends React.Component {
             <MenuItem><a href={'/User/'+this.state.currentUser}>My Account</a></MenuItem>
             <MenuItem><a href='/postedads'>My Ads</a></MenuItem>
             {/* Temporary, in phase 2 log in/out is handled by server calls in one view */}
-            <MenuItem><a href='/' onClick={this.logout}>Log Out</a></MenuItem>
             {/* <MenuItem onClick={this.logout}>Log Out</MenuItem> */}
+            <MenuItem><a href='/rented' >Rented Ads</a></MenuItem>
+            <MenuItem><a href='/' onClick={this.logout}>Log Out</a></MenuItem>
             {this.state.currentUser === this.state.adminID ? <MenuItem><a href='/admin'>Admin</a></MenuItem> : <div></div>}
           </Menu>
         </div>
