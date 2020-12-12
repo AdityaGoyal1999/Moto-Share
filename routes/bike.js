@@ -106,7 +106,6 @@ router.post('/api/bikes/user/:id', mongoChecker, idChecker, multipartMiddleware,
     location: req.body.location,
     licence: req.body.licence_plate,
     description: req.body.description,
-    renter: "",
     image_id: image_id || default_id,
     image_url: image_url || default_url
   })
