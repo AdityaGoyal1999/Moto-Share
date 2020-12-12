@@ -28,10 +28,6 @@ class AccountInfo extends React.Component {
         <div id='page'>
             <NavBar loggedIn={this.props.loggedIn}/>
             <div id='container'>
-                <div id='picContainer'>
-                    <img id ='profilePic' src={require('./Profilepic.jpg')} alt= "profile pic"/>
-                </div>
-
                 <div id='TableContainer'>
                     <div>
                         <Button onClick={this.utable} variant = {this.state.utable ? 'primary': 'secondary'}>
