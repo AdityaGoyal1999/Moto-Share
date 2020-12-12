@@ -349,6 +349,12 @@ The new opened page will give you the functionality to post a new ad.
 - Material UI
 - Easy Scroll
 - jQuery
+- React-Bootstrap 
+- bcrypt
+- body-parser
+- cloudinary
+- cors
+- express-session
 
 ## Citations
 - [Red Motorcycle Picture](https://thumbor.forbes.com/thumbor/trim/0x360:4501x2892/fit-in/711x399/smart/https://specials-images.forbesimg.com/imageserve/5c0a960ca7ea43705919981f/0x0.jpg)
