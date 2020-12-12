@@ -23,13 +23,13 @@ class Footer1 extends React.Component {
             <Link href="../" color="inherit"><h5>Home</h5></Link>
             <Link href="../signup" color="inherit"><h5>Sign Up</h5></Link> */}
           </div>
-          <div id='social-media'>
+          {/* <div id='social-media'>
             <h5>Social Media</h5>
             <Link href="#" ><FacebookIcon color="secondary" /></Link>
             <Link href="#" ><InstagramIcon color="secondary"/> </Link> 
             <Link href="#" ><TwitterIcon color="secondary" /> </Link>
             <Link href="#" ><YouTubeIcon color="secondary" /> </Link>
-          </div>
+          </div> */}
         </div> 
         <div id='copyright'>
           <Typography
