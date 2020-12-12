@@ -330,4 +330,24 @@ router.post('/api/bikes/search', async (req, res) => {
   })
 })
 
+// get bikes rented to user by id
+router.get('/api/bikes/to/:id', mongoChecker, idChecker, (req, res) => {
+  Bike.find({
+    "rented": {$eq: req.params.id}
+  }).then(result => {
+    if (result) {
+      res.send(result)
+    } else {
+      res.status(404).send('resource not found')
+    }
+  }).catch(error => {
+    log(error)
+    if (isMongoError(error)) {
+      res.status(500).send('internal server error')
+    } else {
+      res.status(400).send('bad request')
+    }
+  })
+})
+
 module.exports = router
