@@ -269,7 +269,7 @@ router.post('/api/bikes/:id/rent', mongoChecker, idChecker, async (req, res) => 
     if (bike && user) {
       bike.renter = req.body.uid
       bike.save()
-      res.send({ bike: bike, rentedTo: user })
+      res.send({ bike: bike, renter: user })
     } else {
       res.status(404).send('resource not found')
     }

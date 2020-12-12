@@ -11,10 +11,8 @@ import 'materialize-css/dist/css/materialize.min.css'
 class CompleteDescription extends React.Component {
 
 	rentBike = (bike) => {
-		// api call goes here this.props.match.params.id
-		const currentUser = '5fd3c27046cd40375c8c7bce'
 		try {
-			rentBikeById(bike._id, currentUser)
+			rentBikeById(this.props.match.params.id, this.props.currentUser)
 			alert('Bike rented! Enjoy your ride!!')
 			this.props.history.push('/loggedIn')
 		} catch (error) {
