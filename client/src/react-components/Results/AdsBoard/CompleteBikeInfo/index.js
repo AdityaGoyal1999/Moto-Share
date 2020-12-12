@@ -1,26 +1,34 @@
 import React from 'react'
 
 import './style.css'
-import img from './../../static/motorcycle.jpg'
 import NavBar from '../../../NavBar'
 import Footer from '../../../Footer1'
+import {rentBikeById} from '../../../../actions/bike'
 
 import 'materialize-css'; 
 import 'materialize-css/dist/css/materialize.min.css'
 
 class CompleteDescription extends React.Component {
 
-  render () {
-		const rentBike = () => {
-			// api call goes here
-			console.log('rented')
+	rentBike = (bike) => {
+		// api call goes here this.props.match.params.id
+		const currentUser = '5fd3c27046cd40375c8c7bce'
+		try {
+			rentBikeById(bike._id, currentUser)
+			alert('Bike rented! Enjoy your ride!!')
+			this.props.history.push('/loggedIn')
+		} catch (error) {
+			console.log('an error occurred when renting', error)
 		}
+	}
 
+  render () {
 		// put api call here, assign to bike object
+		// need bike id and current user id props!!!
 		const bike = {
 			"reviews": ["Great bike! Such a smooth ride!", "It was alright I guess..."],
 			"prevRenters": [],
-			"_id": "5fd3c2f846cd40375c8c7bcf",
+			"_id": "5fd291fbc732a14b0883f7bd",
 			"name": "Bike",
 			"price": 5,
 			"availabilityStart": "2020-02-02T00:00:00.000Z",
@@ -103,7 +111,7 @@ class CompleteDescription extends React.Component {
 								</div>
 							))}
 
-							<button className='rentButton btn waves-effect waves-light' onclick={rentBike()}>Rent Bike!</button>
+							<button className='rentButton btn waves-effect waves-light' onClick={() => this.rentBike(bike)}>Rent Bike!</button>
 
 		    		</div>
 
