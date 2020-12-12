@@ -70,10 +70,10 @@ router.get('/api/bikes', mongoChecker, (req, res) => {
 // {
 //   'name': 'name',
 //   'price': $/day,
-//   'avail_from': 'yyyy-mm-dd',
-//   'avail_to': 'yyyy-mm-dd',
+//   'availabilityStart': 'yyyy-mm-dd',
+//   'availabilityEnd': 'yyyy-mm-dd',
 //   'location': 'location details',
-//   'licence_plate': 'licence plate',
+//   'licence': 'licence plate',
 //   'description': 'description',
 //
 //   'image': file // OPTIONAL
@@ -99,8 +99,8 @@ router.post('/api/bikes/user/:id', mongoChecker, idChecker, async (req, res) => 
   const bike = new Bike({
     name: req.body.name,
     price: req.body.price,
-    availabilityStart: req.body.avail_from,
-    availabilityEnd: req.body.avail_to,
+    availabilityStart: req.body.availabilityStart,
+    availabilityEnd: req.body.availabilityEnd,
     location: req.body.location,
     licence: req.body.licence_plate,
     description: req.body.description,
@@ -133,8 +133,8 @@ router.post('/api/bikes/user/:id', mongoChecker, idChecker, async (req, res) => 
 // {
 //   'name': 'name',
 //   'price': $/day,
-//   'avail_from': 'yyyy-mm-dd',
-//   'avail_to': 'yyyy-mm-dd',
+//   'availabilityStart': 'yyyy-mm-dd',
+//   'availabilityEnd': 'yyyy-mm-dd',
 //   'location': 'location details',
 //   'licence_plate': 'licence plate',
 //   'description': 'description',
@@ -161,8 +161,8 @@ router.patch('/api/bikes/:id', mongoChecker, idChecker, multipartMiddleware, asy
   Bike.findByIdAndUpdate(req.params.id, {
     'name': req.body.name,
     'price': req.body.price,
-    'avail_from': req.body.avail_from,
-    'avail_to': req.body.avail_to,
+    'availabilityStart': req.body.availabilityStart,
+    'availabilityEnd': req.body.availibilityEnd,
     'location': req.body.location,
     'licence': req.body.licence_plate,
     'description': req.body.description,
