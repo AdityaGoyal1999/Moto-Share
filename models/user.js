@@ -16,15 +16,15 @@ const UserSchema = new mongoose.Schema({
 		minlength: 1,
 		trim: true,
 		unique: true,
-		validate: {
-			validator: validator.isEmail,   // custom validator
-			message: 'Not valid email'
-		}
-	}, 
+		// validate: {
+		// 	validator: validator.isEmail,   // custom validator
+		// 	message: 'Not valid email'
+		// }
+	},
 	password: {
 		type: String,
 		required: true,
-		minlength: 6
+		minlength: 4
     },
     name: {
         type: String,
@@ -44,12 +44,12 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: false
     }
-    
+
 })
 
 
 UserSchema.pre('save', function(next) {
-	const user = this; 
+	const user = this;
 
 	// checks to ensure we don't hash password more than once
 	if (user.isModified('password')) {
