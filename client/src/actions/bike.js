@@ -87,6 +87,10 @@ export const searchBikes = async (app, payload) => {
     const request = new Request(url, {
         method: "post",
         body: JSON.stringify(payload),
+        headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json"
+        }
     })
 
     return await fetch(request)
