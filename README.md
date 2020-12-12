@@ -295,7 +295,19 @@ The new opened page will give you the functionality to post a new ad.
   * expects: no body
   * returns: updated bike object
 ---
-## Login Credentials for Testing Purposes
+## Login Credentials and Sample Users
+|  Name	|UserName| Password	|  Location 	|  Bikes 	|  Rating 	|  RentedTo 	|        Reviews      	    |  UserID 	| UserType |
+|:-----:|:------:|:--------:|:----------:|:-------:|:--------:|:----------:|:------------------------:|:--------:|:--------:|
+| admin | admin  | admin    | Toronto    | []      |    -1    |      0     | []                       |  | admin  |
+| user1	| user1  | user1    | Toronto	   | []      |    -1    |      0     | ["User1 is good"]	       |  | Normal |
+| user2 | user2  | user2    | Toronto	   | []      |    -1    |      0     | ["User2 is good"]	       |  | Normal |
+| user3 | user3  | user3    | Waterloo	  | []      |    -1    |      0     | ["User3 is good"]	       |  | Normal |
+| user4	| user4  | user4    | Waterloo	  | []      |    -1    |      0     | ["User4 is good"]	       |  | Normal |
+| user5 | user5  | user5    | Toronto	   | []      |    -1    |      0     | ["User5 is good"]	       |  | Normal |
+| user6	| user6  | user6    | Waterloo	  | []      |    -1    |      0     | ["User6 is good"]	       |  | Normal |
+| user7 | uesr7  | user7    | Waterloo	  | []      |    -1    |      0     | ["User7 is good"]	       |  | Normal |
+| user8 | user8  | user8    | Toronto	   | []      |    -1    |      0     | ["User8 is good"]	       |  | Normal |
+| user9 | user9  | user9    | Waterloo	  | []      |    -1    |      0     | ["User9 is good"]	       |  | Normal |
 
 ### User:
 **Username**: user \
