@@ -150,13 +150,12 @@ class AdsBoard extends React.Component {
 
     // Case for when user has no ads
     if (adElements.length === 0) {
-      adElements = <h1>You Have No Ads</h1>
+      adElements = <h1>You Haven't Rented Anything!</h1>
     }
 
     return (
       <div id='adsBoard'>
-        <h2>View Your Ads</h2>
-        <Button onClick={this.clickHandler}>Post New Ad</Button>
+        <h2>View Your Rented Bikes</h2>
         {/* Carousal of ads that user can cycle through */}
         <div id="adsCarousal">
           <button onClick={() => this.scrollAds('left')}><ArrowBackIosIcon id='icon-left' /></button>
