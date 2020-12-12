@@ -97,6 +97,9 @@ The new opened page will give you the functionality to post a new ad.
   * Gets user by id
   * expects: no body
   * returns: user object if found
+- **GET** /api/users/logout
+  * Logs out current user
+  * expects: no body
 - **POST** /api/users/:id/reviews
   * Posts a review for user of given id
   * expects: 
@@ -264,6 +267,10 @@ The new opened page will give you the functionality to post a new ad.
     "__v": 0
   }
   ```
+- **PATCH** /api/bikes/:id
+  * Updates a bike object
+  * expects: see create bike object
+  * returns: see create bike object
 - **GET** /api/bikes/:id
   * Gets bike by id
   * expects: no body
@@ -294,6 +301,21 @@ The new opened page will give you the functionality to post a new ad.
   * Returns a bike from current renter
   * expects: no body
   * returns: updated bike object
+- **POST** /api/bikes/search
+  * Returns a set of bikes based on search parameters
+  * expects: search fields:
+  ```json
+  {
+    "availabilityStart": "2020-02-02",
+    "availabilityEnd": "2020-02-02",
+    "Location": "place" 
+  }
+  ```
+  * returns: array of matching bikes
+- **GET** /api/bikes/to/:id
+  * Returns all bikes rented to user mathing id
+  * expects: no body
+  * returns: array of bikes rented to user of matching id
 ---
 ## Login Credentials and Sample Users & Bikes
 |  Name	|UserName| Password	|  Location 	|  Bikes 	|  Rating 	|  RentedTo 	|        Reviews      	    |  UserID 	                | UserType |
@@ -326,9 +348,6 @@ The new opened page will give you the functionality to post a new ad.
 **Username**: admin \
 **Password**: admin
 
-## Consistency in theme
- We are using Blue, Green and white as the colors for our theme.
-
 ## Features
 ### User Features
 - User can create an account 
@@ -355,6 +374,9 @@ The new opened page will give you the functionality to post a new ad.
 - cloudinary
 - cors
 - express-session
+
+## Note
+We were not able to implement all functionality we would have liked to. Some of the api routes unfortunately have no frontend calls to use them. :(
 
 ## Citations
 - [Red Motorcycle Picture](https://thumbor.forbes.com/thumbor/trim/0x360:4501x2892/fit-in/711x399/smart/https://specials-images.forbesimg.com/imageserve/5c0a960ca7ea43705919981f/0x0.jpg)
