@@ -87,11 +87,7 @@ export const searchBikes = async (app, payload) => {
     const request = new Request(url, {
         method: "post",
         body: JSON.stringify(payload),
-        headers: {
-            Accept: "application/json, text/plain, */*",
-            "Content-Type": "application/json"
-        }
-    });
+    })
 
     return await fetch(request)
         .then(res => {
@@ -114,3 +110,28 @@ export const searchBikes = async (app, payload) => {
             console.log(error);
         });
 };
+
+export const rentBikeById = async (id, uid) => {
+    const url = `/api/bikes/${id}/rent`
+
+    let bodyY = {uid: uid}
+    const request = new Request(url, {
+        method: 'post',
+        body: JSON.stringify(bodyY),
+        headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json"
+        }
+    });
+
+    return await fetch(request)
+    .then(res => {
+        if (res.status === 200) {
+            return res.json()
+        } else {
+            console.log(res)
+            alert('Could not rent bike')
+        }
+    })
+    .catch(error => console.log(error))
+}
