@@ -1,0 +1,25 @@
+#superContainer {
+    background: white;
+    width: 100vw;
+    margin: 0px;
+}
+
+#cardsContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+#cardsContainer .card {
+    width: 250px;
+    background: whitesmoke;
+}
+
+#cardsContainer .media {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
+
+#superContainer h1 {
+    padding: 20px;
+}

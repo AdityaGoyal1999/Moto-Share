@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from '@material-ui/core'
 
 import './style.css'
 
@@ -25,7 +26,8 @@ class SearchForm extends React.Component {
           <input type='date' required />
         </div>
 
-        <input type='submit' value='search' />
+        {/* Will call server to handle search, proceed to Results page */}
+        <Button>Search</Button>
       </form>
     )
   }

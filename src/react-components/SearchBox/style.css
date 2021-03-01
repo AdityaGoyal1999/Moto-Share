@@ -2,9 +2,10 @@
     background: aliceblue;
     border-radius: 15px;
     border-width: 1px;
-    border-color: blue;
+    border-color: black;
     border-style: solid;
     margin: 10px;
+    box-shadow: black 5px 5px 10px;
 }
 
 #searchBox h2 {
